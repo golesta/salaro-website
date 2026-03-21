@@ -6,7 +6,7 @@ A modern, professional website for Salaro - 30 years of technology applied to AI
 
 - **Framework**: Next.js 14 with App Router
 - **Styling**: Tailwind CSS
-- **Deployment**: Vercel (static export)
+- **Deployment**: Vercel (standard Next.js deployment)
 - **Icons**: Lucide React
 
 ## Development
@@ -60,10 +60,7 @@ This will generate a static export in the `out/` directory.
 
 ### Vercel Configuration
 
-The `vercel.json` file is configured for:
-- Static export build
-- Next.js framework detection
-- Output directory: `out/`
+The `vercel.json` file specifies Next.js framework for automatic detection and deployment on Vercel.
 
 ## Project Structure
 
