@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-navy text-white font-sans;
+  }
+}
+
+@layer components {
+  .section {
+    @apply py-20 px-4 md:px-8 lg:px-16;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .btn-primary {
+    @apply bg-amber hover:bg-amber-light text-navy font-semibold py-3 px-8 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply border border-amber text-amber hover:bg-amber hover:text-navy font-semibold py-3 px-8 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-navy-light rounded-lg p-6 border border-gray-700 hover:border-amber transition-colors duration-200;
+  }
+}
