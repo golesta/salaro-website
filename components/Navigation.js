@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
@@ -14,12 +14,33 @@ export default function Navigation() {
     { name: 'Contact', href: '#contact' },
   ]
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // trigger after 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 w-full bg-navy/95 backdrop-blur-sm z-50 border-b border-gray-800">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-navy/95 md:bg-transparent md:bg-gradient-to-b md:from-navy/90 md:from-[60%] md:to-transparent md:to-[100%] backdrop-blur-sm" // border-b border-gray-800 bg-navy/80
+          : "bg-navy/95 md:bg-transparent"
+      }`}
+    >
       <div className="container">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-3 px-3">
           <a href="#hero" className="text-2xl font-bold text-amber">
-            SALARO
+            <img
+              src="/images/logo.png"
+              alt="Logo"
+              width={250}
+              className="object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -46,7 +67,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
+          <div className="md:hidden py-4 px-4 border-t border-gray-800">
             {navItems.map((item) => (
               <a
                 key={item.name}

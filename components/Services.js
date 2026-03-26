@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useRef, useState } from "react";
 import { Shield, Brain, Code, Palette, Lightbulb, ShoppingCart } from 'lucide-react'
 
 export default function Services() {
@@ -6,7 +8,7 @@ export default function Services() {
       icon: Shield,
       title: 'Private AI & On-Premise Solutions',
       description: 'For organisations where data cannot leave the building. We design and deploy high-performance Linux servers with GPU acceleration, running open-source LLMs entirely within your own network. No cloud. No exposure. Full control.',
-      featured: true,
+      //featured: true,
     },
     {
       icon: Brain,
@@ -35,6 +37,35 @@ export default function Services() {
     },
   ]
 
+  const [visibleItems, setVisibleItems] = useState([]);
+  const refs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          //if (entry.isIntersecting) {
+            //setVisibleItems((prev) => [...prev, entry.target.dataset.index]);
+          //}
+          const index = entry.target.dataset.index;
+
+          if (entry.isIntersecting) {
+            setVisibleItems((prev) => [...new Set([...prev, index])]);
+          } else {
+            setVisibleItems((prev) =>
+              prev.filter((item) => item !== index)
+            );
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    refs.current.forEach((el) => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="services" className="section bg-navy-light">
       <div className="container">
@@ -45,10 +76,15 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
+            const isVisible = visibleItems.includes(index.toString());
             return (
               <div
                 key={index}
-                className={`card ${service.featured ? 'ring-2 ring-amber' : ''}`}
+                data-index={index}
+                ref={(el) => (refs.current[index] = el)}
+                className={`card transform transition-all duration-700 hover:scale-105 
+                  ${isVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"} 
+                  ${service.featured ? "ring-2 ring-amber" : ""}`}
               >
                 <div className="flex items-center mb-4">
                   <Icon className="w-8 h-8 text-amber mr-3" />
