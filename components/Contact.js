@@ -25,7 +25,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section bg-navy-light">
+    <section id="contact" className="section bg-navy-light bg-contact bg-cover">
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
@@ -66,7 +66,7 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white"
+                  className="w-full px-4 py-3 bg-navy/80 border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white"
                 />
               </div>
 
@@ -81,7 +81,7 @@ export default function Contact() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white"
+                  className="w-full px-4 py-3 bg-navy/80 border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white"
                 />
               </div>
 
@@ -95,7 +95,7 @@ export default function Contact() {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white"
+                  className="w-full px-4 py-3 bg-navy/80 border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white"
                 />
               </div>
 
@@ -110,7 +110,7 @@ export default function Contact() {
                   rows={6}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-navy border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white resize-none"
+                  className="w-full px-4 py-3 bg-navy/80 border border-gray-600 rounded-lg focus:border-amber focus:outline-none text-white resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>

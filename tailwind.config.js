@@ -16,6 +16,10 @@ module.exports = {
       fontFamily: {
         'sans': ['Inter', 'system-ui', 'sans-serif'],
       },
+      backgroundImage: {
+        'hero': "url('/images/hero_bg.png')",
+        'contact': "url('/images/contact_bg.png')",
+      }, 
     },
   },
   plugins: [],

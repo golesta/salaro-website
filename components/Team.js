@@ -1,3 +1,6 @@
+'use client'
+import { useEffect, useRef, useState } from "react";
+
 export default function Team() {
   const team = [
     {
@@ -22,6 +25,37 @@ export default function Team() {
     },
   ]
 
+  const [visibleItems, setVisibleItems] = useState([]);
+  const refs = useRef([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          /*if (entry.isIntersecting) {
+            setVisibleItems((prev) => [
+              ...new Set([...prev, entry.target.dataset.index]),
+            ]);
+          }*/
+         const index = entry.target.dataset.index;
+
+          if (entry.isIntersecting) {
+            setVisibleItems((prev) => [...new Set([...prev, index])]);
+          } else {
+            setVisibleItems((prev) =>
+              prev.filter((item) => item !== index)
+            );
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    refs.current.forEach((el) => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section id="team" className="section bg-navy">
       <div className="container">
@@ -33,8 +67,18 @@ export default function Team() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {team.map((member, index) => (
-            <div key={index} className="card text-center">
+          {team.map((member, index) => {
+            const isVisible = visibleItems.includes(index.toString());
+            return (
+            <div key={index}
+            data-index={index}
+            ref={(el) => (refs.current[index] = el)}
+            style={{ transitionDelay: `${index * 100}ms` }} // stagger
+            className={`card text-center transform transition-all duration-700 hover:scale-105 ${
+              isVisible
+                ? "translate-x-0 opacity-100"
+                : "translate-x-[-50px] opacity-0"
+            }`}>
               <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
               {member.role && (
                 <p className="text-amber font-medium mb-2">{member.role}</p>
@@ -62,7 +106,7 @@ export default function Team() {
                 </a>
               )}
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

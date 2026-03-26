@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="hero" className="section min-h-screen flex items-center bg-gradient-to-br from-navy via-navy-light to-navy">
+    <section id="hero" className="section min-h-screen flex items-center pt-[70px] bg-gradient-to-br from-navy via-navy-light to-navy bg-hero bg-right">
       <div className="container">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
