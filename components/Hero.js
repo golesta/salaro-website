@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
     <section id="hero" className="section min-h-[60vh] md:min-h-[80vh] lg:min-h-screen flex flex-col justify-end pt-[70px] pb-12 relative overflow-hidden">
-      <video autoPlay muted loop className="absolute inset-0 w-full h-1/2 md:h-full object-cover z-0">
+      <video autoPlay muted loop className="absolute inset-0 w-full h-[60%] object-cover z-0">
         <source src="/images/Salaro.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
