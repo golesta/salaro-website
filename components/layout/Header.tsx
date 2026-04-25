@@ -51,7 +51,7 @@ export default function Header() {
             link.label === "Services" ? (
               <div key="services" className="relative">
                 <button
-                  className={`flex items-center gap-1 text-sm hover:text-[var(--color-accent)] transition-colors ${textColor}`}
+                  className={`flex items-center gap-1 text-sm hover:text-accent transition-colors ${textColor}`}
                   onMouseEnter={() => setServicesOpen(true)}
                   onMouseLeave={() => setServicesOpen(false)}
                   onClick={() => setServicesOpen((v) => !v)}

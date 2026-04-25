@@ -19,19 +19,19 @@ const heightClass = {
 export default function Banner({ h1, subhead, cta, height = "page" }: BannerProps) {
   return (
     <section
-      className={`${heightClass[height]} flex items-end pb-16 pt-32 px-6 bg-[var(--color-ink)] text-[var(--color-paper)]`}
+      className={`${heightClass[height]} flex items-end pb-16 pt-32 px-6 bg-fg text-bg`}
     >
       <div className="max-w-7xl mx-auto w-full">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] mb-4 max-w-3xl">
           {h1}
         </h1>
-        <p className="text-base md:text-lg text-[var(--color-paper)]/60 mb-8 max-w-xl">
+        <p className="text-base md:text-lg text-bg/60 mb-8 max-w-xl">
           {subhead}
         </p>
         {cta && (
           <Link
             href={cta.href}
-            className="inline-block px-6 py-3 text-sm font-medium bg-[var(--color-accent)] text-[var(--color-paper)] rounded-lg hover:opacity-80 transition-opacity"
+            className="inline-block px-6 py-3 text-sm font-medium bg-[var(--color-accent)] text-bg rounded-lg hover:opacity-80 transition-opacity"
           >
             {cta.label}
           </Link>

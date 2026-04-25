@@ -39,7 +39,7 @@ const cols = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-black/10 mt-24">
+    <footer className="border-t border-white/10 mt-24">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Newsletter */}
         <div className="mb-16 max-w-md">
@@ -48,9 +48,9 @@ export default function Footer() {
             <input
               type="email"
               placeholder="your@email.com"
-              className="flex-1 px-4 py-2 text-sm border border-black/20 rounded-lg bg-transparent focus:outline-none focus:border-[var(--color-accent)]"
+              className="flex-1 px-4 py-2 text-sm border border-white/20 rounded-lg bg-transparent focus:outline-none focus:border-accent"
             />
-            <button className="px-4 py-2 text-sm bg-[var(--color-ink)] text-[var(--color-paper)] rounded-lg hover:opacity-80 transition-opacity">
+            <button className="px-4 py-2 text-sm bg-fg text-bg rounded-lg hover:opacity-80 transition-opacity">
               Subscribe
             </button>
           </div>
@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
           {cols.map((col) => (
             <div key={col.heading}>
-              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-[var(--color-muted)]">
+              <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-fg-mute">
                 {col.heading}
               </p>
               <ul className="flex flex-col gap-2">
@@ -71,14 +71,14 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
+                        className="text-sm text-fg-mute hover:text-fg transition-colors"
                       >
                         {link.label}
                       </a>
                     ) : (
                       <Link
                         href={link.href}
-                        className="text-sm text-[var(--color-muted)] hover:text-[var(--color-ink)] transition-colors"
+                        className="text-sm text-fg-mute hover:text-fg transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -91,11 +91,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom strip */}
-        <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-[var(--color-muted)] border-t border-black/10 pt-6">
+        <div className="flex flex-col md:flex-row justify-between gap-4 text-xs text-fg-mute border-t border-white/10 pt-6">
           <p>© {new Date().getFullYear()} Salaro Ltd. Registered in England & Wales. Woking, Surrey.</p>
           <div className="flex gap-4">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-ink)] transition-colors">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-ink)] transition-colors">GitHub</a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">LinkedIn</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">GitHub</a>
           </div>
         </div>
       </div>

@@ -21,43 +21,43 @@ export default function ConsultingPage() {
 
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-24">
         <section className="max-w-2xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-6">What this is</h2>
-          <div className="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-6">What this is</h2>
+          <div className="space-y-4 text-base leading-relaxed text-fg-mute">
             <p>Technical consulting from Salaro is for decision-makers who need a clear, honest view of a technical question — without the sales agenda that comes from asking a vendor. We assess AI readiness, audit existing stacks, analyse build-vs-buy decisions, and review team capability.</p>
             <p>Output is always a written document you can act on. We don't do PowerPoint strategy that evaporates after the meeting.</p>
           </div>
         </section>
 
         <section className="max-w-2xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-6">Who it's for</h2>
-          <ul className="space-y-3 text-base text-[var(--color-muted)]">
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Founders and executives facing a technical fork in the road</li>
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Businesses evaluating AI adoption and needing an honest assessment</li>
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Teams with inherited technical debt that needs an external audit</li>
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Investors needing technical due diligence on a prospective acquisition</li>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-6">Who it's for</h2>
+          <ul className="space-y-3 text-base text-fg-mute">
+            <li className="flex gap-3"><span className="text-accent">—</span>Founders and executives facing a technical fork in the road</li>
+            <li className="flex gap-3"><span className="text-accent">—</span>Businesses evaluating AI adoption and needing an honest assessment</li>
+            <li className="flex gap-3"><span className="text-accent">—</span>Teams with inherited technical debt that needs an external audit</li>
+            <li className="flex gap-3"><span className="text-accent">—</span>Investors needing technical due diligence on a prospective acquisition</li>
           </ul>
         </section>
 
         <section className="max-w-2xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-6">How we deliver it</h2>
-          <p className="text-base leading-relaxed text-[var(--color-muted)]">We use our Researcher and Architect agents to gather context and draft the analysis at speed. The senior team reviews, challenges, and finalises. You get a faster turnaround than a traditional consultancy without losing the depth — typically 2–4 weeks from kick-off to final document.</p>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-6">How we deliver it</h2>
+          <p className="text-base leading-relaxed text-fg-mute">We use our Researcher and Architect agents to gather context and draft the analysis at speed. The senior team reviews, challenges, and finalises. You get a faster turnaround than a traditional consultancy without losing the depth — typically 2–4 weeks from kick-off to final document.</p>
         </section>
 
         <section>
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-8">FAQ</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-8">FAQ</h2>
           <div className="max-w-2xl space-y-8">
             {faqs.map((f) => (
               <div key={f.q}>
                 <h3 className="font-semibold mb-2">{f.q}</h3>
-                <p className="text-sm text-[var(--color-muted)] leading-relaxed">{f.a}</p>
+                <p className="text-sm text-fg-mute leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="border-t border-black/10 pt-16 max-w-xl">
+        <section className="border-t border-white/10 pt-16 max-w-xl">
           <h2 className="text-2xl font-semibold mb-4">Ready to start?</h2>
-          <Link href="/contact" className="inline-block px-6 py-3 text-sm font-medium bg-[var(--color-ink)] text-[var(--color-paper)] rounded-lg hover:opacity-80 transition-opacity">
+          <Link href="/contact" className="inline-block px-6 py-3 text-sm font-medium bg-fg text-bg rounded-lg hover:opacity-80 transition-opacity">
             Get in touch
           </Link>
         </section>

@@ -26,13 +26,13 @@ export default function ProjectsPage() {
             <Link
               key={p.slug}
               href={`/projects/${p.slug}`}
-              className="group block border border-black/10 rounded-xl p-8 hover:border-[var(--color-accent)] transition-colors"
+              className="group block border border-white/10 rounded-xl p-8 hover:border-accent transition-colors"
             >
-              <div className="aspect-video bg-[var(--color-ink)]/5 rounded-lg mb-6" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-2 block">{p.sector}</span>
+              <div className="aspect-video bg-fg/5 rounded-lg mb-6" />
+              <span className="text-xs font-semibold uppercase tracking-widest text-fg-mute mb-2 block">{p.sector}</span>
               <h2 className="font-semibold text-lg mb-2">{p.title}</h2>
-              <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-4">{p.outcome}</p>
-              <span className="text-sm flex items-center gap-1 text-[var(--color-accent)] group-hover:gap-2 transition-all">
+              <p className="text-sm text-fg-mute leading-relaxed mb-4">{p.outcome}</p>
+              <span className="text-sm flex items-center gap-1 text-accent group-hover:gap-2 transition-all">
                 View project <ArrowRight size={14} />
               </span>
             </Link>

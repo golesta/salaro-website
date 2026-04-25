@@ -27,21 +27,21 @@ export default function ServicesPage() {
             <Link
               key={s.href}
               href={s.href}
-              className="group block border border-black/10 rounded-xl p-10 hover:border-[var(--color-accent)] transition-colors"
+              className="group block border border-white/10 rounded-xl p-10 hover:border-accent transition-colors"
             >
               <h2 className="font-semibold text-xl mb-3">{s.title}</h2>
-              <p className="text-sm text-[var(--color-muted)] leading-relaxed mb-6">{s.desc}</p>
-              <span className="text-sm flex items-center gap-1 text-[var(--color-accent)] group-hover:gap-2 transition-all">
+              <p className="text-sm text-fg-mute leading-relaxed mb-6">{s.desc}</p>
+              <span className="text-sm flex items-center gap-1 text-accent group-hover:gap-2 transition-all">
                 Learn more <ArrowRight size={14} />
               </span>
             </Link>
           ))}
         </div>
 
-        <div className="mt-24 border-t border-black/10 pt-16 max-w-xl">
+        <div className="mt-24 border-t border-white/10 pt-16 max-w-xl">
           <p className="text-lg font-medium mb-4">Not sure which fits?</p>
-          <p className="text-sm text-[var(--color-muted)] mb-6">Book a 20-minute scoping call and we'll work it out together.</p>
-          <Link href="/contact" className="inline-block px-6 py-3 text-sm font-medium bg-[var(--color-ink)] text-[var(--color-paper)] rounded-lg hover:opacity-80 transition-opacity">
+          <p className="text-sm text-fg-mute mb-6">Book a 20-minute scoping call and we'll work it out together.</p>
+          <Link href="/contact" className="inline-block px-6 py-3 text-sm font-medium bg-fg text-bg rounded-lg hover:opacity-80 transition-opacity">
             Book a call
           </Link>
         </div>

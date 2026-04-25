@@ -21,43 +21,43 @@ export default function MigrationsPage() {
 
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-24">
         <section className="max-w-2xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-6">What this is</h2>
-          <div className="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-6">What this is</h2>
+          <div className="space-y-4 text-base leading-relaxed text-fg-mute">
             <p>Platform migrations are unglamorous and often handled badly. We treat them as engineering problems: schema analysis, data mapping, validation pipelines, cutover planning, and rollback procedures if something goes wrong.</p>
             <p>We've migrated content, databases, user accounts, media libraries, and URL structures — often all at once, for sites that couldn't afford downtime.</p>
           </div>
         </section>
 
         <section className="max-w-2xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-6">Who it's for</h2>
-          <ul className="space-y-3 text-base text-[var(--color-muted)]">
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Businesses on an end-of-life platform that needs replacing</li>
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Teams moving to a new CMS, framework, or hosting environment</li>
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Sites with large datasets where data integrity is non-negotiable</li>
-            <li className="flex gap-3"><span className="text-[var(--color-accent)]">—</span>Organisations that have had a migration fail before and need it done properly this time</li>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-6">Who it's for</h2>
+          <ul className="space-y-3 text-base text-fg-mute">
+            <li className="flex gap-3"><span className="text-accent">—</span>Businesses on an end-of-life platform that needs replacing</li>
+            <li className="flex gap-3"><span className="text-accent">—</span>Teams moving to a new CMS, framework, or hosting environment</li>
+            <li className="flex gap-3"><span className="text-accent">—</span>Sites with large datasets where data integrity is non-negotiable</li>
+            <li className="flex gap-3"><span className="text-accent">—</span>Organisations that have had a migration fail before and need it done properly this time</li>
           </ul>
         </section>
 
         <section className="max-w-2xl">
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-6">How we deliver it</h2>
-          <p className="text-base leading-relaxed text-[var(--color-muted)]">We start with a source audit — what data exists, how it's structured, what dependencies it has. Then we build a migration script, run it against a staging environment, validate the output, fix discrepancies, and repeat until the validation passes. Cutover is the last step, not the first.</p>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-6">How we deliver it</h2>
+          <p className="text-base leading-relaxed text-fg-mute">We start with a source audit — what data exists, how it's structured, what dependencies it has. Then we build a migration script, run it against a staging environment, validate the output, fix discrepancies, and repeat until the validation passes. Cutover is the last step, not the first.</p>
         </section>
 
         <section>
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-[var(--color-muted)] mb-8">FAQ</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-fg-mute mb-8">FAQ</h2>
           <div className="max-w-2xl space-y-8">
             {faqs.map((f) => (
               <div key={f.q}>
                 <h3 className="font-semibold mb-2">{f.q}</h3>
-                <p className="text-sm text-[var(--color-muted)] leading-relaxed">{f.a}</p>
+                <p className="text-sm text-fg-mute leading-relaxed">{f.a}</p>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="border-t border-black/10 pt-16 max-w-xl">
+        <section className="border-t border-white/10 pt-16 max-w-xl">
           <h2 className="text-2xl font-semibold mb-4">Ready to start?</h2>
-          <Link href="/contact" className="inline-block px-6 py-3 text-sm font-medium bg-[var(--color-ink)] text-[var(--color-paper)] rounded-lg hover:opacity-80 transition-opacity">
+          <Link href="/contact" className="inline-block px-6 py-3 text-sm font-medium bg-fg text-bg rounded-lg hover:opacity-80 transition-opacity">
             Get in touch
           </Link>
         </section>

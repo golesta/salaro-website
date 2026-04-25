@@ -15,7 +15,7 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-semibold mb-6">The story</h2>
-          <div className="prose prose-neutral text-[var(--color-ink)] space-y-4 text-base leading-relaxed">
+          <div className="prose prose-neutral text-fg space-y-4 text-base leading-relaxed">
             <p>
               Salaro was founded by Salar, a physicist-turned-developer who has spent three decades at the intersection
               of technology and business. The agency has been through every major platform cycle — from early web through
@@ -35,14 +35,14 @@ export default function AboutPage() {
 
           <div className="mt-16">
             <h2 className="text-2xl font-semibold mb-6">How we work</h2>
-            <div className="space-y-4 text-base leading-relaxed text-[var(--color-muted)]">
+            <div className="space-y-4 text-base leading-relaxed text-fg-mute">
               <p>We scope properly before we propose. We build with agents where agents are right, and with humans where they're not. We ship, we monitor, and we stay.</p>
               <p>Quiet confidence. Modern infrastructure. Human judgement.</p>
             </div>
           </div>
 
           <div className="mt-12">
-            <Link href="/team" className="inline-block px-6 py-3 text-sm font-medium border border-black/20 rounded-lg hover:border-[var(--color-accent)] transition-colors">
+            <Link href="/team" className="inline-block px-6 py-3 text-sm font-medium border border-white/20 rounded-lg hover:border-accent transition-colors">
               Meet the team
             </Link>
           </div>
