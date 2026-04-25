@@ -32,7 +32,27 @@ const WARP_LINES: { x: number; opacity: number }[] = [
 const KNOTS = [218, 540, 914, 1208];
 
 // Weft curve: a slack quadratic Bezier with a slight downward sag mid-span.
-const WEFT_PATH = "M 80 549 Q 720 563 1360 551";
+// ── Weft strand vertical position ────────────────────────────────────────────
+// Tune these two numbers to reposition the horizontal copper strand.
+//
+//   WEFT_BASELINE_Y  Vertical position of the strand at its endpoints (in SVG
+//                    user units, where the viewBox is 0 0 1440 812).
+//                    Higher numbers move the strand DOWN the banner.
+//                    Sensible range: 480 (close to H1) to 700 (near CTAs).
+//
+//   WEFT_SAG         How much the curve sags below the baseline at midspan.
+//                    Currently ~14 — gives a subtle downward sag, like a
+//                    strand under faint tension. Set to 0 for a flat line.
+//
+// After changing either value, the path and knot positions below recompute
+// automatically. No other edits needed.
+const WEFT_BASELINE_Y = 600;
+const WEFT_SAG = 14;
+
+// Quadratic Bezier across the band: starts at left edge, sags at midspan,
+// ends at right edge. Right end is +2 below the left to give the strand a
+// faint asymmetric tilt — looks more "hand-strung" than a perfect mirror.
+const WEFT_PATH = `M 80 ${WEFT_BASELINE_Y} Q 720 ${WEFT_BASELINE_Y + WEFT_SAG} 1360 ${WEFT_BASELINE_Y + 2}`;
 
 const containerVariants = {
   hidden: {},
@@ -103,15 +123,18 @@ export default function HomeBanner() {
             opacity="0.7"
           />
           {/* PATCH: flat cy={520} for all knots — no per-knot offset formula */}
-          {KNOTS.map((x) => (
-            <circle
-              key={x}
-              cx={x}
-              cy={555}
-              r="2.5"
-              fill="var(--accent)"
-            />
-          ))}
+          {KNOTS.map((x) => {
+            const knotY = WEFT_BASELINE_Y + 6;
+            return (
+              <circle
+                key={x}
+                cx={x}
+                cy={knotY}
+                r="2.5"
+                fill="var(--accent)"
+              />
+            );
+          })}
         </motion.g>
       </svg>
 
