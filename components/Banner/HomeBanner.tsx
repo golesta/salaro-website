@@ -32,7 +32,7 @@ const WARP_LINES: { x: number; opacity: number }[] = [
 const KNOTS = [218, 540, 914, 1208];
 
 // Weft curve: a slack quadratic Bezier with a slight downward sag mid-span.
-const WEFT_PATH = "M 80 514 Q 720 528 1360 516";
+const WEFT_PATH = "M 80 549 Q 720 563 1360 551";
 
 const containerVariants = {
   hidden: {},
@@ -107,7 +107,7 @@ export default function HomeBanner() {
             <circle
               key={x}
               cx={x}
-              cy={520}
+              cy={555}
               r="2.5"
               fill="var(--accent)"
             />
