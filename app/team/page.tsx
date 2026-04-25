@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/layout/Banner";
+import Banner from "@/components/Banner/Banner";
 
 export const metadata: Metadata = {
   title: "Team",
@@ -16,7 +16,7 @@ const agents = [
 export default function TeamPage() {
   return (
     <>
-      <Banner h1="The humans behind the agents." subhead="Strategy is human. Delivery is augmented." height="page" />
+      <Banner page="team" />
 
       <div className="max-w-7xl mx-auto px-6 py-24">
         {/* Founder */}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/layout/Banner";
+import Banner from "@/components/Banner/Banner";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -18,7 +18,7 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <>
-      <Banner h1="Selected work." subhead="Complex problems, shipped solutions." height="slim" />
+      <Banner page="projects-index" />
 
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

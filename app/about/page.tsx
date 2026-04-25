@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/layout/Banner";
+import Banner from "@/components/Banner/Banner";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <Banner h1="Why Salaro exists." subhead="Thirty years in. Still building." height="page" />
+      <Banner page="about" />
 
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="max-w-2xl">

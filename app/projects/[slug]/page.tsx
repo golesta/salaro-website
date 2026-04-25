@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/layout/Banner";
+import ProjectDetailBanner from "@/components/Banner/ProjectDetailBanner";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function ProjectDetailPage() {
   return (
     <>
-      <Banner h1="Project title." subhead="Sector · Year" height="slim" />
+      <ProjectDetailBanner eyebrow="08 / Projects" title="Project title." tags={["Sector", "Year"]} />
 
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="max-w-2xl space-y-16">

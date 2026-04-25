@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/layout/Banner";
+import Banner from "@/components/Banner/Banner";
 import ContactForm from "@/components/sections/ContactForm";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <Banner h1="Let's talk." subhead="We reply within one working day." height="slim" />
+      <Banner page="contact" />
 
       <div className="max-w-7xl mx-auto px-6 py-24">
         <div className="grid md:grid-cols-2 gap-16">

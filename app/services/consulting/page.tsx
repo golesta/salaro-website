@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Banner from "@/components/layout/Banner";
+import Banner from "@/components/Banner/Banner";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ const faqs = [
 export default function ConsultingPage() {
   return (
     <>
-      <Banner h1="Consulting." subhead="Technical clarity for people making decisions." height="page" />
+      <Banner page="consulting" />
 
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-24">
         <section className="max-w-2xl">
