@@ -2,63 +2,15 @@
 
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Link from "next/link";
+import { WARP_SEEDS } from "./warpSeeds";
+import { WEFT_PARAMS } from "./weftParams";
 
-// Deterministic warp positions — seeded so server and client agree.
-// 20 hairlines across a 1440 viewBox, irregular but stable.
-const WARP_LINES: { x: number; opacity: number }[] = [
-  { x: 92,   opacity: 0.18 },
-  { x: 148,  opacity: 0.08 },
-  { x: 218,  opacity: 0.42 },
-  { x: 276,  opacity: 0.18 },
-  { x: 334,  opacity: 0.08 },
-  { x: 408,  opacity: 0.18 },
-  { x: 472,  opacity: 0.08 },
-  { x: 540,  opacity: 0.42 },
-  { x: 612,  opacity: 0.18 },
-  { x: 686,  opacity: 0.08 },
-  { x: 762,  opacity: 0.18 },
-  { x: 838,  opacity: 0.08 },
-  { x: 914,  opacity: 0.42 },
-  { x: 988,  opacity: 0.18 },
-  { x: 1062, opacity: 0.08 },
-  { x: 1138, opacity: 0.18 },
-  { x: 1208, opacity: 0.42 },
-  { x: 1276, opacity: 0.08 },
-  { x: 1342, opacity: 0.18 },
-  { x: 1396, opacity: 0.08 },
-];
+const WARPS = WARP_SEEDS.home;
+const PARAMS = WEFT_PARAMS.home;
 
-// Knots sit on the brighter warp strands (opacity 0.42).
-const KNOTS = [218, 540, 914, 1208];
-
-// Weft curve: a slack quadratic Bezier with a slight downward sag mid-span.
-// ── Weft strand vertical position ────────────────────────────────────────────
-// Tune these two numbers to reposition the horizontal copper strand.
-//
-//   WEFT_BASELINE_Y  Vertical position of the strand at its endpoints (in SVG
-//                    user units, where the viewBox is 0 0 1440 812).
-//                    Higher numbers move the strand DOWN the banner.
-//                    Sensible range: 480 (close to H1) to 700 (near CTAs).
-//
-//   WEFT_SAG         How much the curve sags below the baseline at midspan.
-//                    Currently ~14 — gives a subtle downward sag, like a
-//                    strand under faint tension. Set to 0 for a flat line.
-//
-// After changing either value, the path and knot positions below recompute
-// automatically. No other edits needed.
-const WEFT_BASELINE_Y = 600;
-const WEFT_SAG = 14;
-
-// Quadratic Bezier across the band: starts at left edge, sags at midspan,
-// ends at right edge. Right end is +2 below the left to give the strand a
-// faint asymmetric tilt — looks more "hand-strung" than a perfect mirror.
-const WEFT_PATH = `M 80 ${WEFT_BASELINE_Y} Q 720 ${WEFT_BASELINE_Y + WEFT_SAG} 1360 ${WEFT_BASELINE_Y + 2}`;
-
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.05 },
-  },
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
 const itemVariants: Variants = {
@@ -72,74 +24,48 @@ const itemVariants: Variants = {
 
 export default function HomeBanner() {
   const reduceMotion = useReducedMotion();
+  const vbH = PARAMS.viewBoxHeight;
+
+  const { x0, y0Frac, xc, ycFrac, x1, y1Frac } = PARAMS.weft!;
+  const weftPath = `M ${x0} ${y0Frac * vbH} Q ${xc} ${ycFrac * vbH} ${x1} ${y1Frac * vbH}`;
+  const knotY = y0Frac * vbH + 6;
 
   return (
     <section
       aria-label="Salaro home banner"
       className="relative w-full overflow-hidden bg-bg"
-      style={{ height: "calc(100vh - 64px)", minHeight: 720, maxHeight: 900 }}
+      style={{ height: "clamp(640px, 82vh, 860px)" }}
     >
       {/* Loom SVG */}
       <svg
-        viewBox="0 0 1440 812"
+        viewBox={`0 0 1440 ${vbH}`}
         preserveAspectRatio="xMidYMid slice"
         className="absolute inset-0 h-full w-full"
         aria-hidden="true"
       >
-        {/* Warp — 20 static vertical hairlines */}
         <g stroke="var(--accent-d)" strokeWidth="1" fill="none">
-          {WARP_LINES.map((line, i) => (
-            <line
-              key={i}
-              x1={line.x}
-              x2={line.x}
-              y1={0}
-              y2={812}
-              opacity={line.opacity}
-            />
+          {WARPS.map((line, i) => (
+            <line key={i} x1={line.x} x2={line.x} y1={0} y2={vbH} opacity={line.opacity} />
           ))}
         </g>
 
-        {/* Weft — the only animated element */}
         <motion.g
           initial={{ y: 0 }}
           animate={reduceMotion ? { y: 0 } : { y: [-6, 6, -6] }}
           transition={
             reduceMotion
               ? undefined
-              : {
-                  duration: 16,
-                  ease: "easeInOut",
-                  repeat: Infinity,
-                  repeatType: "mirror",
-                }
+              : { duration: 16, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" }
           }
         >
-          <path
-            d={WEFT_PATH}
-            stroke="var(--accent)"
-            strokeWidth="1"
-            fill="none"
-            opacity="0.7"
-          />
-          {/* PATCH: flat cy={520} for all knots — no per-knot offset formula */}
-          {KNOTS.map((x) => {
-            const knotY = WEFT_BASELINE_Y + 6;
-            return (
-              <circle
-                key={x}
-                cx={x}
-                cy={knotY}
-                r="2.5"
-                fill="var(--accent)"
-              />
-            );
-          })}
+          <path d={weftPath} stroke="var(--accent)" strokeWidth="1" fill="none" opacity="0.7" />
+          {PARAMS.knots.map((x) => (
+            <circle key={x} cx={x} cy={knotY} r="2.5" fill="var(--accent)" />
+          ))}
         </motion.g>
       </svg>
 
-      {/* PATCH: grain as a CSS overlay div, not an SVG filter.
-          mix-blend-overlay against the dark bg reads as warm texture, not a wash. */}
+      {/* Grain overlay */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.04] mix-blend-overlay"
@@ -148,33 +74,37 @@ export default function HomeBanner() {
         }}
       />
 
-      {/* Type stack — bottom-left aligned */}
+      {/* Flex column: proportional top zone → capped spacer → content with proportional bottom */}
       <motion.div
-        className="relative z-10 flex h-full flex-col justify-end pb-20 pl-10 pr-10 md:pl-20 md:pr-20 md:pb-32"
+        className="relative z-10 flex h-full flex-col px-10 md:px-20"
         variants={containerVariants}
         initial={reduceMotion ? "show" : "hidden"}
         animate="show"
       >
-        <div className="max-w-[920px]">
-          {/* Eyebrow */}
+        {/* Top zone — eyebrow with proportional padding */}
+        <div style={{ paddingTop: "clamp(18px, 4.5vh, 60px)" }}>
           <motion.div
             variants={itemVariants}
-            className="mb-8 flex items-center gap-3 font-mono text-[12px] uppercase tracking-wide-mono text-fg-mute"
+            className="flex items-center gap-3 font-mono text-[12px] uppercase tracking-wide-mono text-fg-mute"
           >
             <span className="block h-px w-6 bg-accent" aria-hidden="true" />
             A web consultancy · Est. 2008
           </motion.div>
+        </div>
 
-          {/* H1 */}
+        {/* Capped spacer — lets content breathe without floating into space */}
+        <div className="flex-1 min-h-[24px] max-h-[18vh]" aria-hidden="true" />
+
+        {/* Content block — proportional bottom padding keeps it above meta strip */}
+        <div className="max-w-[920px]" style={{ paddingBottom: "clamp(60px, 12vh, 140px)" }}>
           <motion.h1
             variants={itemVariants}
             className="font-display font-medium text-fg leading-[0.98] tracking-tight-display"
-            style={{ fontSize: "clamp(48px, 6.4vw, 96px)" }}
+            style={{ fontSize: "clamp(40px, 5.6vw, 96px)" }}
           >
             The complex builds, delivered by{" "}
             <span className="relative whitespace-nowrap">
               agent factories
-              {/* Copper accent rule — confirmed by Salar */}
               <span
                 aria-hidden="true"
                 className="absolute -bottom-1 left-0 right-0 h-px bg-accent"
@@ -183,15 +113,13 @@ export default function HomeBanner() {
             and human judgement.
           </motion.h1>
 
-          {/* Subhead */}
           <motion.p
             variants={itemVariants}
-            className="mt-8 max-w-[54ch] font-body text-[19px] leading-[1.5] tracking-tight-body text-fg-mute"
+            className="mt-8 max-w-[54ch] font-body text-[18px] leading-[1.5] tracking-tight-body text-fg-mute"
           >
             Salaro pairs a multi-agent build system — architect, researcher, developer, reviewer — with a small team of senior engineers, for the work bigger agencies turn down.
           </motion.p>
 
-          {/* CTAs */}
           <motion.div variants={itemVariants} className="mt-10 flex items-center gap-8">
             <Link
               href="/contact"
@@ -210,8 +138,8 @@ export default function HomeBanner() {
         </div>
       </motion.div>
 
-      {/* Meta strip — bottom edge */}
-      <div className="absolute bottom-6 left-10 right-10 z-10 flex justify-between font-mono text-[11px] uppercase tracking-wide-mono text-fg-faint md:left-20 md:right-20">
+      {/* Meta strip */}
+      <div className="absolute bottom-5 left-10 right-10 z-10 flex justify-between font-mono text-[11px] uppercase tracking-wide-mono text-fg-faint md:left-20 md:right-20">
         <span>01 / Home</span>
         <span>Quiet Loom · V1</span>
         <span>Scroll ↓</span>

@@ -36,7 +36,7 @@ export default function ProjectDetailBanner({ eyebrow, title, tags }: Props) {
       className="relative w-full overflow-hidden bg-bg"
       style={{ height: params.bannerHeight }}
     >
-      {/* Loom SVG — warps only, no weft for project detail */}
+      {/* Loom SVG — warps only */}
       <svg
         viewBox={`0 0 1440 ${vbH}`}
         preserveAspectRatio="xMidYMid slice"
@@ -45,14 +45,7 @@ export default function ProjectDetailBanner({ eyebrow, title, tags }: Props) {
       >
         <g stroke="var(--accent-d)" strokeWidth="1" fill="none">
           {warps.map((line, i) => (
-            <line
-              key={i}
-              x1={line.x}
-              x2={line.x}
-              y1={0}
-              y2={vbH}
-              opacity={line.opacity}
-            />
+            <line key={i} x1={line.x} x2={line.x} y1={0} y2={vbH} opacity={line.opacity} />
           ))}
         </g>
       </svg>
@@ -66,22 +59,24 @@ export default function ProjectDetailBanner({ eyebrow, title, tags }: Props) {
         }}
       />
 
-      {/* Type stack */}
+      {/* Flex column: eyebrow top → spacer → title bottom */}
       <motion.div
-        className="relative z-10 flex h-full flex-col justify-end pb-16 pl-10 pr-10 md:pl-20 md:pr-20 md:pb-24"
+        className="relative z-10 h-full flex flex-col px-10 md:px-20 pt-8 pb-14 md:pb-18"
         variants={containerVariants}
         initial={reduceMotion ? "show" : "hidden"}
         animate="show"
       >
-        <div className="max-w-[860px]">
-          <motion.div
-            variants={itemVariants}
-            className="mb-6 flex items-center gap-3 font-mono text-[12px] uppercase tracking-wide-mono text-fg-mute"
-          >
-            <span className="block h-px w-6 bg-accent" aria-hidden="true" />
-            {eyebrow}
-          </motion.div>
+        <motion.div
+          variants={itemVariants}
+          className="flex items-center gap-3 font-mono text-[12px] uppercase tracking-wide-mono text-fg-mute flex-none"
+        >
+          <span className="block h-px w-6 bg-accent" aria-hidden="true" />
+          {eyebrow}
+        </motion.div>
 
+        <div className="flex-1 min-h-[32px]" aria-hidden="true" />
+
+        <div className="max-w-[860px] flex-none">
           <motion.h1
             variants={itemVariants}
             className="font-display font-medium text-fg leading-[0.98] tracking-tight-display"
@@ -106,9 +101,8 @@ export default function ProjectDetailBanner({ eyebrow, title, tags }: Props) {
       </motion.div>
 
       {/* Meta strip */}
-      <div className="absolute bottom-5 left-10 right-10 z-10 flex justify-between font-mono text-[11px] uppercase tracking-wide-mono text-fg-faint md:left-20 md:right-20">
-        <span>08 / Projects</span>
-        <span>Quiet Loom · V1</span>
+      <div className="absolute bottom-4 right-10 z-10 font-mono text-[11px] uppercase tracking-wide-mono text-fg-faint md:right-20">
+        Quiet Loom · V1
       </div>
     </section>
   );
