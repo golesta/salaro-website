@@ -1,17 +1,9 @@
+import Header from '../components/Header';
+
 export default function Home() {
   return (
     <main>
-      <header className="header">
-        <div className="logo">Salaro<span className="dot">.</span></div>
-        <nav className="nav" aria-label="Main navigation">
-          <a href="/">Home</a>
-          <a href="/practice">Practice</a>
-          <a href="/work">Work</a>
-          <a href="/studio">Studio</a>
-          <a href="/writing">Writing</a>
-          <a href="/contact">Contact</a>
-        </nav>
-      </header>
+      <Header />
 
       <section className="hero">
         <div className="hero-grid">

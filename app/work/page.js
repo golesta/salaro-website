@@ -1,7 +1,9 @@
+import Header from '../../components/Header';
+
 export default function Work() {
   return (
     <main>
-      <header className="header"><div className="logo">Salaro<span className="dot">.</span></div></header>
+      <Header />
       <section className="hero">
         <div className="hero-grid">
           <div>
