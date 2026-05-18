@@ -1,4 +1,5 @@
 import Header from '../../components/Header';
+import SiteFooter from '../../components/SiteFooter';
 
 export default function Contact() {
   return (
@@ -11,22 +12,59 @@ export default function Contact() {
             <h1>Send a note</h1>
           </div>
           <div>
-            <p style={{fontStyle:'italic', color:'var(--ink-soft)'}}>Name · Email · Company (optional) · Message — we respond within a few working days.</p>
+            <p style={{fontStyle:'italic', color:'var(--ink-soft)', fontFamily:'var(--font-display)', fontSize:20, lineHeight:1.5}}>Name · Email · Company (optional) · Message.</p>
           </div>
         </div>
       </section>
 
-      <section style={{maxWidth:720, margin:'0 auto', padding:'48px 24px'}}>
-        <form action="/api/contact" method="post">
-          <div style={{marginBottom:12}}><label className="eyebrow">Name</label><input name="name" style={{width:'100%', border:'none', borderBottom:'1px solid var(--ink-strong)', padding:'8px 4px'}} /></div>
-          <div style={{marginBottom:12}}><label className="eyebrow">Email</label><input name="email" style={{width:'100%', border:'none', borderBottom:'1px solid var(--ink-strong)', padding:'8px 4px'}} /></div>
-          <div style={{marginBottom:12}}><label className="eyebrow">Company</label><input name="company" style={{width:'100%', border:'none', borderBottom:'1px solid var(--ink-strong)', padding:'8px 4px'}} /></div>
-          <div style={{marginBottom:12}}><label className="eyebrow">Message</label><textarea name="message" rows={6} style={{width:'100%', border:'none', borderBottom:'1px solid var(--ink-strong)', padding:'8px 4px'}} /></div>
-          <div style={{marginTop:16}}><button className="btn-primary" type="submit">Send the note</button></div>
-        </form>
-      </section>
+      <div className="contact-layout">
+        <div className="contact-form-col">
+          <form action="/api/contact" method="post">
+            <div className="form-field">
+              <label className="eyebrow">Name</label>
+              <input name="name" type="text" autoComplete="name" />
+            </div>
+            <div className="form-field">
+              <label className="eyebrow">Email</label>
+              <input name="email" type="email" autoComplete="email" />
+            </div>
+            <div className="form-field">
+              <label className="eyebrow">Company</label>
+              <input name="company" type="text" autoComplete="organization" />
+            </div>
+            <div className="form-field">
+              <label className="eyebrow">Message</label>
+              <textarea name="message" rows={6} />
+            </div>
+            <div style={{marginTop:8}}>
+              <button className="btn-primary" type="submit">Send the note</button>
+            </div>
+          </form>
+        </div>
 
-      <footer className="footer"><div>© Salaro</div><div>hello@salaro.com</div></footer>
+        <div className="offices-col">
+          <h3>Our offices</h3>
+
+          <div className="office">
+            <span className="office-city">Guildford, Surrey</span>
+            <p className="office-detail">GU3 3BY, United Kingdom<br />Tel: +44 7485 222490</p>
+          </div>
+
+          <div className="office">
+            <span className="office-city">Berlin, Germany</span>
+            <p className="office-detail">EU enquiries — contact via <a href="https://abigolestanian.com" target="_blank" rel="noopener noreferrer">abigolestanian.com</a></p>
+          </div>
+
+          <div className="office">
+            <span className="office-city">Pondicherry, India</span>
+            <p className="office-detail">Development &amp; Delivery</p>
+          </div>
+
+          <p className="response-note">We typically respond within one business day.</p>
+        </div>
+      </div>
+
+      <SiteFooter />
     </main>
   )
 }

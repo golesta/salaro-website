@@ -1,4 +1,5 @@
 import Header from '../../components/Header';
+import SiteFooter from '../../components/SiteFooter';
 
 export default function Writing() {
   return (
@@ -11,20 +12,34 @@ export default function Writing() {
             <h1>Notes and essays</h1>
           </div>
           <div>
-            <p style={{fontStyle:'italic', color:'var(--ink-soft)'}}>Thoughtful pieces about web platforms, DNN, and AI for SMEs.</p>
+            <p style={{fontStyle:'italic', color:'var(--ink-soft)', fontFamily:'var(--font-display)', fontSize:20, lineHeight:1.5}}>Considered pieces on web platforms, DNN modernisation, and AI in practice.</p>
           </div>
         </div>
       </section>
 
-      <section style={{maxWidth:1320, margin:'0 auto', padding:'48px 64px'}}>
-        <article style={{marginBottom:24}}>
-          <div className="eyebrow">08 May 2026</div>
-          <h3 style={{fontFamily:'var(--font-display)'}}>Why a ten-year-old with a template will eat most agency work.</h3>
-          <p style={{color:'var(--ink-soft)'}}>Placeholder preview — essays will be authored as MDX in /content/writing.</p>
+      <div className="writing-list">
+        <article className="writing-entry">
+          <div className="eyebrow">Coming soon</div>
+          <h3>Why a ten-year-old with a template will eat most agency work.</h3>
+          <p>First essays in preparation — notes on DNN modernisation, on-premise AI deployments, and the economics of agent-assisted delivery. Subscribe below to be notified when they publish.</p>
         </article>
-      </section>
 
-      <footer className="footer"><div>© Salaro</div><div><a href="/contact">Contact</a></div></footer>
+        <div className="newsletter-block">
+          <p>Occasional essays — we won't email you about anything else.</p>
+          <form className="newsletter-form" action="#">
+            <input
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              aria-label="Email address"
+              autoComplete="email"
+            />
+            <button className="btn-primary" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <SiteFooter />
     </main>
   )
 }
