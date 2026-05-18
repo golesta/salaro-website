@@ -1,46 +1,58 @@
 import Link from 'next/link';
+import LogoMark from './LogoMark';
 
 export default function SiteFooter() {
   return (
-    <div className="site-footer-wrap">
-      <footer className="site-footer">
-        <div className="site-footer-grid">
-          <div>
-            <div className="site-footer-col-head">Practice</div>
-            <div className="site-footer-col-links">
-              <Link href="/practice#build">Build</Link>
-              <Link href="/practice#migrate">Migrate</Link>
-              <Link href="/practice#advise">Advise</Link>
-            </div>
-          </div>
-          <div>
-            <div className="site-footer-col-head">Studio</div>
-            <div className="site-footer-col-links">
-              <Link href="/studio#founder">Founder</Link>
-              <Link href="/studio#team">Team</Link>
-              <Link href="/studio#values">Values</Link>
-            </div>
-          </div>
-          <div>
-            <div className="site-footer-col-head">Work</div>
-            <div className="site-footer-col-links">
-              <Link href="/work">Recent projects</Link>
-              <Link href="/work#archive">Archive</Link>
-            </div>
-          </div>
-          <div>
-            <div className="site-footer-col-head">Contact</div>
-            <div className="site-footer-col-links">
-              <a href="mailto:hello@salaro.com">hello@salaro.com</a>
-              <span style={{fontFamily:'var(--font-body)', fontSize:14, color:'var(--ink-soft)'}}>Guildford, Surrey</span>
-              <a href="https://www.linkedin.com/in/salargolestanian/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </div>
-          </div>
+    <footer className="footer-dark">
+      <div className="footer-grid">
+        <div className="footer-brand">
+          <Link href="/" className="logo" style={{ textDecoration: 'none' }}>
+            <LogoMark size={24} darkBackground />
+            <span className="logo-word">Salaro</span>
+          </Link>
+          <p className="footer-brand-tag">A UK web consultancy. Practising since 1995, AI-native since 2026.</p>
         </div>
-        <div className="site-footer-strip">
-          © 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey
+
+        <div className="footer-col">
+          <div className="footer-col-title">Practice</div>
+          <ul>
+            <li><Link href="/practice#build">Build</Link></li>
+            <li><Link href="/practice#migrate">Migrate</Link></li>
+            <li><Link href="/practice#advise">Advise</Link></li>
+          </ul>
         </div>
-      </footer>
-    </div>
+
+        <div className="footer-col">
+          <div className="footer-col-title">Studio</div>
+          <ul>
+            <li><Link href="/studio#founder">Founder</Link></li>
+            <li><Link href="/studio#team">Team</Link></li>
+            <li><Link href="/studio#values">Values</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <div className="footer-col-title">Work</div>
+          <ul>
+            <li><Link href="/work#recent">Recent projects</Link></li>
+            <li><Link href="/work#archive">Archive</Link></li>
+          </ul>
+        </div>
+
+        <div className="footer-col">
+          <div className="footer-col-title">Contact</div>
+          <ul>
+            <li><a href="mailto:hello@salaro.com">hello@salaro.com</a></li>
+            <li><Link href="/studio#founder">Guildford, Surrey</Link></li>
+            <li><a href="https://www.linkedin.com/in/salargolestanian/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-meta">
+        <div>© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</div>
+        <div>Practising since 1995</div>
+      </div>
+    </footer>
   );
 }

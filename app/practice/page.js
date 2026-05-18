@@ -5,42 +5,99 @@ export default function Practice() {
   return (
     <main>
       <Header />
-      <section className="hero">
-        <div className="hero-grid">
-          <div>
-            <div className="eyebrow">01 · Practice</div>
-            <h1>How we deliver work <em>that matters</em></h1>
-          </div>
-          <div>
-            <p style={{fontStyle:'italic', color:'var(--ink-soft)', fontFamily:'var(--font-display)', fontSize:20, lineHeight:1.5}}>Three practice lines: Build · Migrate · Advise. Each is designed for measurable outcomes.</p>
+
+      <section className="page-hero">
+        <div className="eyebrow">Practice · 2026</div>
+        <h1>Three lines of work. <em>Done properly.</em></h1>
+        <p className="lede">We are small on purpose. Three things we do well, three we leave to others. Each can be scoped tightly and shipped through your own GitHub and Vercel.</p>
+      </section>
+
+      <section className="practice-section" id="build">
+        <div>
+          <div className="side-line"><span className="side-num">01 · Build</span></div>
+          <div className="side-meta">For SMEs<br />Fixed scope<br />2–6 weeks<br />You own the repo</div>
+        </div>
+        <div>
+          <h2>AI-native <em>web builds</em>.</h2>
+          <p className="practice-body">From a one-page brief to a production site. Claude designs the surface, our senior engineers refine and instrument it, and we ship through your GitHub to Vercel — usually inside a fortnight.</p>
+          <div className="steps">
+            <div className="step">
+              <span className="step-num">Step 01</span>
+              <h3 className="step-title">Brief</h3>
+              <div className="step-body">Half-day call, fixed proposal back inside 48 hours.</div>
+            </div>
+            <div className="step">
+              <span className="step-num">Step 02</span>
+              <h3 className="step-title">AI draft</h3>
+              <div className="step-body">Claude builds the visual + structural draft, reviewed live.</div>
+            </div>
+            <div className="step">
+              <span className="step-num">Step 03</span>
+              <h3 className="step-title">Engineer</h3>
+              <div className="step-body">Our team ports to Next.js / your stack, hardens, accessibilises.</div>
+            </div>
+            <div className="step">
+              <span className="step-num">Step 04</span>
+              <h3 className="step-title">Ship</h3>
+              <div className="step-body">Pushed to your GitHub, deployed to Vercel. Keys are yours.</div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="services">
-        <div className="service-grid">
-          <div className="service" id="build">
-            <span className="service-num">01 · Build</span>
-            <h4><em>Build</em> — product engineering, front-to-back</h4>
-            <p>Multi-site web platforms. Headless CMS architectures. Custom API integrations. Performance-critical applications. We don't do template installs.</p>
-            <p style={{fontSize:13, color:'var(--ink-faint)', lineHeight:1.6}}>Recent: AskDroid (in development), HBM Partners financial advisory site, Quantime book companion site.</p>
-          </div>
-          <div className="service" id="migrate">
-            <span className="service-num">02 · Migrate</span>
-            <h4><em>Migrate</em> — legacy lifts and DNN-focused migrations</h4>
-            <p>DNN, EP, ageing WordPress and custom CMSs the original developer walked away from. Replatformed onto WordPress or Next.js, without losing content, SEO or customers. Salar has 15+ years of DNN expertise — most agencies won't touch it.</p>
-            <p style={{fontSize:13, color:'var(--ink-faint)', lineHeight:1.6}}>Recent: Salaro Legacy (DNN → modern), Properties.co.uk (redevelopment in progress).</p>
-          </div>
-          <div className="service" id="advise">
-            <span className="service-num">03 · Advise</span>
-            <h4><em>Advise</em> — short, high-signal engagements</h4>
-            <p>Two-week scoping sprints. You walk away with a written technical brief and a recommended approach. If you go on to build it with us, the fee credits against the project.</p>
-            <p style={{fontSize:13, color:'var(--ink-faint)', lineHeight:1.6}}>For: organisations weighing build-vs-buy, choosing between platforms, or sitting on a legacy stack and not sure how to move forward.</p>
+      <section className="practice-section" id="migrate">
+        <div>
+          <div className="side-line"><span className="side-num">02 · Migrate</span></div>
+          <div className="side-meta">Niche expertise<br />DNN since 2003<br />UK &amp; EU<br />Zero-downtime cutover</div>
+        </div>
+        <div>
+          <h2>DNN <em>legacy migrations</em>.</h2>
+          <p className="practice-body">Almost nobody still understands DNN. We do — fifteen years of it. If your site is trapped on an old DNN install, orphaned by a vanished agency, or recovering from a ransomware event, we can move it onto something modern without losing the content, the URLs, or the search rankings.</p>
+          <ul className="bullets">
+            <li>Audit of the existing DNN install, modules and skinning</li>
+            <li>Content extraction with structure preserved</li>
+            <li>URL mapping so SEO survives the move</li>
+            <li>Re-platform to Next.js, WordPress, or modern DNN</li>
+            <li>Asset and media migration</li>
+            <li>Ransomware-recovered installs welcome</li>
+          </ul>
+        </div>
+      </section>
+
+      <section className="practice-section" id="advise">
+        <div>
+          <div className="side-line"><span className="side-num">03 · Advise</span></div>
+          <div className="side-meta">Advisory<br />Half-day workshops<br />30-day pilots<br />Ongoing retainer</div>
+        </div>
+        <div>
+          <h2>AI for <em>small businesses</em>.</h2>
+          <p className="practice-body">Most SMEs know AI matters and don't know where to begin. We help you pick the few tools that actually pay back for your business, train your team to use them, and ship a pilot — without the enterprise overhead or the consultant theatre.</p>
+          <div className="steps">
+            <div className="step">
+              <span className="step-num">Format 01</span>
+              <h3 className="step-title">Half-day</h3>
+              <div className="step-body">A working session, your team and ours. Leave with three things to try on Monday.</div>
+            </div>
+            <div className="step">
+              <span className="step-num">Format 02</span>
+              <h3 className="step-title">30-day pilot</h3>
+              <div className="step-body">One process picked, one tool deployed, one outcome measured.</div>
+            </div>
+            <div className="step">
+              <span className="step-num">Format 03</span>
+              <h3 className="step-title">Retainer</h3>
+              <div className="step-body">A monthly call and async support. For owners who want a sparring partner.</div>
+            </div>
+            <div className="step">
+              <span className="step-num">Format 04</span>
+              <h3 className="step-title">Build &amp; advise</h3>
+              <div className="step-body">Pair our build line with the advisory work, on one engagement.</div>
+            </div>
           </div>
         </div>
       </section>
 
       <SiteFooter />
     </main>
-  )
+  );
 }

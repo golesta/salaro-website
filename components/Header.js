@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import LogoMark from './LogoMark';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,12 +10,13 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        <Link href="/" className="logo">
-          Salaro<span className="dot">.</span>
+        <Link href="/" className="logo" aria-label="Salaro home" onClick={() => setMenuOpen(false)}>
+          <LogoMark size={22} />
+          <span className="logo-word">Salaro</span>
         </Link>
-        
-        <button 
-          className="hamburger" 
+
+        <button
+          className="hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
