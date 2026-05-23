@@ -7,7 +7,7 @@ export default function Contact() {
       <Header />
 
       <section className="page-hero">
-        <div className="eyebrow">Contacts · Start a conversation</div>
+        <div className="eyebrow">Contacts ----· Start a conversation</div>
         <h1>Tell us what you're trying to <em>build</em>.</h1>
         <p className="lede">A short note is enough. Tell us roughly what you have in mind, what's already in place, and when you'd like it live. We'll come back inside one working day.</p>
       </section>
