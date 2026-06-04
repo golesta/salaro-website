@@ -1,104 +1,183 @@
+"use client";
+
+import { useEffect, useRef } from 'react';
 import Header from '../../components/Header';
 import SiteFooter from '../../components/SiteFooter';
 
-export default function Work() {
+/* ──────────────────────────────────────────────
+   TIER 1 — Recent client work (confidential)
+─────────────────────────────────────────────── */
+const recent = [
+  { lead: '2026', subject: 'A UK manufacturer', detail: 'Public site & product configurator', meta: 'Industrial · SME', action: 'Build' },
+  { lead: '2026', subject: 'A regional law firm', detail: 'DNN to Next.js migration', meta: 'Legal · 40 staff', action: 'Migrate' },
+  { lead: '2026', subject: 'A professional services firm', detail: 'AI adoption pilot & team training', meta: 'Owner-led', action: 'Advise' },
+];
+
+/* ──────────────────────────────────────────────
+   TIER 2 — Properties & owned work
+─────────────────────────────────────────────── */
+const properties = [
+  { lead: 'Active', subject: 'Clever Botanics', detail: 'cleverbotanics.com', meta: 'E-Commerce', action: 'Build' },
+  { lead: 'Active', subject: 'HBM Partners', detail: 'hbm.salaro.com', meta: 'Finance & Advisory', action: 'Build' },
+  { lead: '2026', subject: 'AskDroid', detail: 'askdroid.com', meta: 'AI & Robotics', action: 'In Development' },
+  { lead: 'Active', subject: 'Properties.co.uk', detail: 'properties.co.uk', meta: 'Property', action: 'Redevelopment' },
+  { lead: 'Active', subject: 'Quantime', detail: 'quantime.uk', meta: 'Research & Publishing', action: 'Writing' },
+  { lead: '2000', subject: 'Salaro Legacy', detail: 'salaro.com · 25 years of client delivery', meta: 'Consulting', action: 'Archive' },
+];
+
+/* ──────────────────────────────────────────────
+   TIER 3 — Client archive (anonymised, for shape only)
+─────────────────────────────────────────────── */
+const archive = [
+  { lead: '2014', subject: 'UK engineering group', detail: 'Multi-brand DNN platform', meta: 'Industrial', action: 'Build & CMS' },
+  { lead: '2012', subject: 'London publisher', detail: 'Subscription portal', meta: 'Publishing', action: 'Build' },
+  { lead: '2010', subject: 'National charity', detail: 'DNN content platform & intranet', meta: 'Third sector', action: 'Build & CMS' },
+  { lead: '2008', subject: 'Specialist insurer', detail: 'Broker extranet', meta: 'Financial services', action: 'Build' },
+  { lead: '2006', subject: 'London law firm', detail: 'Public site relaunch', meta: 'Legal', action: 'Build' },
+  { lead: '2003', subject: 'Regional retailer', detail: 'First e-commerce site', meta: 'Retail', action: 'Build' },
+];
+
+/* Scroll-reveal: adds .reveal-ready to the root and reveals each
+   .reveal element as it scrolls in. Falls back to fully visible
+   when JS/IO is unavailable or motion is reduced. */
+function useReveal(rootRef) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    root.classList.add('reveal-ready');
+    const els = root.querySelectorAll('.reveal');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [rootRef]);
+}
+
+function EntryRow({ lead, subject, detail, meta, action }) {
   return (
-    <main>
+    <div className="essay reveal">
+      <span className="essay-date">{lead}</span>
+      <div>
+        <h2>{subject}</h2>
+        {detail && <p className="essay-preview">{detail}</p>}
+        {action && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '16px', flexWrap: 'wrap' }}>
+            <span className="sector-type">{action}</span>
+          </div>
+        )}
+      </div>
+      {meta && <span className="essay-meta">{meta}</span>}
+    </div>
+  );
+}
+
+export default function Work() {
+  const rootRef = useRef(null);
+  useReveal(rootRef);
+
+  return (
+    <main className="works-main" ref={rootRef}>
       <Header />
 
+      {/* ── HERO ── */}
       <section className="page-hero">
-        <div className="eyebrow">Selected work · 2000 – now</div>
-        <h1><em>Thirty years</em> of shipped work.</h1>
-        <p className="lede">Most recent client work is under confidentiality and not listed here. The archive below is a sample of the kind of work we have done — and, increasingly, the kind we now do faster.</p>
+        <p className="eyebrow reveal d1">Selected work · 2000 — Now</p>
+        <h1 className="reveal d2">
+          Thirty years of <em>shipped</em> work.
+        </h1>
+        <p className="lede reveal d3">
+          Most recent client work is under confidentiality and not listed here.
+          The archive below is a sample of the kind of work we have done — and,
+          increasingly, the kind we now do faster.
+        </p>
       </section>
 
-      <section className="work-block" id="recent">
-        <div className="work-block-head">
-          <h2><em>Recent</em> · 2026 –</h2>
-          <span className="eyebrow">Confidential · on request</span>
+      {/* ── TIER 1 — RECENT ── */}
+      <section className="clients">
+        <div className="clients-head reveal">
+          <span className="eyebrow">Recent · 2026</span>
+          <h2>Recent <em>client</em> work</h2>
+          <p className="practice-body" style={{ marginTop: '18px', marginBottom: '14px' }}>
+            Recent client work is described on a call rather than listed publicly.
+            We are happy to walk through two or three relevant examples in conversation.
+          </p>
+          <span className="side-meta" style={{ display: 'block' }}>Confidential · On Request</span>
         </div>
-        <p className="work-note">Recent client work is described on a call rather than listed publicly. We are happy to walk through two or three relevant examples in conversation.</p>
-        <ul className="work-list">
-          <li className="work-row">
-            <span className="work-year">2026</span>
-            <span className="work-title">A <em>UK manufacturer</em> · public site &amp; product configurator</span>
-            <span className="work-sector">Industrial · SME</span>
-            <span className="work-kind">Build</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">2026</span>
-            <span className="work-title">A <em>regional law firm</em> · DNN to Next.js migration</span>
-            <span className="work-sector">Legal · 40 staff</span>
-            <span className="work-kind">Migrate</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">2026</span>
-            <span className="work-title">An <em>SME owner</em> · AI adoption pilot &amp; team training</span>
-            <span className="work-sector">Professional services</span>
-            <span className="work-kind">Advise</span>
-          </li>
-        </ul>
+        <div>
+          {recent.map((e) => <EntryRow key={e.subject} {...e} />)}
+        </div>
       </section>
 
-      <section className="work-block" id="archive">
-        <div className="work-block-head">
-          <h2><em>Properties</em> &amp; owned work</h2>
-          <span className="eyebrow">Salaro · active &amp; ongoing</span>
+      {/* ── TIER 2 — PROPERTIES & OWNED ── */}
+      <section className="clients">
+        <div className="clients-head reveal">
+          <span className="eyebrow">Properties &amp; owned work</span>
+          <h2>Properties &amp; <em>owned</em> work</h2>
+          <p className="practice-body" style={{ marginTop: '18px', marginBottom: '14px' }}>
+            Projects we own or operate, distinct from client work — live ventures,
+            in-development products, and our own legacy platform.
+          </p>
+          <span className="side-meta" style={{ display: 'block' }}>
+            Salar practising since 1995 · Salaro Ltd founded 2000 · 25 years of client delivery
+          </span>
         </div>
-        <ul className="work-list">
-          <li className="work-row">
-            <span className="work-year">Active</span>
-            <span className="work-title"><em>Clever Botanics</em> · cleverbotanics.com</span>
-            <span className="work-sector">E-Commerce</span>
-            <span className="work-kind">Build</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">Active</span>
-            <span className="work-title"><em>HBM Partners</em> · hbm.salaro.com</span>
-            <span className="work-sector">Finance &amp; Advisory</span>
-            <span className="work-kind">Build</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">2026</span>
-            <span className="work-title"><em>AskDroid</em> · askdroid.com</span>
-            <span className="work-sector">AI &amp; Robotics</span>
-            <span className="work-kind">In Development</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">Active</span>
-            <span className="work-title"><em>Properties.co.uk</em> · properties.co.uk</span>
-            <span className="work-sector">Property</span>
-            <span className="work-kind">Redevelopment</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">Active</span>
-            <span className="work-title"><em>Quantime</em> · quantime.uk</span>
-            <span className="work-sector">Research &amp; Publishing</span>
-            <span className="work-kind">Writing</span>
-          </li>
-          <li className="work-row">
-            <span className="work-year">2000</span>
-            <span className="work-title"><em>Salaro Legacy</em> · 25 years of client delivery</span>
-            <span className="work-sector">Consulting</span>
-            <span className="work-kind">Archive</span>
-          </li>
-        </ul>
+        <div>
+          {properties.map((e) => <EntryRow key={e.subject} {...e} />)}
+        </div>
       </section>
 
-      <section className="work-block">
-        <div className="work-block-head">
-          <h2><em>Client archive</em> · 2000 – 2015</h2>
-          <span className="eyebrow">Anonymised · for shape only</span>
+      {/* ── TIER 3 — CLIENT ARCHIVE ── */}
+      <section className="clients">
+        <div className="clients-head reveal">
+          <span className="eyebrow">Client archive · 2000 — 2015</span>
+          <h2>Client <em>archive</em></h2>
+          <p className="practice-body" style={{ marginTop: '18px', marginBottom: '14px' }}>
+            Earlier engagements, anonymised. These entries are pattern-evidence —
+            the shape of the work — rather than current portfolio.
+          </p>
+          <span className="side-meta" style={{ display: 'block' }}>Anonymised · For shape only</span>
         </div>
-        <ul className="work-list">
-          <li className="work-row"><span className="work-year">2014</span><span className="work-title">UK engineering group · multi-brand DNN platform</span><span className="work-sector">Industrial</span><span className="work-kind">Build &amp; CMS</span></li>
-          <li className="work-row"><span className="work-year">2012</span><span className="work-title">London publisher · subscription portal</span><span className="work-sector">Publishing</span><span className="work-kind">Build</span></li>
-          <li className="work-row"><span className="work-year">2010</span><span className="work-title">National charity · DNN content platform &amp; intranet</span><span className="work-sector">Third sector</span><span className="work-kind">Build &amp; CMS</span></li>
-          <li className="work-row"><span className="work-year">2008</span><span className="work-title">Specialist insurer · broker extranet</span><span className="work-sector">Financial services</span><span className="work-kind">Build</span></li>
-          <li className="work-row"><span className="work-year">2006</span><span className="work-title">London law firm · public site relaunch</span><span className="work-sector">Legal</span><span className="work-kind">Build</span></li>
-          <li className="work-row"><span className="work-year">2003</span><span className="work-title">Regional retailer · first e-commerce site</span><span className="work-sector">Retail</span><span className="work-kind">Build</span></li>
-          <li className="work-row"><span className="work-year">2000</span><span className="work-title">Salaro · founded</span><span className="work-sector">—</span><span className="work-kind">—</span></li>
-        </ul>
+        <div>
+          {archive.map((e) => <EntryRow key={e.subject} {...e} />)}
+
+          {/* Closing founding line */}
+          <div className="essay reveal">
+            <span className="essay-date">2000</span>
+            <div>
+              <h2>Salaro <em>founded</em></h2>
+              <p className="essay-preview">The practice begins.</p>
+            </div>
+            <span className="essay-meta" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA BAND ── */}
+      <section className="cta-band">
+        <div className="cta-band-inner">
+          <div className="reveal">
+            <span className="eyebrow">Let&rsquo;s talk</span>
+            <h2>If you want to create meaningful <em>change</em>, we&rsquo;ll have common ground.</h2>
+          </div>
+          <div className="cta-band-actions reveal d1">
+            <a className="btn-light" href="/contact">Start a conversation</a>
+            <a className="cta-phone" href="/contact">Or walk through two or three relevant examples on a call &rarr;</a>
+          </div>
+        </div>
       </section>
 
       <SiteFooter />
