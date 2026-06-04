@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from 'react';
 import Header from '../../components/Header';
 import SiteFooter from '../../components/SiteFooter';
 
@@ -32,23 +35,81 @@ const essays = [
   },
 ];
 
+/* Renders a title with its italic accent.
+   - italicStart: italicises the opening phrase
+   - italicWord:  italicises a single word wherever it appears
+   - neither:     plain title */
+function renderTitle(e) {
+  if (e.italicStart && e.title.startsWith(e.italicStart)) {
+    return (
+      <>
+        <em>{e.italicStart}</em>
+        {e.title.slice(e.italicStart.length)}
+      </>
+    );
+  }
+  if (e.italicWord) {
+    const idx = e.title.indexOf(e.italicWord);
+    if (idx !== -1) {
+      return (
+        <>
+          {e.title.slice(0, idx)}
+          <em>{e.italicWord}</em>
+          {e.title.slice(idx + e.italicWord.length)}
+        </>
+      );
+    }
+  }
+  return e.title;
+}
+
+function useReveal(rootRef) {
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    root.classList.add('reveal-ready');
+    const els = root.querySelectorAll('.reveal');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [rootRef]);
+}
+
 export default function Writing() {
+  const rootRef = useRef(null);
+  useReveal(rootRef);
+
   return (
-    <main>
+    <main ref={rootRef}>
       <Header />
 
       <section className="page-hero">
-        <div className="eyebrow">Writing · Notes from the studio</div>
-        <h1><em>Essays</em> on what we're learning.</h1>
-        <p className="lede">Short pieces on AI-native delivery, legacy migration, and what thirty years in the trade looks like in 2026. Mostly for ourselves, occasionally for clients.</p>
+        <div className="eyebrow reveal d1">Writing · Notes from the studio</div>
+        <h1 className="reveal d2"><em>Essays</em> on what we're learning.</h1>
+        <p className="lede reveal d3">Short pieces on AI-native delivery, legacy migration, and what thirty years in the trade looks like in 2026. Mostly for ourselves, occasionally for clients.</p>
       </section>
 
       <div className="writing-list">
         {essays.map((e) => (
-          <article className="essay" key={e.date}>
+          <article className="essay reveal" key={e.date}>
             <span className="essay-date">{e.date}</span>
             <div className="essay-body">
-              <h2><a href="#">{e.italicStart ? <><em>{e.italicStart}</em>{e.title.slice(e.italicStart.length)}</> : e.title}</a></h2>
+              <h2><a href="#">{renderTitle(e)}</a></h2>
               <p className="essay-preview">{e.preview}</p>
             </div>
             <span className="essay-meta">{e.meta}</span>
@@ -56,7 +117,7 @@ export default function Writing() {
         ))}
       </div>
 
-      <div className="writing-aside">
+      <div className="writing-aside reveal">
         More notes as the studio writes them. No subscription, no newsletter — yet.
       </div>
 

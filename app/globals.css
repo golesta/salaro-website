@@ -204,21 +204,224 @@ a { color: inherit; text-decoration: none; }
 .bullets li { font-family: var(--font-body); font-size: 15px; color: var(--ink-strong); padding-left: 18px; position: relative; line-height: 1.5; }
 .bullets li::before { content: "·"; color: var(--accent); position: absolute; left: 0; font-weight: 700; font-size: 20px; line-height: 1; top: 0; }
 
-/* Work page */
-.work-block { max-width: 1320px; margin: 0 auto; padding: 64px 64px 32px; border-bottom: 1px solid var(--line-soft); }
-.work-block:last-of-type { border-bottom: none; padding-bottom: 96px; }
-.work-block-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 40px; }
-.work-block-head h2 { font-family: var(--font-display); font-size: 36px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink-strong); margin: 0; }
-.work-block-head h2 em { font-style: italic; color: var(--accent-ink); }
-.work-note { font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 24px; }
-.work-list { list-style: none; padding: 0; margin: 0; }
-.work-row { display: grid; grid-template-columns: 110px 1fr 200px 120px; gap: 32px; align-items: baseline; padding: 24px 0; border-top: 1px solid var(--line-soft); }
-.work-row:last-child { border-bottom: 1px solid var(--line-soft); }
-.work-year { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
-.work-title { font-family: var(--font-display); font-size: 22px; font-weight: 500; color: var(--ink-strong); letter-spacing: -0.005em; }
-.work-title em { font-style: italic; color: var(--accent-ink); font-weight: 400; }
-.work-sector { font-family: var(--font-body); font-size: 14px; color: var(--ink-soft); }
-.work-kind { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); text-align: right; }
+/* ── PAGE SHELL ── */
+.works-main {
+  background: #faf9f7;
+  min-height: 100vh;
+}
+
+/* ── WORKS SECTION ── */
+.works-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 96px 64px 100px;
+}
+
+/* ── TWO-COL LAYOUT ── */
+.works-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ── LEFT: sticky intro only ── */
+.works-left {
+  position: sticky;
+  top: 48px;
+}
+
+.eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a8f85;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.works-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #1a1713;
+  margin-bottom: 20px;
+  max-width: 18ch;
+}
+
+.works-intro {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: #7a7068;
+  max-width: 28ch;
+}
+
+/* ── RIGHT: stacked cards ── */
+.works-right {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* ── PROJECT CARD ── */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  scroll-margin-top: 48px;
+}
+
+/* image zoom on hover */
+.project-card:hover .proj-img-wrap img,
+.project-card:hover .proj-placeholder {
+  transform: scale(1.013);
+  opacity: 0.9;
+}
+
+/* ── IMAGE ── */
+.proj-img-wrap {
+  width: 100%;
+  aspect-ratio: 3 / 2;       /* matches reference — slightly taller than 16:9 */
+  overflow: hidden;
+  border-radius: 3px;
+  background: #e8e4de;
+}
+
+.proj-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.55s ease, opacity 0.3s ease;
+}
+
+/* placeholder — remove when real images are added */
+.proj-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.55s ease, opacity 0.3s ease;
+}
+
+.proj-placeholder span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(50, 38, 30, 0.38);
+  font-weight: 300;
+}
+
+/* placeholder bg colours */
+.p1 { background: #dce8e2; }
+.p2 { background: #e8e4d8; }
+.p3 { background: #dce1e8; }
+.p4 { background: #e8d8d8; }
+.p5 { background: #e4d8e8; }
+.p6 { background: #d8e8dc; }
+.p7 { background: #e8e0d8; }
+.p8 { background: #d8e4e8; }
+.p9 { background: #e8d8e2; }
+
+/* ── META: below image ── */
+.proj-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+/* small grey category tag — matches reference exactly */
+.proj-category {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: #9a8f85;
+}
+
+/* description line — normal weight, dark */
+.proj-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: #1a1713;
+}
+
+/* ── CTA — below all cards, inside section ── */
+.works-cta {
+  margin-top: 80px;
+  padding-top: 56px;
+  border-top: 0.5px solid #dedad4;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cta-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px;
+  font-weight: 300;
+  line-height: 1.3;
+  color: #1a1713;
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+.cta-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #1a1713;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;    /* pushed right — matches reference */
+  transition: gap 0.25s ease;
+}
+
+.cta-link:hover {
+  gap: 16px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .works-section {
+    padding: 48px 20px 64px;
+  }
+
+  .works-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .works-left {
+    position: static;
+  }
+
+  .works-heading {
+    font-size: 22px;
+  }
+
+  .cta-text {
+    font-size: 24px;
+  }
+
+  .cta-link {
+    align-self: flex-start;
+  }
+}
 
 /* Studio page */
 .studio-section { max-width: 1320px; margin: 0 auto; padding: 96px 64px; border-bottom: 1px solid var(--line-soft); display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
@@ -312,9 +515,6 @@ a { color: inherit; text-decoration: none; }
   .practice-section { padding: 64px 32px; gap: 48px; }
   .practice-section h2 { font-size: 44px; }
   .steps { grid-template-columns: repeat(2, 1fr); }
-  .work-block { padding: 48px 32px 24px; }
-  .work-row { grid-template-columns: 80px 1fr 140px; gap: 16px; }
-  .work-kind { display: none; }
   .studio-section { padding: 64px 32px; gap: 48px; }
   .studio-section h2 { font-size: 36px; }
   .writing-list { padding: 48px 32px 0; }
@@ -361,9 +561,6 @@ a { color: inherit; text-decoration: none; }
   .cta-band-actions { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 24px; }
   .sector { padding: 48px 24px; }
   .sector-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 32px; }
-  .work-cards { grid-template-columns: 1fr; gap: 20px; }
-  .work-card { padding: 24px; }
-  .work-card h3 { font-size: 26px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .page-hero { padding: 40px 24px 32px; }
   .page-hero h1 { font-size: 52px; }
@@ -378,11 +575,6 @@ a { color: inherit; text-decoration: none; }
   .practice-section { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
   .practice-section h2 { font-size: 36px; }
   .bullets { grid-template-columns: 1fr; }
-  .work-block { padding: 40px 24px 20px; }
-  .work-block-head h2 { font-size: 28px; }
-  .work-row { grid-template-columns: 72px 1fr; gap: 12px; }
-  .work-sector { display: none; }
-  .work-title { font-size: 18px; }
   .studio-section { grid-template-columns: 1fr; padding: 48px 24px; gap: 24px; }
   .studio-section h2 { font-size: 32px; }
   .studio-section .studio-body, .studio-section .studio-lede { font-size: 17px; }
@@ -435,8 +627,6 @@ a { color: inherit; text-decoration: none; }
   .practice-section { padding: 36px 16px; }
   .practice-section h2 { font-size: 30px; }
   .steps { grid-template-columns: 1fr; }
-  .work-block { padding: 28px 16px 16px; }
-  .work-block-head h2 { font-size: 24px; }
   .studio-section { padding: 36px 16px; }
   .studio-section h2 { font-size: 28px; }
   .writing-list { padding: 24px 16px 0; }
@@ -451,4 +641,115 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .rotator-slot { transition: none; }
+}
+/* ──────────────────────────────────────────────
+   Work page polish — scoped to .works-main so no other page is affected
+─────────────────────────────────────────────── */
+.works-main .clients { padding-top: 64px; padding-bottom: 64px; }
+.works-main .clients:first-of-type { padding-top: 80px; }
+
+/* Make the action tags (Build / Migrate / Advise) read as the primary signal */
+.works-main .sector-type {
+  color: var(--accent-ink);
+  border-color: var(--accent);
+}
+
+/* ============================================================
+   v4 — Motion & elegance layer
+   Additive only. The hidden reveal state is scoped under
+   .reveal-ready, which JS adds to each page root on mount — so
+   no content is ever hidden when JavaScript is unavailable.
+   ============================================================ */
+
+/* — Scroll reveal — */
+.reveal-ready .reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-ready .reveal.is-visible { opacity: 1; transform: none; }
+.reveal-ready .reveal.d1 { transition-delay: 0.07s; }
+.reveal-ready .reveal.d2 { transition-delay: 0.14s; }
+.reveal-ready .reveal.d3 { transition-delay: 0.21s; }
+.reveal-ready .reveal.d4 { transition-delay: 0.28s; }
+
+/* — Page hero: soft accent wash behind the headline — */
+.page-hero { position: relative; overflow: hidden; }
+.page-hero::before {
+  content: "";
+  position: absolute;
+  top: -38%;
+  right: -8%;
+  width: 560px;
+  height: 560px;
+  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+.page-hero > * { position: relative; z-index: 1; }
+
+/* — Animated underline for essay/title links — */
+.essay h2 a {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  padding-bottom: 3px;
+  transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s ease;
+}
+.essay h2 a:hover { background-size: 100% 1.5px; }
+
+/* — List rows: gentle nudge + accent date on hover — */
+.essay .essay-date { transition: color 0.3s ease; }
+.essay > div { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.essay:hover > div { transform: translateX(6px); }
+.essay:hover .essay-date { color: var(--accent); }
+
+/* — Process / value cards: lift + accent top rule on hover — */
+.step, .value {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-top-color 0.4s ease;
+}
+.step:hover, .value:hover { transform: translateY(-5px); border-top-color: var(--accent); }
+
+/* — Contact "how it goes" steps — */
+.how-step { transition: border-top-color 0.4s ease; }
+.how-step > div { transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+.how-step:hover { border-top-color: var(--accent); }
+.how-step:hover > div { transform: translateX(6px); }
+
+/* — Action chips (Work page tags) fill on hover — */
+.sector-type { transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+.sector-type:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* — Form fields: accent focus underline — */
+.field input, .field textarea { transition: border-bottom-color 0.3s ease; }
+.field input:focus, .field textarea:focus { border-bottom-color: var(--accent); }
+
+/* — Buttons: subtle rise on hover — */
+.form-submit, .btn-primary, .btn-light, .store-badge {
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.form-submit:hover, .btn-primary:hover, .btn-light:hover, .store-badge:hover { transform: translateY(-2px); }
+
+/* — Editorial accent on the writing aside — */
+.writing-aside { position: relative; }
+.writing-aside::before {
+  content: "";
+  position: absolute;
+  left: 64px;
+  top: 32px;
+  width: 28px;
+  height: 2px;
+  background: var(--accent);
+}
+
+/* — Reduced motion: neutralise the v4 layer entirely — */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .essay:hover > div,
+  .how-step:hover > div { transform: none; }
+  .step:hover, .value:hover { transform: none; }
+  .form-submit:hover, .btn-primary:hover, .btn-light:hover, .store-badge:hover { transform: none; }
 }

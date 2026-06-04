@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import SiteFooter from '../components/SiteFooter';
-import HeroRotator from '../components/HeroRotator';
 import AgentFactoryDiagram from '../components/AgentFactoryDiagram';
 import Reveal from '../components/Reveal';
 
@@ -12,11 +11,11 @@ export default function Home() {
       <section className="hero">
         <div className="hero-grid">
           <div>
-            <div className="eyebrow">A design &amp; user-focused digital agency · Surrey &amp; London</div>
-            <h1>Crafting digital <HeroRotator />.</h1>
+            <div className="eyebrow">UK web consultancy · Practising since 1995 · AI-native since 2026</div>
+            <h1>For UK businesses that have <em>outgrown</em> a template.</h1>
           </div>
           <div className="hero-right">
-            <p>Salaro specialises in solving problems to produce intelligent designs, deliver engaging experiences and build meaningful connections — for hundreds of clients, worldwide and locally.</p>
+            <p>A boutique technical consultancy. We deploy an architect, a researcher, a developer, and a reviewer — working in sequence, under human judgment — to ship work that a generalist agency can't.</p>
             <div className="ctas">
               <a className="btn-primary" href="tel:+441483870170">Phone +44 1483 870170</a>
               <a className="btn-secondary" href="/contact">Take your business online →</a>
@@ -45,51 +44,27 @@ export default function Home() {
           </div>
           <div className="service-grid-4">
             <div className="service" id="web-development">
-              <span className="service-num">01 · Web</span>
+              <span className="service-num">01 · Build</span>
               <h4><em>Web</em> development.</h4>
               <p>Millions of online websites — what's going to set yours apart? We design and build platforms made to stand out.</p>
               <div className="service-meta">Read more</div>
             </div>
-            <div className="service" id="design-services">
-              <span className="service-num">02 · Design</span>
-              <h4><em>Design</em> services.</h4>
-              <p>We have confidence in making designs that return on investment — thoughtful, purposeful and measured.</p>
-              <div className="service-meta">Read more</div>
-            </div>
             <div className="service" id="ecommerce">
-              <span className="service-num">03 · Commerce</span>
+              <span className="service-num">02 · Migrate</span>
               <h4><em>E-commerce</em> solution.</h4>
               <p>Whether you're selling products, services or just running a catalogue — we build the right webshop for it.</p>
               <div className="service-meta">Read more</div>
             </div>
             <div className="service" id="apps">
-              <span className="service-num">04 · Apps</span>
+              <span className="service-num">03 · Build</span>
               <h4><em>Apps</em> development.</h4>
-              <p>Mobile, Android, iOS, Web — or something new like Blockchain. We build rich native and cross-platform apps.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-            <div className="service" id="digital-marketing">
-              <span className="service-num">05 · Marketing</span>
-              <h4><em>Digital</em> marketing.</h4>
-              <p>Marketing services and advanced, customised PPC consultancy to bring qualified traffic to your business.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-            <div className="service" id="wordpress">
-              <span className="service-num">06 · WordPress</span>
-              <h4><em>WordPress</em> development.</h4>
-              <p>WordPress is the no.1 platform and we fully support it — alongside the .NET platform — for the right project.</p>
+              <p>Mobile, iOS and Android — rich native and cross-platform apps built to production quality.</p>
               <div className="service-meta">Read more</div>
             </div>
             <div className="service" id="ai-development">
-              <span className="service-num">07 · AI</span>
+              <span className="service-num">04 · Advise</span>
               <h4><em>AI</em> development.</h4>
               <p>Key techniques include machine learning, deep learning, natural language and computer vision.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-            <div className="service" id="seo-ppc">
-              <span className="service-num">08 · SEO &amp; PPC</span>
-              <h4><em>SEO &amp; PPC</em> consultancy.</h4>
-              <p>PPC can be an excellent source of qualified traffic to your products and services. We make it work harder.</p>
               <div className="service-meta">Read more</div>
             </div>
           </div>
@@ -99,20 +74,20 @@ export default function Home() {
       <Reveal>
         <section className="proof">
           <div className="proof-item">
-            <span className="proof-num">01 · Clients</span>
-            Hundreds served, worldwide.
+            <span className="proof-num">01 · Founded</span>
+            Practising since 1995.
           </div>
           <div className="proof-item">
-            <span className="proof-num">02 · Reach</span>
-            Locally in Surrey &amp; London.
+            <span className="proof-num">02 · Location</span>
+            Surrey &amp; London, UK.
           </div>
           <div className="proof-item">
-            <span className="proof-num">03 · Apps</span>
-            50,000+ mobile applications.
+            <span className="proof-num">03 · Approach</span>
+            AI-native since 2026.
           </div>
           <div className="proof-item">
             <span className="proof-num">04 · Focus</span>
-            Design and user-focused.
+            Boutique technical consultancy.
           </div>
         </section>
       </Reveal>
@@ -131,19 +106,82 @@ export default function Home() {
         </section>
       </Reveal>
 
-    <Reveal> <section className="webshop"> <div className="webshop-bg"></div> <div className="webshop-grid"> <div className="webshop-intro"> <span className="eyebrow"> Online shops for all devices </span> <h2> A proven content-managed webshop with a{" "} <em>responsive design</em>. </h2> <p> Increasing sales is the primary goal. Online sales are at record levels and eCommerce is critical to business growth. By understanding the customer journey and the user experience, we build strategies that drive quality traffic and increase conversion. </p> <div className="webshop-actions"> <a className="btn btn-fill" href="/contact"> Start a project </a> <a className="btn btn-link" href="/contact"> Read more &rarr; </a> </div> <div className="webshop-stats"> <div className="stat"> <strong>+38%</strong> <span>Average conversion uplift</span> </div> <div className="stat"> <strong>Multi-market</strong> <span>Built for international stores</span> </div> </div> </div> <div className="webshop-card"> <div className="card-top"> <span className="live-dot"></span> <span>Enterprise commerce stack</span> </div> <ul className="bullets webshop-bullets"> <li>Comprehensive product search capabilities</li> <li>Multi-language & multi-currency support</li> <li>Fully customisable responsive design</li> <li>Customer subscription management</li> <li> Real-time shipping rates & package tracking </li> <li>Shared database across multiple stores</li> </ul> <div className="mini-panel"> <div className="mini-row"> <span>Checkout</span> <span>Optimised</span> </div> <div className="mini-row"> <span>Performance</span> <span>Core Web Vitals ready</span> </div> <div className="mini-row"> <span>CMS</span> <span>Composable architecture</span> </div> </div> </div> </div> </section> </Reveal>
+      <Reveal>
+        <section className="webshop">
+          <div className="webshop-bg"></div>
+          <div className="webshop-grid">
+            <div className="webshop-intro">
+              <span className="eyebrow">Online shops for all devices</span>
+              <h2>A proven content-managed webshop with a <em>responsive design</em>.</h2>
+              <p>Increasing sales is the primary goal. Online sales are at record levels and eCommerce is critical to business growth. By understanding the customer journey and the user experience, we build strategies that drive quality traffic and increase conversion.</p>
+              <div className="webshop-actions">
+                <a className="btn btn-fill" href="/contact">Start a project</a>
+                <a className="btn btn-link" href="/contact">Read more &rarr;</a>
+              </div>
+            </div>
+            <div className="webshop-card">
+              <div className="card-top">
+                <span className="live-dot"></span>
+                <span>Enterprise commerce stack</span>
+              </div>
+              <ul className="bullets webshop-bullets">
+                <li>Comprehensive product search capabilities</li>
+                <li>Multi-language &amp; multi-currency support</li>
+                <li>Fully customisable responsive design</li>
+                <li>Customer subscription management</li>
+                <li>Real-time shipping rates &amp; package tracking</li>
+                <li>Shared database across multiple stores</li>
+              </ul>
+              <div className="mini-panel">
+                <div className="mini-row"><span>Checkout</span><span>Optimised</span></div>
+                <div className="mini-row"><span>Performance</span><span>Core Web Vitals ready</span></div>
+                <div className="mini-row"><span>CMS</span><span>Composable architecture</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
       <Reveal>
         <section className="clients">
           <div className="clients-head">
-            <span className="eyebrow">Trusted by</span>
-            <h2>A few of the <em>brands</em> we've worked with.</h2>
+            <span className="eyebrow">Selected work</span>
+            <h2>A few of the <em>clients</em> we've worked with.</h2>
           </div>
           <ul className="client-logos">
-            <li className="client-logo">KIA</li>
-            <li className="client-logo">Danone</li>
-            <li className="client-logo">DeVry University</li>
-            <li className="client-logo">Hilton</li>
+          
+<li className="client-logo">
+  <img
+    src="/images/cleverbotanics-logo.webp"
+    alt="Clever Botanics"
+    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
+  />
+</li>
+
+<li className="client-logo">
+  <img
+    src="/images/hbm.webp"
+    alt="HBM Partners"
+    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
+  />
+</li>
+
+<li className="client-logo">
+  <img
+    src="/images/properties.webp"
+    alt="Properties.co.uk"
+    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
+  />
+</li>
+
+<li className="client-logo">
+  <img
+    src="/images/askdroid.webp"
+    alt="Askdroid"
+    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
+  />
+</li>
+
           </ul>
         </section>
       </Reveal>
