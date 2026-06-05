@@ -460,6 +460,10 @@ a { color: inherit; text-decoration: none; }
 .field textarea { min-height: 100px; }
 .form-submit { background: var(--ink-strong); color: var(--bg); padding: 14px 24px; border-radius: 2px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid var(--ink-strong); cursor: pointer; align-self: flex-start; margin-top: 12px; transition: background 200ms ease, border-color 200ms ease; }
 .form-submit:hover { background: var(--accent); border-color: var(--accent); }
+.form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-submit:disabled:hover { background: var(--ink-strong); border-color: var(--ink-strong); }
+.contact-sent { font-family: var(--font-display); font-style: italic; font-size: 20px; color: var(--ink-soft); padding: 32px 0; }
+.form-error { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: #c0392b; margin-top: 8px; }
 .contact-direct { margin-top: 40px; font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink-soft); }
 .contact-direct strong { font-family: var(--font-mono); font-style: normal; font-size: 13px; letter-spacing: 0.08em; color: var(--ink-strong); font-weight: 400; }
 .how-steps { display: flex; flex-direction: column; }

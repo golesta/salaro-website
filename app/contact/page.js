@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Header from '../../components/Header';
 import SiteFooter from '../../components/SiteFooter';
 
@@ -34,6 +34,21 @@ function useReveal(rootRef) {
 export default function Contact() {
   const rootRef = useRef(null);
   useReveal(rootRef);
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus('submitting');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        body: new FormData(e.target),
+      });
+      setStatus(res.ok ? 'success' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  }
 
   return (
     <main ref={rootRef}>
@@ -48,25 +63,36 @@ export default function Contact() {
       <section className="contact-grid">
         <div className="contact-left reveal">
           <h2>Send a <em>note</em>.</h2>
-          <form className="contact-form" action="/api/contact" method="post">
-            <div className="field">
-              <label htmlFor="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" autoComplete="name" />
+          {status === 'success' ? (
+            <div className="contact-sent">
+              <p>Thank you — we'll come back to you inside one working day.</p>
             </div>
-            <div className="field">
-              <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@company.co.uk" autoComplete="email" />
-            </div>
-            <div className="field">
-              <label htmlFor="org">Company</label>
-              <input id="org" name="company" type="text" placeholder="Optional" autoComplete="organization" />
-            </div>
-            <div className="field">
-              <label htmlFor="message">What are you trying to build?</label>
-              <textarea id="message" name="message" rows={5} placeholder="A line or two is enough. Rough budget &amp; timeline if you have them." />
-            </div>
-            <button type="submit" className="form-submit">Send →</button>
-          </form>
+          ) : (
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="field">
+                <label htmlFor="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" autoComplete="name" required />
+              </div>
+              <div className="field">
+                <label htmlFor="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.co.uk" autoComplete="email" required />
+              </div>
+              <div className="field">
+                <label htmlFor="org">Company</label>
+                <input id="org" name="company" type="text" placeholder="Optional" autoComplete="organization" />
+              </div>
+              <div className="field">
+                <label htmlFor="message">What are you trying to build?</label>
+                <textarea id="message" name="message" rows={5} placeholder="A line or two is enough. Rough budget &amp; timeline if you have them." required />
+              </div>
+              {status === 'error' && (
+                <p className="form-error">Something went wrong — please try again or email hello@salaro.com directly.</p>
+              )}
+              <button type="submit" className="form-submit" disabled={status === 'submitting'}>
+                {status === 'submitting' ? 'Sending…' : 'Send →'}
+              </button>
+            </form>
+          )}
           <div className="contact-direct">
             Or write directly to <strong>hello@salaro.com</strong>.
           </div>
