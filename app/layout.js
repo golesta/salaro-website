@@ -1,22 +1,22 @@
+import { Inter } from 'next/font/google'
 import './globals.css'
 
+const inter = Inter({ subsets: ['latin'] })
+
 export const metadata = {
-  title: 'Salaro — AI-native web consultancy',
-  description: 'Salaro — experienced UK web consultancy focused on practical AI-enabled web solutions.',
+  title: 'Salaro - 30 Years of Technology Applied to AI',
+  description: 'We help businesses navigate complexity — from AI strategy and private deployments to modern web and capital advisory.',
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
       </head>
-      <body>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
