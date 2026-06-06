@@ -1,0 +1,160 @@
+.section {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 96px 64px;
+  border-bottom: 1px solid var(--line-soft);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 64px;
+}
+
+.sectionLast {
+  border-bottom: none;
+}
+
+.side {}
+
+.sideNum {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.sideLine {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.sideMeta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-label);
+  line-height: 1.8;
+}
+
+.content {}
+
+.h2 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink-strong);
+  margin: 0 0 24px;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+.h2 em {
+  font-style: italic;
+  color: var(--accent-ink);
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink-lede);
+  max-width: 52ch;
+  margin: 0 0 40px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.step {
+  border-top: 1px solid var(--ink-strong);
+  padding-top: 16px;
+}
+
+.stepNum {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-label);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.stepTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  color: var(--ink-strong);
+  margin: 0 0 8px;
+}
+
+.stepBody {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-body);
+  margin: 0;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 32px;
+}
+
+.bullets li {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink-body);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.bullets li::before {
+  content: "·";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  top: 0;
+}
+
+@media (max-width: 1099px) {
+  .section {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 64px 64px;
+  }
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bullets {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding: 48px 32px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

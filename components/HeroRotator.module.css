@@ -1,0 +1,26 @@
+.rotator {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+  min-width: 8ch;
+}
+
+.slot {
+  display: inline-block;
+  font-style: italic;
+  color: var(--accent-ink);
+  font-weight: 400;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.leaving {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+.entering {
+  opacity: 0;
+  transform: translateY(12px);
+}

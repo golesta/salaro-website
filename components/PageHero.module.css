@@ -1,0 +1,44 @@
+.hero {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 64px 64px 56px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.eyebrow {
+  margin-bottom: 28px;
+}
+
+.h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--ink-strong);
+  margin: 0 0 32px;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.h1 em {
+  font-style: italic;
+  color: var(--accent-ink);
+  font-weight: 400;
+}
+
+.lede {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--ink-lede);
+  max-width: 56ch;
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 40px 32px 40px;
+  }
+}

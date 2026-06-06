@@ -1,0 +1,116 @@
+.block {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 96px 64px 32px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.blockLast {
+  border-bottom: none;
+  padding-bottom: 96px;
+}
+
+.blockHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 40px;
+}
+
+.blockH2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink-strong);
+  margin: 0;
+  text-wrap: balance;
+}
+
+.blockH2 em {
+  font-style: italic;
+  color: var(--accent-ink);
+}
+
+.workNote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink-lede);
+  max-width: 56ch;
+  margin: 0 0 32px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 110px 1fr 200px 120px;
+  gap: 32px;
+  align-items: baseline;
+  padding: 24px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.row:last-child {
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.year {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-label);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink-strong);
+  letter-spacing: -0.005em;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent-ink);
+  font-weight: 400;
+}
+
+.sector {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--ink-body);
+}
+
+.kind {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-label);
+  text-align: right;
+}
+
+@media (max-width: 1099px) {
+  .row {
+    grid-template-columns: 80px 1fr;
+    gap: 16px 24px;
+  }
+  .sector { grid-column: 2; }
+  .kind { grid-column: 2; text-align: left; }
+  .blockHead { flex-direction: column; gap: 8px; }
+}
+
+@media (max-width: 767px) {
+  .block { padding: 48px 32px 24px; }
+  .blockLast { padding-bottom: 64px; }
+  .row { grid-template-columns: 1fr; gap: 4px; padding: 20px 0; }
+  .year { font-size: 10px; }
+  .title { font-size: 18px; }
+}
