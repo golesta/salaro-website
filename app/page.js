@@ -109,6 +109,7 @@ export default function Home() {
       <Reveal>
         <section className="webshop">
           <div className="webshop-bg"></div>
+             <div className="webshop-inner">
           <div className="webshop-grid">
             <div className="webshop-intro">
               <span className="eyebrow">Online shops for all devices</span>
@@ -138,6 +139,7 @@ export default function Home() {
                 <div className="mini-row"><span>CMS</span><span>Composable architecture</span></div>
               </div>
             </div>
+          </div>
           </div>
         </section>
       </Reveal>
