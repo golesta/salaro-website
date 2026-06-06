@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salaro — Design Direction (QA for Claude Code)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: oklch(0.97 0.008 85);
+      --bg-warm: oklch(0.945 0.014 80);
+      --bg-dark: oklch(0.16 0.02 60);
+
+      /* CURRENT (drifted) text colours */
+      --ink-strong: oklch(0.14 0.02 60);
+      --ink-soft-old: oklch(0.42 0.025 60);
+      --ink-faint-old: oklch(0.58 0.02 60);
+
+      /* CORRECTED text colours — darker, higher contrast */
+      --ink-body: oklch(0.30 0.02 60);     /* long-form body copy */
+      --ink-lede: oklch(0.38 0.022 60);    /* short italic ledes only */
+      --ink-label: oklch(0.48 0.02 60);    /* mono labels / eyebrows */
+
+      --line: oklch(0.82 0.015 60 / 0.6);
+      --line-soft: oklch(0.82 0.015 60 / 0.3);
+      --accent: oklch(0.48 0.13 35);
+      --accent-ink: oklch(0.38 0.12 35);   /* dark terracotta — nav active, italic accents */
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter Tight', -apple-system, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--ink-body);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── Document shell ── */
+    .doc { max-width: 1080px; margin: 0 auto; padding: 0 48px; }
+
+    .doc-header {
+      padding: 72px 0 40px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 8px;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-label);
+    }
+    .doc-header h1 {
+      font-family: var(--font-display);
+      font-size: 64px; font-weight: 400;
+      line-height: 1.0; letter-spacing: -0.025em;
+      color: var(--ink-strong);
+      margin: 20px 0 24px; max-width: 18ch;
+      text-wrap: balance;
+    }
+    .doc-header h1 em { font-style: italic; color: var(--accent-ink); }
+    .doc-header .lede {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 22px; line-height: 1.5;
+      color: var(--ink-lede);
+      max-width: 56ch; margin: 0;
+    }
+
+    /* ── Issue blocks ── */
+    .issue {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--line-soft);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+    }
+    .issue-side .issue-num {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block; margin-bottom: 14px;
+    }
+    .issue-side h2 {
+      font-family: var(--font-display);
+      font-size: 30px; font-weight: 500;
+      line-height: 1.08; letter-spacing: -0.01em;
+      color: var(--ink-strong);
+      margin: 0 0 16px;
+    }
+    .issue-side .verdict {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-label);
+      line-height: 1.9;
+      border-top: 1px solid var(--line-soft);
+      padding-top: 14px;
+    }
+    .issue-side .verdict b { color: var(--accent-ink); font-weight: 500; }
+
+    .issue-body > p {
+      font-size: 16px; line-height: 1.65;
+      color: var(--ink-body);
+      margin: 0 0 18px; max-width: 64ch;
+    }
+    .issue-body > p:first-child { margin-top: 0; }
+    .issue-body strong { color: var(--ink-strong); font-weight: 600; }
+
+    /* Before / after panels */
+    .ba {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px; margin: 24px 0;
+    }
+    .ba-panel {
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--bg);
+    }
+    .ba-tag {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .ba-tag.bad { color: oklch(0.5 0.14 25); background: oklch(0.95 0.02 30); }
+    .ba-tag.good { color: oklch(0.42 0.11 150); background: oklch(0.95 0.03 150); }
+    .ba-inner { padding: 22px 18px; min-height: 96px; }
+
+    /* Demo: nav */
+    .nav-demo {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--bg-warm);
+      padding: 14px 18px;
+      border: 1px solid var(--line);
+    }
+    .nav-demo .logo { display: flex; align-items: center; gap: 9px; }
+    .nav-demo .logo-word { font-family: var(--font-display); font-size: 20px; font-weight: 500; color: var(--ink-strong); }
+    .nav-demo nav { display: flex; gap: 22px; font-size: 13px; color: var(--ink-strong); }
+    .nav-demo nav a { position: relative; padding-bottom: 4px; text-decoration: none; color: inherit; }
+
+    /* OLD active (drifted): muddy, wrong page, no underline */
+    .nav-demo.old nav a.active { color: oklch(0.45 0.06 50); }
+
+    /* NEW active: dark terracotta + underline */
+    .nav-demo.new nav a.active {
+      color: var(--accent-ink);
+      font-weight: 500;
+    }
+    .nav-demo.new nav a.active::after {
+      content: "";
+      position: absolute; left: 0; right: 0; bottom: 0;
+      height: 2px; background: var(--accent);
+      border-radius: 2px;
+    }
+    .nav-demo.new nav a:hover:not(.active) { color: var(--accent); }
+
+    /* Demo: type contrast */
+    .type-old {
+      font-family: var(--font-display);
+      font-style: italic; font-size: 16px;
+      color: var(--ink-soft-old);
+      line-height: 1.55; margin: 0;
+    }
+    .type-new {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--ink-body);
+      line-height: 1.65; margin: 0;
+    }
+    .type-new .lede-line {
+      font-family: var(--font-display);
+      font-style: italic; font-size: 17px;
+      color: var(--ink-lede);
+      display: block; margin-bottom: 12px;
+    }
+
+    /* Demo: label contrast */
+    .label-old { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint-old); }
+    .label-new { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-label); }
+
+    /* Demo: gradient blob */
+    .blob-old {
+      position: relative; height: 96px;
+      background:
+        radial-gradient(60% 80% at 85% 20%, oklch(0.86 0.05 320 / 0.5), transparent 70%),
+        var(--bg);
+    }
+    .blob-old::after {
+      content: "stray purple wash"; position: absolute; bottom: 10px; left: 14px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      color: var(--ink-label);
+    }
+    .blob-new { position: relative; height: 96px; background: var(--bg); }
+    .blob-new::after {
+      content: "clean paper"; position: absolute; bottom: 10px; left: 14px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+      color: var(--ink-label);
+    }
+
+    /* Demo: terracotta CTA band */
+    .cta-old, .cta-new { padding: 20px 18px; border-radius: 3px; background: oklch(0.46 0.13 35); }
+    .cta-old h4, .cta-new h4 { font-family: var(--font-display); font-size: 22px; font-style: italic; margin: 0 0 12px; }
+    .cta-old h4 { color: oklch(0.95 0.02 40); }
+    .cta-new h4 { color: oklch(0.98 0.01 60); }
+    .cta-old .btn { display: inline-block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 9px 14px; border: 1px solid oklch(0.6 0.1 35); color: oklch(0.7 0.08 35); }
+    .cta-new .btn { display: inline-block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; padding: 9px 14px; border: 1px solid oklch(0.98 0.01 60); color: oklch(0.99 0.005 60); }
+
+    /* Code block */
+    .code {
+      font-family: var(--font-mono);
+      font-size: 12.5px; line-height: 1.7;
+      background: var(--bg-dark);
+      color: oklch(0.85 0.015 60);
+      padding: 18px 20px; border-radius: 4px;
+      margin: 20px 0 0; overflow-x: auto;
+      white-space: pre;
+    }
+    .code .c { color: oklch(0.6 0.02 60); }       /* comment */
+    .code .p { color: oklch(0.72 0.1 35); }        /* property/accent */
+    .code .v { color: oklch(0.82 0.06 150); }      /* value */
+
+    /* Summary checklist */
+    .summary { padding: 56px 0 96px; }
+    .summary h2 {
+      font-family: var(--font-display);
+      font-size: 30px; font-weight: 500;
+      color: var(--ink-strong); margin: 0 0 28px;
+    }
+    .checklist { list-style: none; padding: 0; margin: 0; }
+    .checklist li {
+      display: grid; grid-template-columns: 32px 1fr;
+      gap: 16px; align-items: baseline;
+      padding: 16px 0; border-top: 1px solid var(--line-soft);
+    }
+    .checklist .ck-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent); }
+    .checklist .ck-text { font-size: 15.5px; color: var(--ink-body); }
+    .checklist .ck-text b { color: var(--ink-strong); font-weight: 600; }
+
+    @media (max-width: 760px) {
+      .issue { grid-template-columns: 1fr; gap: 20px; }
+      .ba { grid-template-columns: 1fr; }
+      .doc { padding: 0 24px; }
+    }
+  
+    /* ─────────────────────────── PRINT ─────────────────────────── */
+    @media print {
+      @page { size: A4 portrait; margin: 1.4cm 1.2cm; }
+      html, body { background: #fff !important; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+      /* Freeze any animation/transition at end-state */
+      *, *::before, *::after {
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+
+      .doc { max-width: 100%; padding: 0; }
+      .doc-header { padding-top: 0; }
+
+      /* Keep each issue + its before/after intact on one page where possible */
+      .issue { break-inside: avoid; page-break-inside: avoid; }
+      .summary { break-inside: avoid; page-break-inside: avoid; }
+      .ba, .ba-panel, .code, .checklist li { break-inside: avoid; page-break-inside: avoid; }
+
+      /* Headlines shouldn't strand */
+      h1, h2 { break-after: avoid; page-break-after: avoid; }
+
+      /* Code block reads fine on white with a light surface */
+      .code { background: oklch(0.20 0.02 60) !important; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="doc">
+
+    <!-- ── Header ── -->
+    <header class="doc-header">
+      <div class="eyebrow">Design Direction · QA pass · June 2026</div>
+      <h1>Bringing the <em>crispness</em> back.</h1>
+      <p class="lede">
+        The build is in good shape, but it has drifted from the original
+        system in five specific ways — all to do with contrast, restraint,
+        and the navigation. Here is each one, with the exact fix to hand
+        to Claude Code.
+      </p>
+    </header>
+
+    <!-- ── Issue 01 — Nav active state ── -->
+    <section class="issue">
+      <div class="issue-side">
+        <span class="issue-num">Fix 01 · Navigation</span>
+        <h2>The selected tab is muddy, and it's on the wrong page.</h2>
+        <div class="verdict">
+          Active = <b>dark terracotta</b><br/>
+          + 2px underline<br/>
+          Current page only<br/>
+          Hover = accent
+        </div>
+      </div>
+      <div class="issue-body">
+        <p>
+          Two bugs in one. First, the active link is a <strong>desaturated
+          brown</strong>, not the crisp dark terracotta from the original —
+          it reads as "slightly faded", not "you are here". Second, the
+          active state is stuck on <strong>Home</strong> on every page
+          (look at the Studio and Practice screenshots — "Home" is
+          highlighted, not the page you're on).
+        </p>
+        <p>
+          You asked about an underline — yes. A 2px terracotta underline
+          plus the colour change makes the current section unambiguous, and
+          it echoes the hairline rules used elsewhere on the site.
+        </p>
+        <div class="ba">
+          <div class="ba-panel">
+            <div class="ba-tag bad">Before · drifted</div>
+            <div class="ba-inner">
+              <div class="nav-demo old">
+                <div class="logo"><span class="logo-word">Salaro</span></div>
+                <nav>
+                  <a href="#" class="active">Home</a>
+                  <a href="#">Practice</a>
+                  <a href="#">Work</a>
+                  <a href="#">Studio</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+          <div class="ba-panel">
+            <div class="ba-tag good">After · on /studio</div>
+            <div class="ba-inner">
+              <div class="nav-demo new">
+                <div class="logo"><span class="logo-word">Salaro</span></div>
+                <nav>
+                  <a href="#">Home</a>
+                  <a href="#">Practice</a>
+                  <a href="#">Work</a>
+                  <a href="#" class="active">Studio</a>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code"><span class="c">/* Active nav link — match the page to the route, not always Home */</span>
+.nav a.active {
+  <span class="p">color</span>: <span class="v">var(--accent-ink)</span>;   <span class="c">/* oklch(0.38 0.12 35) */</span>
+  <span class="p">font-weight</span>: <span class="v">500</span>;
+  <span class="p">position</span>: <span class="v">relative</span>;
+}
+.nav a.active::after {
+  <span class="p">content</span>: <span class="v">""</span>;
+  <span class="p">position</span>: <span class="v">absolute</span>; <span class="p">left</span>: <span class="v">0</span>; <span class="p">right</span>: <span class="v">0</span>; <span class="p">bottom</span>: <span class="v">-4px</span>;
+  <span class="p">height</span>: <span class="v">2px</span>; <span class="p">background</span>: <span class="v">var(--accent)</span>; <span class="p">border-radius</span>: <span class="v">2px</span>;
+}
+.nav a:hover:not(.active) { <span class="p">color</span>: <span class="v">var(--accent)</span>; }
+
+<span class="c">// In Next.js, derive active from usePathname() — not a hardcoded prop:</span>
+<span class="c">// const active = usePathname().startsWith(href);</span></div>
+      </div>
+    </section>
+
+    <!-- ── Issue 02 — Body contrast / italic overuse ── -->
+    <section class="issue">
+      <div class="issue-side">
+        <span class="issue-num">Fix 02 · Readability</span>
+        <h2>Long copy is set in faint italic serif. It's hard to read.</h2>
+        <div class="verdict">
+          Italic serif = <b>short ledes only</b><br/>
+          Body copy = upright sans<br/>
+          Darken body to 0.30 L<br/>
+          Never italicise paragraphs
+        </div>
+      </div>
+      <div class="issue-body">
+        <p>
+          This is the biggest one. The original system used italic Cormorant
+          for <strong>short ledes and accent words only</strong> — one or two
+          lines, set large. In the build it has spread to <strong>whole
+          paragraphs of body copy</strong> (the entire founder bio on Studio,
+          the team bios), in a light grey that sits at roughly 0.42 lightness.
+        </p>
+        <p>
+          Italic serif at small sizes in low-contrast grey is genuinely tiring
+          to read — and it cheapens the editorial effect, because the italics
+          stop meaning anything when everything is italic. The fix: body copy
+          goes <strong>upright, in Inter Tight, darker</strong>. Keep one short
+          italic serif line at the top of a section as the lede. That's the
+          rhythm — italic to open, upright to explain.
+        </p>
+        <div class="ba">
+          <div class="ba-panel">
+            <div class="ba-tag bad">Before · all italic serif, faint</div>
+            <div class="ba-inner">
+              <p class="type-old">
+                Salaro was founded by Salar Golestanian, a physicist turned
+                software developer turned AI consultant — based in Woking,
+                Surrey. With an MPhil in Physics and over 30 years building
+                technology solutions across the UK, Europe and beyond.
+              </p>
+            </div>
+          </div>
+          <div class="ba-panel">
+            <div class="ba-tag good">After · italic lede + upright body</div>
+            <div class="ba-inner">
+              <p class="type-new">
+                <span class="lede-line">A physicist turned software developer turned AI consultant.</span>
+                Salar Golestanian founded Salaro in Woking, Surrey. With an
+                MPhil in Physics and over 30 years building technology across
+                the UK, Europe and beyond, he brings scientific rigour to
+                hands-on delivery.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="code"><span class="c">/* Reserve italic display for ledes; body is upright sans, darker */</span>
+.lede   { <span class="p">font-family</span>: <span class="v">var(--font-display)</span>; <span class="p">font-style</span>: <span class="v">italic</span>;
+          <span class="p">font-size</span>: <span class="v">clamp(18px, 2vw, 22px)</span>; <span class="p">color</span>: <span class="v">var(--ink-lede)</span>; }
+.body   { <span class="p">font-family</span>: <span class="v">var(--font-body)</span>; <span class="p">font-style</span>: <span class="v">normal</span>;
+          <span class="p">font-size</span>: <span class="v">16px</span>; <span class="p">line-height</span>: <span class="v">1.65</span>; <span class="p">color</span>: <span class="v">var(--ink-body)</span>; }
+
+<span class="c">/* New, higher-contrast text tokens — replace the old soft greys */</span>
+<span class="p">--ink-body</span>:  <span class="v">oklch(0.30 0.02 60)</span>;  <span class="c">/* was 0.42 — long-form copy */</span>
+<span class="p">--ink-lede</span>:  <span class="v">oklch(0.38 0.022 60)</span>; <span class="c">/* short italic ledes */</span>
+<span class="p">--ink-label</span>: <span class="v">oklch(0.48 0.02 60)</span>;  <span class="c">/* was 0.58 — mono labels */</span></div>
+      </div>
+    </section>
+
+    <!-- ── Issue 03 — Mono label contrast ── -->
+    <section class="issue">
+      <div class="issue-side">
+        <span class="issue-num">Fix 03 · Labels</span>
+        <h2>The mono eyebrows are nearly invisible.</h2>
+        <div class="verdict">
+          Darken to <b>0.48 L</b><br/>
+          Keep 0.22em tracking<br/>
+          Keep them small
+        </div>
+      </div>
+      <div class="issue-body">
+        <p>
+          The little uppercase mono labels ("UK WEB CONSULTANCY · PRACTISING
+          SINCE 1995", "01 · FOUNDED", section eyebrows) are set so light they
+          almost disappear on the cream. They're meant to be quiet, not
+          invisible. One step darker fixes it without making them shout.
+        </p>
+        <div class="ba">
+          <div class="ba-panel">
+            <div class="ba-tag bad">Before</div>
+            <div class="ba-inner" style="display:flex;align-items:center;">
+              <span class="label-old">UK Web Consultancy · Practising since 1995</span>
+            </div>
+          </div>
+          <div class="ba-panel">
+            <div class="ba-tag good">After</div>
+            <div class="ba-inner" style="display:flex;align-items:center;">
+              <span class="label-new">UK Web Consultancy · Practising since 1995</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Issue 04 — Stray gradients ── -->
+    <section class="issue">
+      <div class="issue-side">
+        <span class="issue-num">Fix 04 · Restraint</span>
+        <h2>Lose the purple gradient washes.</h2>
+        <div class="verdict">
+          Remove hero blob<br/>
+          Remove webshop wash<br/>
+          Paper stays <b>flat</b>
+        </div>
+      </div>
+      <div class="issue-body">
+        <p>
+          There's a faint <strong>purple-pink radial wash</strong> in the
+          top-right of every inner-page hero, and the "content-managed webshop"
+          band has a cream-to-pink gradient behind it. Both read as generic
+          "AI SaaS" decoration — exactly the look we deliberately walked away
+          from. The whole strength of this design is <strong>flat, warm paper
+          with hairlines</strong>. No gradients. If a section needs
+          separation, use <strong>--bg-warm</strong> as a flat fill (like the
+          diagram band), never a gradient.
+        </p>
+        <div class="ba">
+          <div class="ba-panel">
+            <div class="ba-tag bad">Before</div>
+            <div class="blob-old"></div>
+          </div>
+          <div class="ba-panel">
+            <div class="ba-tag good">After</div>
+            <div class="blob-new"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Issue 05 — CTA band contrast ── -->
+    <section class="issue">
+      <div class="issue-side">
+        <span class="issue-num">Fix 05 · Terracotta band</span>
+        <h2>White-on-terracotta needs more contrast.</h2>
+        <div class="verdict">
+          Text → <b>near-white</b><br/>
+          Button border → cream<br/>
+          Phone number → full white
+        </div>
+      </div>
+      <div class="issue-body">
+        <p>
+          The "Let's take your business online" band and its "Start a
+          conversation" button sit at low contrast — the outline button and
+          the phone number almost vanish into the terracotta. Push the text to
+          near-white and give the button a solid cream border so it reads as a
+          button, not a ghost.
+        </p>
+        <div class="ba">
+          <div class="ba-panel">
+            <div class="ba-tag bad">Before</div>
+            <div class="ba-inner">
+              <div class="cta-old">
+                <h4>Let's take your business online.</h4>
+                <span class="btn">Start a conversation →</span>
+              </div>
+            </div>
+          </div>
+          <div class="ba-panel">
+            <div class="ba-tag good">After</div>
+            <div class="ba-inner">
+              <div class="cta-new">
+                <h4>Let's take your business online.</h4>
+                <span class="btn">Start a conversation →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Summary checklist ── -->
+    <section class="summary">
+      <h2>Hand this list to Claude Code.</h2>
+      <ul class="checklist">
+        <li><span class="ck-num">01</span><span class="ck-text"><b>Nav active state:</b> derive from the current route (not always Home). Colour <code>var(--accent-ink)</code> + 2px terracotta underline. Hover = <code>var(--accent)</code>.</span></li>
+        <li><span class="ck-num">02</span><span class="ck-text"><b>Body copy:</b> set all running paragraphs in upright Inter Tight at <code>--ink-body</code> (0.30 L). Reserve italic Cormorant for short ledes and accent words only — never whole paragraphs.</span></li>
+        <li><span class="ck-num">03</span><span class="ck-text"><b>Text tokens:</b> darken — body 0.42→0.30, labels 0.58→0.48. Update the three <code>--ink-*</code> variables globally.</span></li>
+        <li><span class="ck-num">04</span><span class="ck-text"><b>Remove all gradients:</b> the purple hero wash and the webshop band. Use flat <code>--bg-warm</code> fills for section separation instead.</span></li>
+        <li><span class="ck-num">05</span><span class="ck-text"><b>Terracotta CTA band:</b> text to near-white (0.98 L), button gets a solid cream border, phone number full white.</span></li>
+        <li><span class="ck-num">06</span><span class="ck-text"><b>Restore crispness:</b> keep mono tracking at 0.22em, hairlines at 1px solid <code>--line</code>, and add <code>text-wrap: balance</code> to all display headings.</span></li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script>
+    (function () {
+      function go() { setTimeout(function () { window.print(); }, 500); }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(function () {
+          if (document.readyState === 'complete') go();
+          else window.addEventListener('load', go);
+        });
+      } else {
+        window.addEventListener('load', go);
+      }
+    })();
+  </script>
+</body>
+</html>

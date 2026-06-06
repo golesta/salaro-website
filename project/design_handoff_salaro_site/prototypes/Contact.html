@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salaro — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 64px;
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(120%);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-mark { display: block; }
+    .logo-word { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--ink-strong); letter-spacing: -0.01em; line-height: 1; }
+    .nav { display: flex; gap: 36px; font-size: 14px; color: var(--ink-strong); }
+    .nav a { transition: color 200ms ease; }
+    .nav a:hover { color: var(--accent); }
+    .nav a.active { color: var(--accent); }
+
+    .page-hero { max-width: 1320px; margin: 0 auto; padding: 64px 64px 56px; border-bottom: 1px solid var(--line-soft); }
+    .page-hero .eyebrow { margin-bottom: 28px; }
+    .page-hero h1 { font-family: var(--font-display); font-size: 84px; font-weight: 400; line-height: 0.98; letter-spacing: -0.025em; color: var(--ink-strong); margin: 0 0 32px; max-width: 18ch; }
+    .page-hero h1 em { font-style: italic; color: var(--accent-ink); font-weight: 400; }
+    .page-hero .lede { font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-soft); max-width: 56ch; margin: 0; }
+
+    /* ── Dark footer ── */
+    .footer-dark {
+      background: oklch(0.16 0.02 60);
+      color: oklch(0.72 0.02 60);
+      padding: 80px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1320px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid oklch(0.28 0.02 60);
+    }
+    .footer-brand .logo-word { color: oklch(0.92 0.02 60); }
+    .footer-brand-tag { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: oklch(0.72 0.02 60); margin: 16px 0 0; max-width: 28ch; }
+    .footer-col-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: oklch(0.85 0.015 60); font-family: var(--font-body); font-size: 14px; transition: color 200ms ease; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-meta { max-width: 1320px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(0.55 0.02 60); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 700ms ease, transform 700ms ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    .contact-grid { max-width: 1320px; margin: 0 auto; padding: 96px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; border-bottom: 1px solid var(--line-soft); }
+    .contact-left h2, .contact-right h2 { font-family: var(--font-display); font-size: 32px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink-strong); margin: 0 0 24px; }
+    .contact-left h2 em, .contact-right h2 em { font-style: italic; color: var(--accent-ink); }
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .field label { display: block; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; }
+    .field input, .field textarea {
+      width: 100%; padding: 12px 0; background: transparent;
+      border: none; border-bottom: 1px solid var(--ink-strong);
+      font-family: var(--font-body); font-size: 16px; color: var(--ink-strong);
+      outline: none;
+    }
+    .field input::placeholder, .field textarea::placeholder { color: var(--ink-faint); font-family: var(--font-display); font-style: italic; }
+    .field textarea { min-height: 100px; resize: vertical; }
+    .form-submit { background: var(--ink-strong); color: var(--bg); padding: 14px 24px; border-radius: 2px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; border: 1px solid var(--ink-strong); cursor: pointer; align-self: flex-start; margin-top: 12px; }
+    .direct { margin-top: 40px; font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink-soft); }
+    .direct strong { font-family: var(--font-mono); font-style: normal; font-size: 13px; letter-spacing: 0.08em; color: var(--ink-strong); font-weight: 400; }
+    .how-steps { display: flex; flex-direction: column; gap: 0; }
+    .how-step { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 20px 0; border-top: 1px solid var(--line-soft); }
+    .how-step:last-child { border-bottom: 1px solid var(--line-soft); }
+    .how-step-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+    .how-step h3 { font-family: var(--font-display); font-size: 22px; font-weight: 500; letter-spacing: -0.005em; color: var(--ink-strong); margin: 0 0 6px; }
+    .how-step h3 em { font-style: italic; color: var(--accent-ink); font-weight: 400; }
+    .how-step p { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+    .honest { max-width: 1320px; margin: 0 auto; padding: 64px; font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-soft); max-width: 64ch; text-align: center; }
+    .honest em { color: var(--accent-ink); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="logo-mark.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          
+          <header className="header">
+            <a href="Salaro Homepage.html" className="logo" aria-label="Salaro home">
+              <LogoMark size={22} />
+              <span className="logo-word">Salaro</span>
+            </a>
+            <nav className="nav">
+              <a href="Salaro Homepage.html">Home</a>
+              <a href="Practice.html">Practice</a>
+              <a href="Work.html">Work</a>
+              <a href="Studio.html">Studio</a>
+              <a href="Writing.html">Writing</a>
+              <a href="Contact.html" className="active">Contact</a>
+            </nav>
+          </header>
+          
+          <section className="page-hero">
+            <div className="eyebrow">Contact · Start a conversation</div>
+            <h1>Tell us what you're trying to <em>build</em>.</h1>
+            <p className="lede">A short note is enough. Tell us roughly what you have in mind, what's already in place, and when you'd like it live. We'll come back inside one working day.</p>
+          </section>
+
+          <section className="contact-grid">
+            <div className="contact-left">
+              <h2>Send a <em>note</em>.</h2>
+              <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
+                <div className="field"><label htmlFor="name">Name</label><input id="name" type="text" placeholder="Your name" /></div>
+                <div className="field"><label htmlFor="email">Email</label><input id="email" type="email" placeholder="you@company.co.uk" /></div>
+                <div className="field"><label htmlFor="org">Company</label><input id="org" type="text" placeholder="Optional" /></div>
+                <div className="field"><label htmlFor="message">What are you trying to build?</label><textarea id="message" placeholder="A line or two is enough. Rough budget &amp; timeline if you have them."></textarea></div>
+                <button type="submit" className="form-submit">Send →</button>
+              </form>
+              <div className="direct">
+                Or write directly to <strong>hello@salaro.com</strong>.
+              </div>
+            </div>
+            <div className="contact-right">
+              <h2>How this <em>goes</em>.</h2>
+              <div className="how-steps">
+                <div className="how-step"><span className="how-step-num">01</span><div><h3>You <em>write</em>.</h3><p>A short note via this form or by email. No NDA needed yet.</p></div></div>
+                <div className="how-step"><span className="how-step-num">02</span><div><h3>We <em>talk</em>.</h3><p>A 30-minute video call inside the next few days, so we both know if this is a fit.</p></div></div>
+                <div className="how-step"><span className="how-step-num">03</span><div><h3>We <em>propose</em>.</h3><p>A fixed-price proposal, usually back inside 48 hours of the call.</p></div></div>
+                <div className="how-step"><span className="how-step-num">04</span><div><h3>We <em>build</em>.</h3><p>Two to six weeks of work, daily progress visible in your own repo.</p></div></div>
+              </div>
+            </div>
+          </section>
+
+          <section className="honest">
+            We work with UK SMEs. We <em>don't</em> take on enterprise projects that need procurement, security reviews and a project manager — that work goes to firms set up for it, and we're happy to refer you.
+          </section>
+
+          
+          <footer className="footer-dark">
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <a href="Salaro Homepage.html" className="logo" style={{ textDecoration: 'none' }}>
+                  <LogoMark size={24} darkBackground />
+                  <span className="logo-word">Salaro</span>
+                </a>
+                <p className="footer-brand-tag">A UK web consultancy. Practising since 1995, AI-native since 2026.</p>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Practice</div>
+                <ul>
+                  <li><a href="Practice.html#build">Build</a></li>
+                  <li><a href="Practice.html#migrate">Migrate</a></li>
+                  <li><a href="Practice.html#advise">Advise</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Studio</div>
+                <ul>
+                  <li><a href="Studio.html#founder">Founder</a></li>
+                  <li><a href="Studio.html#team">Team</a></li>
+                  <li><a href="Studio.html#values">Values</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Work</div>
+                <ul>
+                  <li><a href="Work.html#recent">Recent projects</a></li>
+                  <li><a href="Work.html#archive">Archive</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Contact</div>
+                <ul>
+                  <li><a href="mailto:hello@salaro.com">hello@salaro.com</a></li>
+                  <li><a href="Studio.html">Guildford, Surrey</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-meta">
+              <div>© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</div>
+              <div>Practising since 1995</div>
+            </div>
+          </footer>
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

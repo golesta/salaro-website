@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salaro — Homepage Direction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Header ── */
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 64px; border-bottom: 1px solid var(--line-soft);
+    }
+    .logo { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--ink-strong); letter-spacing: -0.01em; }
+    .logo .dot { color: var(--accent); }
+    .nav { display: flex; gap: 40px; font-size: 14px; color: var(--ink-strong); }
+    .nav a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero { padding: 80px 64px 48px; max-width: 1320px; margin: 0 auto; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 96px; font-weight: 400;
+      line-height: 0.98; letter-spacing: -0.025em;
+      color: var(--ink-strong);
+      margin: 24px 0 0;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent-ink); font-weight: 400; }
+    .hero-right p {
+      font-family: var(--font-display);
+      font-size: 22px; line-height: 1.5;
+      color: var(--ink-soft);
+      font-style: italic; font-weight: 400;
+      margin: 0 0 28px; max-width: 38ch;
+    }
+    .ctas { display: flex; gap: 16px; align-items: center; }
+    .btn-primary {
+      background: var(--ink-strong); color: var(--bg);
+      padding: 14px 24px; border-radius: 2px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      border: 1px solid var(--ink-strong);
+    }
+    .btn-secondary {
+      color: var(--ink-strong);
+      padding: 14px 4px;
+      font-family: var(--font-mono); font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      border-bottom: 1px solid var(--ink-strong);
+    }
+
+    /* ── Diagram block ── */
+    .diagram-block {
+      border-top: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      padding: 56px 0 48px;
+      margin: 0 -64px;
+      background: var(--bg-warm);
+    }
+    .diagram-inner { max-width: 1320px; margin: 0 auto; padding: 0 64px; }
+    .diagram-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 32px;
+    }
+    .diagram-head h2 {
+      font-family: var(--font-display);
+      font-size: 28px; font-weight: 500;
+      color: var(--ink-strong);
+      margin: 0; max-width: 32ch; letter-spacing: -0.01em;
+    }
+
+    /* ── Proof bar ── */
+    .proof {
+      max-width: 1320px; margin: 0 auto;
+      padding: 48px 64px;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 40px; border-bottom: 1px solid var(--line-soft);
+    }
+    .proof-item {
+      font-family: var(--font-display);
+      font-size: 18px; color: var(--ink-soft);
+      font-style: italic;
+    }
+    .proof-num {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--ink-faint); text-transform: uppercase;
+      display: block; margin-bottom: 4px; font-style: normal;
+    }
+
+    /* ── Manifesto strip ── */
+    .manifesto {
+      max-width: 1320px; margin: 0 auto;
+      padding: 96px 64px;
+      display: grid; grid-template-columns: 280px 1fr; gap: 64px;
+    }
+    .manifesto h3 {
+      font-family: var(--font-display);
+      font-size: 36px; line-height: 1.15; font-weight: 400;
+      color: var(--ink-strong); margin: 0; letter-spacing: -0.01em;
+    }
+    .manifesto h3 em { color: var(--accent-ink); font-style: italic; }
+    .manifesto-num {
+      font-family: var(--font-mono);
+      font-size: 11px; letter-spacing: 0.22em;
+      color: var(--accent); text-transform: uppercase;
+    }
+    .manifesto-line { border-top: 1px solid var(--line-soft); padding-top: 16px; margin-bottom: 12px; }
+
+    .footer {
+      padding: 24px 64px;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--line-soft);
+      display: flex; justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="agent-factory.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          {/* Header */}
+          <header className="header">
+            <div className="logo">Salaro<span className="dot">.</span></div>
+            <nav className="nav">
+              <a href="#">Practice</a>
+              <a href="#">Work</a>
+              <a href="#">Studio</a>
+              <a href="#">Writing</a>
+              <a href="#">Contact</a>
+            </nav>
+          </header>
+
+          {/* Hero */}
+          <section className="hero">
+            <div className="hero-grid">
+              <div>
+                <div className="eyebrow">A web consultancy · Est. 1995</div>
+                <h1>The complex builds, delivered with <em>judgment</em>.</h1>
+              </div>
+              <div className="hero-right">
+                <p>
+                  Salaro pairs a multi-agent build system — architect,
+                  researcher, developer, reviewer — with a small team of
+                  senior engineers. For the work bigger agencies turn down,
+                  and the work AI alone cannot finish.
+                </p>
+                <div className="ctas">
+                  <a href="#" className="btn-primary">Start a conversation</a>
+                  <a href="#" className="btn-secondary">See how we build →</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Live diagram */}
+          <section className="diagram-block">
+            <div className="diagram-inner">
+              <div className="diagram-head">
+                <h2>How a Salaro build moves through the studio.</h2>
+                <span className="eyebrow">Live · auto-running</span>
+              </div>
+              <AgentFactoryDiagram width={1200} height={400} />
+            </div>
+          </section>
+
+          {/* Proof bar */}
+          <section className="proof">
+            <div className="proof-item">
+              <span className="proof-num">01 · Tenure</span>
+              30 years of shipped work.
+            </div>
+            <div className="proof-item">
+              <span className="proof-num">02 · Team</span>
+              Senior engineers, no juniors.
+            </div>
+            <div className="proof-item">
+              <span className="proof-num">03 · Method</span>
+              Agents draft, humans decide.
+            </div>
+            <div className="proof-item">
+              <span className="proof-num">04 · Reach</span>
+              UK, Europe, beyond — since 1995.
+            </div>
+          </section>
+
+          {/* Manifesto */}
+          <section className="manifesto">
+            <div>
+              <div className="manifesto-line"><span className="manifesto-num">A note · 01</span></div>
+              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink-faint)', margin: 0 }}>
+                Why we are not<br/>another agency.
+              </p>
+            </div>
+            <div>
+              <h3>
+                Most studios are racing to replace engineers with agents.
+                We do the <em>opposite</em>: we use agents to give our
+                engineers leverage, then put their judgment back in the
+                loop where it counts. <em>The boring middle</em> is
+                automated. The decisions that matter — architecture,
+                trade-offs, what to build at all — stay human.
+              </h3>
+            </div>
+          </section>
+
+          <footer className="footer">
+            <div>© 2026 Salaro · A web consultancy</div>
+            <div>London · Est. 1995</div>
+          </footer>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

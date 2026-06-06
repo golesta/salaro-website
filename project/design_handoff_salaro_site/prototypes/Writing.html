@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salaro — Writing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 64px;
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(120%);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-mark { display: block; }
+    .logo-word { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--ink-strong); letter-spacing: -0.01em; line-height: 1; }
+    .nav { display: flex; gap: 36px; font-size: 14px; color: var(--ink-strong); }
+    .nav a { transition: color 200ms ease; }
+    .nav a:hover { color: var(--accent); }
+    .nav a.active { color: var(--accent); }
+
+    .page-hero { max-width: 1320px; margin: 0 auto; padding: 64px 64px 56px; border-bottom: 1px solid var(--line-soft); }
+    .page-hero .eyebrow { margin-bottom: 28px; }
+    .page-hero h1 { font-family: var(--font-display); font-size: 84px; font-weight: 400; line-height: 0.98; letter-spacing: -0.025em; color: var(--ink-strong); margin: 0 0 32px; max-width: 18ch; }
+    .page-hero h1 em { font-style: italic; color: var(--accent-ink); font-weight: 400; }
+    .page-hero .lede { font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-soft); max-width: 56ch; margin: 0; }
+
+    /* ── Dark footer ── */
+    .footer-dark {
+      background: oklch(0.16 0.02 60);
+      color: oklch(0.72 0.02 60);
+      padding: 80px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1320px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid oklch(0.28 0.02 60);
+    }
+    .footer-brand .logo-word { color: oklch(0.92 0.02 60); }
+    .footer-brand-tag { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: oklch(0.72 0.02 60); margin: 16px 0 0; max-width: 28ch; }
+    .footer-col-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: oklch(0.85 0.015 60); font-family: var(--font-body); font-size: 14px; transition: color 200ms ease; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-meta { max-width: 1320px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(0.55 0.02 60); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 700ms ease, transform 700ms ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    .writing-list { max-width: 1320px; margin: 0 auto; padding: 64px 64px 96px; }
+    .essay { display: grid; grid-template-columns: 160px 1fr 200px; gap: 48px; align-items: baseline; padding: 32px 0; border-top: 1px solid var(--line-soft); }
+    .essay:last-child { border-bottom: 1px solid var(--line-soft); }
+    .essay-date { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); }
+    .essay-body { }
+    .essay h2 { font-family: var(--font-display); font-size: 32px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink-strong); margin: 0 0 12px; }
+    .essay h2 em { font-style: italic; color: var(--accent-ink); }
+    .essay h2 a:hover { color: var(--accent); }
+    .essay-preview { font-family: var(--font-display); font-style: italic; font-size: 18px; line-height: 1.5; color: var(--ink-soft); max-width: 60ch; margin: 0; }
+    .essay-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); text-align: right; }
+    .writing-aside { max-width: 1320px; margin: 64px auto 0; padding: 32px 64px; border-top: 1px solid var(--line-soft); font-family: var(--font-display); font-style: italic; font-size: 18px; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="logo-mark.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          
+          <header className="header">
+            <a href="Salaro Homepage.html" className="logo" aria-label="Salaro home">
+              <LogoMark size={22} />
+              <span className="logo-word">Salaro</span>
+            </a>
+            <nav className="nav">
+              <a href="Salaro Homepage.html">Home</a>
+              <a href="Practice.html">Practice</a>
+              <a href="Work.html">Work</a>
+              <a href="Studio.html">Studio</a>
+              <a href="Writing.html" className="active">Writing</a>
+              <a href="Contact.html">Contact</a>
+            </nav>
+          </header>
+          
+          <section className="page-hero">
+            <div className="eyebrow">Writing · Notes from the studio</div>
+            <h1><em>Essays</em> on what we're learning.</h1>
+            <p className="lede">Short pieces on AI-native delivery, legacy migration, and what twenty-five years in the trade looks like in 2026. Mostly for ourselves, occasionally for clients.</p>
+          </section>
+
+          <section className="writing-list">
+            <article className="essay">
+              <span className="essay-date">04 May 2026</span>
+              <div className="essay-body">
+                <h2><a href="#">Why a ten-year-old with a <em>template</em> will eat most agency work.</a></h2>
+                <p className="essay-preview">Wix is good now. WordPress is good now. The bottom of the agency market is already gone. So what is left for the rest of us, and how do we work on it?</p>
+              </div>
+              <span className="essay-meta">Essay · 8 min</span>
+            </article>
+            <article className="essay">
+              <span className="essay-date">18 Apr 2026</span>
+              <div className="essay-body">
+                <h2><a href="#"><em>DNN in 2026</em>: it's still out there, and it still needs help.</a></h2>
+                <p className="essay-preview">A field note on the surprising number of organisations still running DNN — and how to move them off it without losing the search rankings, the historical content, or the institutional memory.</p>
+              </div>
+              <span className="essay-meta">Field note · 12 min</span>
+            </article>
+            <article className="essay">
+              <span className="essay-date">02 Apr 2026</span>
+              <div className="essay-body">
+                <h2><a href="#"><em>AI for SMEs</em>: a fortnight's primer.</a></h2>
+                <p className="essay-preview">If you run a small business and you want to be more honest about AI than the LinkedIn discourse allows, here is a two-week reading list and a small set of tools to try on Monday.</p>
+              </div>
+              <span className="essay-meta">Primer · 14 min</span>
+            </article>
+            <article className="essay">
+              <span className="essay-date">15 Mar 2026</span>
+              <div className="essay-body">
+                <h2><a href="#"><em>Days, not months</em>: a build diary.</a></h2>
+                <p className="essay-preview">An unusually detailed account of an AI-native build, from the first call on Monday to a live Vercel deployment on the following Friday. What worked, what didn't, where the human had to step in.</p>
+              </div>
+              <span className="essay-meta">Diary · 18 min</span>
+            </article>
+            <div className="writing-aside">
+              More notes as the studio writes them. No subscription, no newsletter — yet.
+            </div>
+          </section>
+
+          
+          <footer className="footer-dark">
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <a href="Salaro Homepage.html" className="logo" style={{ textDecoration: 'none' }}>
+                  <LogoMark size={24} darkBackground />
+                  <span className="logo-word">Salaro</span>
+                </a>
+                <p className="footer-brand-tag">A UK web consultancy. Practising since 1995, AI-native since 2026.</p>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Practice</div>
+                <ul>
+                  <li><a href="Practice.html#build">Build</a></li>
+                  <li><a href="Practice.html#migrate">Migrate</a></li>
+                  <li><a href="Practice.html#advise">Advise</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Studio</div>
+                <ul>
+                  <li><a href="Studio.html#founder">Founder</a></li>
+                  <li><a href="Studio.html#team">Team</a></li>
+                  <li><a href="Studio.html#values">Values</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Work</div>
+                <ul>
+                  <li><a href="Work.html#recent">Recent projects</a></li>
+                  <li><a href="Work.html#archive">Archive</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Contact</div>
+                <ul>
+                  <li><a href="mailto:hello@salaro.com">hello@salaro.com</a></li>
+                  <li><a href="Studio.html">Guildford, Surrey</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-meta">
+              <div>© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</div>
+              <div>Practising since 1995</div>
+            </div>
+          </footer>
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

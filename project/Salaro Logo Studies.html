@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salaro — Logo studies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+SC:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: oklch(0.97 0.008 85);
+      --bg-warm: oklch(0.945 0.014 80);
+      --bg-dark: oklch(0.16 0.02 60);
+      --ink: oklch(0.22 0.02 60);
+      --ink-strong: oklch(0.14 0.02 60);
+      --ink-soft: oklch(0.42 0.025 60);
+      --ink-faint: oklch(0.58 0.02 60);
+      --line: oklch(0.82 0.015 60 / 0.6);
+      --line-soft: oklch(0.82 0.015 60 / 0.3);
+      --accent: oklch(0.48 0.13 35);
+      --accent-ink: oklch(0.32 0.1 35);
+      --font-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+      --font-display-sc: 'Cormorant SC', 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Inter Tight', -apple-system, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; }
+
+    /* Each artboard inner styles */
+    .logo-board {
+      background: var(--bg);
+      width: 100%; height: 100%;
+      padding: 28px 32px;
+      display: flex; flex-direction: column;
+      gap: 18px;
+    }
+    .logo-board.dark { background: var(--bg-dark); color: oklch(0.85 0.015 60); }
+    .logo-board.warm { background: var(--bg-warm); }
+
+    .lb-tag {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .logo-board.dark .lb-tag { color: oklch(0.6 0.02 60); }
+
+    .lb-note {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 13px; line-height: 1.4;
+      color: var(--ink-soft);
+      margin: 0; max-width: 44ch;
+    }
+    .logo-board.dark .lb-note { color: oklch(0.7 0.02 60); }
+
+    .lb-divider {
+      height: 1px;
+      background: var(--line-soft);
+      margin: 4px 0;
+    }
+    .logo-board.dark .lb-divider { background: oklch(0.28 0.02 60); }
+
+    .lb-rows {
+      display: flex; flex-direction: column;
+      gap: 18px;
+      margin-top: auto;
+    }
+    .lb-row {
+      display: flex; align-items: center; gap: 24px;
+    }
+    .lb-row-label {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      width: 64px; flex-shrink: 0;
+    }
+    .logo-board.dark .lb-row-label { color: oklch(0.55 0.02 60); }
+
+    /* ────────────────────────────────── LOGO COMPONENTS ────────── */
+
+    /* Base wordmark */
+    .wm {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--ink-strong);
+      letter-spacing: -0.01em;
+      line-height: 1;
+    }
+    .logo-board.dark .wm { color: oklch(0.92 0.02 60); }
+
+    /* Sizes */
+    .wm.s-small { font-size: 22px; }
+    .wm.s-header { font-size: 26px; }
+    .wm.s-hero { font-size: 68px; }
+    .wm.s-fav { font-size: 22px; }
+
+    /* Italic variant */
+    .wm.italic { font-style: italic; font-weight: 400; }
+
+    /* Small caps */
+    .wm.sc {
+      font-family: var(--font-display-sc);
+      letter-spacing: 0.06em;
+      font-weight: 500;
+    }
+
+    /* Periods/dots/marks */
+    .accent-dot { color: var(--accent); }
+    .accent-letter { color: var(--accent); }
+
+    /* Hairline under wordmark */
+    .wm-with-rule {
+      display: inline-flex; flex-direction: column;
+      align-items: flex-start; gap: 4px;
+    }
+    .wm-rule {
+      width: 100%;
+      height: 1px;
+      background: var(--accent);
+    }
+    .wm-rule.thicker { height: 2px; }
+
+    /* Pictogram mark (conveyor + dot) */
+    .mark-conveyor {
+      display: inline-flex; align-items: center;
+    }
+    .mark-conveyor svg { display: block; }
+
+    /* Bracket lockup */
+    .wm-bracket {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      font-family: var(--font-display);
+    }
+    .wm-bracket .bracket {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-weight: 400;
+      font-size: 0.6em;
+      line-height: 1;
+      transform: translateY(-0.06em);
+    }
+
+    /* Descriptor lockup */
+    .wm-lockup {
+      display: inline-flex; flex-direction: column;
+      align-items: flex-start; gap: 6px;
+    }
+    .wm-lockup .lockup-tag {
+      font-family: var(--font-mono);
+      font-size: 9px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      padding-left: 2px;
+    }
+    .logo-board.dark .wm-lockup .lockup-tag { color: oklch(0.6 0.02 60); }
+
+    /* Header mock for context */
+    .header-mock {
+      width: 100%;
+      padding: 12px 18px;
+      background: var(--bg-warm);
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo-board.dark .header-mock {
+      background: oklch(0.22 0.02 60);
+      border-color: oklch(0.32 0.02 60);
+    }
+    .header-mock-nav {
+      display: flex; gap: 18px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--ink-strong);
+    }
+    .logo-board.dark .header-mock-nav { color: oklch(0.85 0.02 60); }
+
+    /* Favicon swatch — shows the mark/initial in a 36px tile */
+    .favicon-tile {
+      width: 36px; height: 36px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      color: var(--ink-strong);
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 500;
+    }
+    .favicon-tile.dark { background: var(--ink-strong); color: var(--bg); border-color: var(--ink-strong); }
+    .favicon-tile .accent-dot { color: var(--accent); }
+
+    /* Top intro panel */
+    .intro {
+      padding: 32px 40px;
+      background: var(--bg-warm);
+      border-radius: 4px;
+      display: flex; flex-direction: column;
+      gap: 16px;
+      height: 100%;
+    }
+    .intro h1 {
+      font-family: var(--font-display);
+      font-size: 36px; font-weight: 400;
+      line-height: 1.05; letter-spacing: -0.015em;
+      color: var(--ink-strong);
+      margin: 0;
+    }
+    .intro h1 em { font-style: italic; color: var(--accent-ink); }
+    .intro p {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 16px; line-height: 1.5;
+      color: var(--ink-soft);
+      margin: 0;
+      max-width: 50ch;
+    }
+    .intro .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+
+  <script type="text/babel">
+    /* ─── Re-usable building blocks for each artboard ─────────────── */
+
+    function Board({ name, note, dark, warm, children }) {
+      return (
+        <div className={'logo-board' + (dark ? ' dark' : '') + (warm ? ' warm' : '')}>
+          <div className="lb-tag">{name}</div>
+          <p className="lb-note">{note}</p>
+          <div className="lb-divider" />
+          <div className="lb-rows">{children}</div>
+        </div>
+      );
+    }
+
+    function Row({ label, children }) {
+      return (
+        <div className="lb-row">
+          <div className="lb-row-label">{label}</div>
+          {children}
+        </div>
+      );
+    }
+
+    function HeaderMock({ logo, dark }) {
+      return (
+        <div className="header-mock">
+          {logo}
+          <div className="header-mock-nav">
+            <span>Practice</span><span>Work</span><span>Studio</span><span>Contact</span>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── Mark variants (small SVG pictograms) ───────────────────── */
+
+    function MarkConveyor({ size = 22, dark = false }) {
+      const stroke = dark ? 'oklch(0.92 0.02 60)' : 'var(--ink-strong)';
+      return (
+        <svg width={size} height={size} viewBox="0 0 22 22" aria-hidden="true">
+          <circle cx="11" cy="6" r="2.6" fill="var(--accent)" />
+          <line x1="2" y1="16" x2="20" y2="16" stroke={stroke} strokeWidth="1.6" strokeLinecap="round" />
+        </svg>
+      );
+    }
+
+    /* ─── Wordmark variants ───────────────────────────────────────── */
+
+    // A. Plain Cormorant — current direction, period removed
+    const PlainWM = ({ size, dark }) =>
+      <span className={'wm s-' + size}>Salaro</span>;
+
+    // B. With accent period (current shipped)
+    const PeriodWM = ({ size, dark }) =>
+      <span className={'wm s-' + size}>Salaro<span className="accent-dot">.</span></span>;
+
+    // C. Italic
+    const ItalicWM = ({ size, dark }) =>
+      <span className={'wm italic s-' + size}>Salaro</span>;
+
+    // D. Small caps
+    const ScWM = ({ size, dark }) =>
+      <span className={'wm sc s-' + size}>SALARO</span>;
+
+    // E. Tinted "a" — letter as the accent, no separate mark
+    const TintedAWM = ({ size, dark }) =>
+      <span className={'wm s-' + size}>Sal<span className="accent-letter">a</span>ro</span>;
+
+    // F. With terracotta hairline beneath
+    const RuledWM = ({ size, dark }) => (
+      <span className="wm-with-rule">
+        <span className={'wm s-' + size}>Salaro</span>
+        <span className="wm-rule" />
+      </span>
+    );
+
+    // G. Bracketed — editorial mono brackets framing the wordmark
+    const BracketWM = ({ size, dark }) => (
+      <span className="wm-bracket">
+        <span className="bracket">[</span>
+        <span className={'wm s-' + size}>Salaro</span>
+        <span className="bracket">]</span>
+      </span>
+    );
+
+    // H. Descriptor lockup — wordmark over tiny mono descriptor
+    const DescriptorWM = ({ size, dark }) => (
+      <span className="wm-lockup">
+        <span className={'wm s-' + size}>Salaro</span>
+        <span className="lockup-tag">A UK web consultancy</span>
+      </span>
+    );
+
+    // I. With existing conveyor mark (for reference)
+    const MarkLockup = ({ size, dark }) => {
+      const px = size === 'hero' ? 56 : size === 'header' ? 22 : 22;
+      return (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: size === 'hero' ? 18 : 10 }}>
+          <MarkConveyor size={px} dark={dark} />
+          <span className={'wm s-' + size}>Salaro</span>
+        </span>
+      );
+    };
+
+    // J. Rotated dot — single terracotta dot, larger, before wordmark (subtle, single-point)
+    const SinglePointWM = ({ size, dark }) => {
+      const px = size === 'hero' ? 14 : 7;
+      return (
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: size === 'hero' ? 22 : 12 }}>
+          <span style={{ width: px, height: px, borderRadius: '50%', background: 'var(--accent)', flexShrink: 0 }} />
+          <span className={'wm s-' + size}>Salaro</span>
+        </span>
+      );
+    };
+
+    /* ─── Artboard composition ────────────────────────────────────── */
+
+    function LogoArtboard({ name, note, dark, warm, Logo }) {
+      return (
+        <Board name={name} note={note} dark={dark} warm={warm}>
+          <Row label="Hero">
+            <Logo size="hero" dark={dark} />
+          </Row>
+          <Row label="Header">
+            <HeaderMock logo={<Logo size="header" dark={dark} />} dark={dark} />
+          </Row>
+          <Row label="Favicon">
+            <FaviconPreview Logo={Logo} dark={dark} />
+          </Row>
+        </Board>
+      );
+    }
+
+    function FaviconPreview({ Logo, dark }) {
+      // Render a 36x36 favicon-style tile using "S." or initial
+      return (
+        <div style={{ display: 'flex', gap: 10 }}>
+          <div className="favicon-tile">
+            S<span className="accent-dot">.</span>
+          </div>
+          <div className="favicon-tile dark">
+            S<span className="accent-dot">.</span>
+          </div>
+        </div>
+      );
+    }
+
+    /* ─── The canvas ──────────────────────────────────────────────── */
+
+    function App() {
+      return (
+        <DesignCanvas title="Salaro — Logo studies">
+          <DCSection id="intro" title="Brief">
+            <DCArtboard id="intro-card" label="The brief" width={760} height={460}>
+              <div className="intro">
+                <span className="eyebrow">Logo studies · May 2026</span>
+                <h1>The wordmark <em>is</em> the logo.</h1>
+                <p>
+                  Your team's submitted marks all use a futuristic geometric sans (Eurostile family) — sporty, retro-tech. Salaro's site is the opposite: editorial, classical, considered.
+                </p>
+                <p>
+                  Below are ten options, all set in the site's own typeface (Cormorant Garamond) so the logo sits at home in the design. Each shown at hero size, header size, and as a favicon.
+                </p>
+                <p>
+                  Recommendation in <strong style={{ color: 'var(--accent-ink)', fontStyle: 'italic', fontWeight: 500 }}>terracotta italic</strong>.
+                </p>
+              </div>
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="wordmark-only" title="Wordmark only — no separate mark">
+            <DCArtboard id="opt-a" label="A · Plain wordmark" width={760} height={460}>
+              <LogoArtboard
+                name="Option A · Plain"
+                note="The wordmark, unadorned. Cormorant Garamond medium. Quietest, most editorial — reads like the masthead of a small magazine. My recommendation."
+                Logo={PlainWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-b" label="B · Accent period (currently shipped)" width={760} height={460}>
+              <LogoArtboard
+                name="Option B · Period"
+                note="The version currently on the site. Terracotta full stop after Salaro — a tiny visual signature. Works, but the period implies a brand mark where there isn't one."
+                Logo={PeriodWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-c" label="C · Italic wordmark" width={760} height={460}>
+              <LogoArtboard
+                name="Option C · Italic"
+                note="Salaro in italic Cormorant — leans into the editorial italics already used across the site. More personal, slightly more flair. Risk: italic logos are unusual and can feel handwritten."
+                Logo={ItalicWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-d" label="D · Small caps" width={760} height={460}>
+              <LogoArtboard
+                name="Option D · Small caps"
+                note="Cormorant Small Caps with positive letter-spacing. Reads as 'consultancy nameplate' — solicitor, architecture firm, design studio. Most authoritative."
+                Logo={ScWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-e" label="E · Tinted A" width={760} height={460}>
+              <LogoArtboard
+                name="Option E · Tinted 'a'"
+                note="A single letter — the first 'a' — picks up the terracotta accent. The accent lives inside the word, not next to it. Clever, restrained, unique to Salaro."
+                Logo={TintedAWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-f" label="F · Hairline underline" width={760} height={460}>
+              <LogoArtboard
+                name="Option F · Hairline rule"
+                note="A thin terracotta line under the wordmark. Mimics the hairlines already used as section dividers across the site. Feels like a stamp or seal."
+                Logo={RuledWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-g" label="G · Bracketed" width={760} height={460}>
+              <LogoArtboard
+                name="Option G · Bracketed"
+                note="Editorial brackets framing the wordmark — feels like a citation in a literary journal. Distinctive but risks reading as 'placeholder' or 'work-in-progress'."
+                Logo={BracketWM}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-h" label="H · With descriptor" width={760} height={460}>
+              <LogoArtboard
+                name="Option H · With descriptor"
+                note="Wordmark stacked over a tiny mono descriptor ('A UK web consultancy'). Self-explaining lockup — but the descriptor can be repetitive next to the page eyebrows."
+                Logo={DescriptorWM}
+              />
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="with-mark" title="Wordmark + mark — if you decide you want one">
+            <DCArtboard id="opt-i" label="I · Conveyor mark (current)" width={760} height={460}>
+              <LogoArtboard
+                name="Option I · Conveyor + dot"
+                note="The mark we built earlier — a terracotta dot above a horizontal line. A pictogram of the agent-factory diagram. Works as a standalone favicon."
+                Logo={MarkLockup}
+              />
+            </DCArtboard>
+
+            <DCArtboard id="opt-j" label="J · Single point" width={760} height={460}>
+              <LogoArtboard
+                name="Option J · Single point"
+                note="One terracotta dot before the wordmark — the minimum possible mark. Reads as 'live indicator', 'recording', 'on-air'. Suggests the studio is active without depicting anything."
+                Logo={SinglePointWM}
+              />
+            </DCArtboard>
+          </DCSection>
+
+          <DCSection id="dark" title="On the dark footer">
+            <DCArtboard id="dark-a" label="Plain on dark" width={760} height={300} dark>
+              <Board name="On dark · Option A" note="The plain wordmark, reversed out on the footer surface." dark>
+                <Row label="Hero"><PlainWM size="hero" dark /></Row>
+                <Row label="Header"><PlainWM size="header" dark /></Row>
+              </Board>
+            </DCArtboard>
+            <DCArtboard id="dark-e" label="Tinted A on dark" width={760} height={300} dark>
+              <Board name="On dark · Option E" note="The tinted-A version on the dark footer — terracotta letter glows nicely." dark>
+                <Row label="Hero"><TintedAWM size="hero" dark /></Row>
+                <Row label="Header"><TintedAWM size="header" dark /></Row>
+              </Board>
+            </DCArtboard>
+            <DCArtboard id="dark-i" label="Conveyor mark on dark" width={760} height={300} dark>
+              <Board name="On dark · Option I" note="The conveyor mark with wordmark, on the footer." dark>
+                <Row label="Hero"><MarkLockup size="hero" dark /></Row>
+                <Row label="Header"><MarkLockup size="header" dark /></Row>
+              </Board>
+            </DCArtboard>
+          </DCSection>
+        </DesignCanvas>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

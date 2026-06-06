@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Salaro — Practice</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 64px;
+      background: var(--bg-warm);
+      border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: saturate(120%);
+    }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .logo-mark { display: block; }
+    .logo-word { font-family: var(--font-display); font-size: 26px; font-weight: 500; color: var(--ink-strong); letter-spacing: -0.01em; line-height: 1; }
+    .nav { display: flex; gap: 36px; font-size: 14px; color: var(--ink-strong); }
+    .nav a { transition: color 200ms ease; }
+    .nav a:hover { color: var(--accent); }
+    .nav a.active { color: var(--accent); }
+
+    .page-hero { max-width: 1320px; margin: 0 auto; padding: 64px 64px 56px; border-bottom: 1px solid var(--line-soft); }
+    .page-hero .eyebrow { margin-bottom: 28px; }
+    .page-hero h1 { font-family: var(--font-display); font-size: 84px; font-weight: 400; line-height: 0.98; letter-spacing: -0.025em; color: var(--ink-strong); margin: 0 0 32px; max-width: 18ch; }
+    .page-hero h1 em { font-style: italic; color: var(--accent-ink); font-weight: 400; }
+    .page-hero .lede { font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-soft); max-width: 56ch; margin: 0; }
+
+    /* ── Dark footer ── */
+    .footer-dark {
+      background: oklch(0.16 0.02 60);
+      color: oklch(0.72 0.02 60);
+      padding: 80px 64px 32px;
+    }
+    .footer-grid {
+      max-width: 1320px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      gap: 64px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid oklch(0.28 0.02 60);
+    }
+    .footer-brand .logo-word { color: oklch(0.92 0.02 60); }
+    .footer-brand-tag { font-family: var(--font-display); font-style: italic; font-size: 16px; line-height: 1.5; color: oklch(0.72 0.02 60); margin: 16px 0 0; max-width: 28ch; }
+    .footer-col-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { color: oklch(0.85 0.015 60); font-family: var(--font-body); font-size: 14px; transition: color 200ms ease; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-meta { max-width: 1320px; margin: 0 auto; padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: oklch(0.55 0.02 60); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 700ms ease, transform 700ms ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    .practice-section { max-width: 1320px; margin: 0 auto; padding: 96px 64px; border-bottom: 1px solid var(--line-soft); display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
+    .practice-section:last-of-type { border-bottom: none; }
+    .practice-section .side-num { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.22em; color: var(--accent); text-transform: uppercase; margin-bottom: 12px; }
+    .practice-section .side-line { border-top: 1px solid var(--line-soft); padding-top: 16px; margin-bottom: 16px; }
+    .practice-section .side-meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); line-height: 1.8; }
+    .practice-section h2 { font-family: var(--font-display); font-size: 56px; font-weight: 400; line-height: 1; letter-spacing: -0.02em; color: var(--ink-strong); margin: 0 0 24px; max-width: 16ch; }
+    .practice-section h2 em { font-style: italic; color: var(--accent-ink); }
+    .practice-section .body { font-family: var(--font-display); font-style: italic; font-size: 22px; line-height: 1.5; color: var(--ink-soft); max-width: 52ch; margin: 0 0 40px; }
+    .practice-section .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 24px; }
+    .practice-section .step { border-top: 1px solid var(--ink-strong); padding-top: 16px; }
+    .practice-section .step-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-faint); display: block; margin-bottom: 10px; }
+    .practice-section .step-title { font-family: var(--font-display); font-size: 20px; font-weight: 500; letter-spacing: -0.005em; color: var(--ink-strong); margin: 0 0 8px; }
+    .practice-section .step-body { font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+    .practice-section .bullets { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px; }
+    .practice-section .bullets li { font-family: var(--font-body); font-size: 15px; color: var(--ink-strong); padding-left: 18px; position: relative; line-height: 1.5; }
+    .practice-section .bullets li::before { content: "·"; color: var(--accent); position: absolute; left: 0; font-weight: 700; font-size: 20px; line-height: 1; top: 0; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="logo-mark.jsx"></script>
+
+  <script type="text/babel">
+    function App() {
+      return (
+        <>
+          
+          <header className="header">
+            <a href="Salaro Homepage.html" className="logo" aria-label="Salaro home">
+              <LogoMark size={22} />
+              <span className="logo-word">Salaro</span>
+            </a>
+            <nav className="nav">
+              <a href="Salaro Homepage.html">Home</a>
+              <a href="Practice.html" className="active">Practice</a>
+              <a href="Work.html">Work</a>
+              <a href="Studio.html">Studio</a>
+              <a href="Writing.html">Writing</a>
+              <a href="Contact.html">Contact</a>
+            </nav>
+          </header>
+          
+          <section className="page-hero">
+            <div className="eyebrow">Practice · 2026</div>
+            <h1>Three lines of work. <em>Done properly.</em></h1>
+            <p className="lede">We are small on purpose. Three things we do well, three we leave to others. Each can be scoped tightly and shipped through your own GitHub and Vercel.</p>
+          </section>
+
+          <section className="practice-section">
+            <div>
+              <div className="side-line"><span className="side-num">01 · Build</span></div>
+              <div className="side-meta">For SMEs<br/>Fixed scope<br/>2–6 weeks<br/>You own the repo</div>
+            </div>
+            <div>
+              <h2>AI-native <em>web builds</em>.</h2>
+              <p className="body">From a one-page brief to a production site. Claude designs the surface, our senior engineers refine and instrument it, and we ship through your GitHub to Vercel — usually inside a fortnight.</p>
+              <div className="steps">
+                <div className="step"><span className="step-num">Step 01</span><h3 className="step-title">Brief</h3><div className="step-body">Half-day call, fixed proposal back inside 48 hours.</div></div>
+                <div className="step"><span className="step-num">Step 02</span><h3 className="step-title">AI draft</h3><div className="step-body">Claude builds the visual + structural draft, reviewed live.</div></div>
+                <div className="step"><span className="step-num">Step 03</span><h3 className="step-title">Engineer</h3><div className="step-body">Our team ports to Next.js / your stack, hardens, accessibilises.</div></div>
+                <div className="step"><span className="step-num">Step 04</span><h3 className="step-title">Ship</h3><div className="step-body">Pushed to your GitHub, deployed to Vercel. Keys are yours.</div></div>
+              </div>
+            </div>
+          </section>
+
+          <section className="practice-section">
+            <div>
+              <div className="side-line"><span className="side-num">02 · Migrate</span></div>
+              <div className="side-meta">Niche expertise<br/>DNN since 2003<br/>UK &amp; EU<br/>Zero-downtime cutover</div>
+            </div>
+            <div>
+              <h2>DNN <em>legacy migrations</em>.</h2>
+              <p className="body">Almost nobody still understands DNN. We do — fifteen years of it. If your site is trapped on an old DNN install, orphaned by a vanished agency, or recovering from a ransomware event, we can move it onto something modern without losing the content, the URLs, or the search rankings.</p>
+              <ul className="bullets">
+                <li>Audit of the existing DNN install, modules and skinning</li>
+                <li>Content extraction with structure preserved</li>
+                <li>URL mapping so SEO survives the move</li>
+                <li>Re-platform to Next.js, WordPress, or modern DNN</li>
+                <li>Asset and media migration</li>
+                <li>Ransomware-recovered installs welcome</li>
+              </ul>
+            </div>
+          </section>
+
+          <section className="practice-section">
+            <div>
+              <div className="side-line"><span className="side-num">03 · Advise</span></div>
+              <div className="side-meta">Advisory<br/>Half-day workshops<br/>30-day pilots<br/>Ongoing retainer</div>
+            </div>
+            <div>
+              <h2>AI for <em>small businesses</em>.</h2>
+              <p className="body">Most SMEs know AI matters and don't know where to begin. We help you pick the few tools that actually pay back for your business, train your team to use them, and ship a pilot — without the enterprise overhead or the consultant theatre.</p>
+              <div className="steps">
+                <div className="step"><span className="step-num">Format 01</span><h3 className="step-title">Half-day</h3><div className="step-body">A working session, your team and ours. Leave with three things to try on Monday.</div></div>
+                <div className="step"><span className="step-num">Format 02</span><h3 className="step-title">30-day pilot</h3><div className="step-body">One process picked, one tool deployed, one outcome measured.</div></div>
+                <div className="step"><span className="step-num">Format 03</span><h3 className="step-title">Retainer</h3><div className="step-body">A monthly call and async support. For owners who want a sparring partner.</div></div>
+                <div className="step"><span className="step-num">Format 04</span><h3 className="step-title">Build &amp; advise</h3><div className="step-body">Pair our build line with the advisory work, on one engagement.</div></div>
+              </div>
+            </div>
+          </section>
+
+          
+          <footer className="footer-dark">
+            <div className="footer-grid">
+              <div className="footer-brand">
+                <a href="Salaro Homepage.html" className="logo" style={{ textDecoration: 'none' }}>
+                  <LogoMark size={24} darkBackground />
+                  <span className="logo-word">Salaro</span>
+                </a>
+                <p className="footer-brand-tag">A UK web consultancy. Practising since 1995, AI-native since 2026.</p>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Practice</div>
+                <ul>
+                  <li><a href="Practice.html#build">Build</a></li>
+                  <li><a href="Practice.html#migrate">Migrate</a></li>
+                  <li><a href="Practice.html#advise">Advise</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Studio</div>
+                <ul>
+                  <li><a href="Studio.html#founder">Founder</a></li>
+                  <li><a href="Studio.html#team">Team</a></li>
+                  <li><a href="Studio.html#values">Values</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Work</div>
+                <ul>
+                  <li><a href="Work.html#recent">Recent projects</a></li>
+                  <li><a href="Work.html#archive">Archive</a></li>
+                </ul>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Contact</div>
+                <ul>
+                  <li><a href="mailto:hello@salaro.com">hello@salaro.com</a></li>
+                  <li><a href="Studio.html">Guildford, Surrey</a></li>
+                  <li><a href="#">LinkedIn</a></li>
+                </ul>
+              </div>
+            </div>
+            <div className="footer-meta">
+              <div>© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</div>
+              <div>Practising since 1995</div>
+            </div>
+          </footer>
+        </>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
