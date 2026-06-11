@@ -1,23 +1,14 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
-    <footer className="bg-navy border-t border-gray-800 py-5">
-      <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-center px-3">
-          <div className="mb-4 md:mb-0">
-            <p className="text-gray-400">
-              © 2026 Salaro. All rights reserved. | Guildford, Surrey, UK
-            </p>
-          </div>
-          
-          <div className="flex items-center space-x-6">
-            <a
-              href="https://uk.linkedin.com/pub/salar-golestanian/1/178/778"
-              className="text-gray-400 hover:text-amber transition-colors duration-200"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              LinkedIn
-            </a>
+    <footer className="bg-[#F9F5F3] px-6 py-12 text-[#6B6B6B] transition-colors duration-300 dark:bg-[#050505] dark:text-slate-400">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+          <div className="text-sm">© {new Date().getFullYear()} Salaro — All rights reserved.</div>
+          <div className="flex gap-4">
+            <Link href="/privacy" className="text-sm transition-colors hover:text-[#1A1A1A] dark:hover:text-white">Privacy</Link>
+            <Link href="/terms" className="text-sm transition-colors hover:text-[#1A1A1A] dark:hover:text-white">Terms</Link>
           </div>
         </div>
       </div>

@@ -1,246 +1,131 @@
-import Header from '../components/Header';
-import SiteFooter from '../components/SiteFooter';
-import AgentFactoryDiagram from '../components/AgentFactoryDiagram';
-import Reveal from '../components/Reveal';
+import Image from 'next/image'
+import ThemeToggle from '../components/ThemeToggle'
+import HeroMockup from '../components/HeroMockup'
+import MarqueeStrip from '../components/MarqueeStrip'
+import MetricsBand from '../components/MetricsBand'
+import WorkShowcase from '../components/WorkShowcase'
+import Testimonials from '../components/Testimonials'
+import FAQ from '../components/FAQ'
+import ContactSection from '../components/ContactSection'
+import FinalCta from '../components/FinalCta'
+import Footer from '../components/Footer'
+import { navLinks, hero, services, faqs } from '../lib/siteContent'
 
 export default function Home() {
   return (
-    <main>
-      <Header />
+    <main className="min-h-screen bg-[#F9F5F3] text-[#1A1A1A] transition-colors duration-300 dark:bg-[#080808] dark:text-white">
+      <header className="sticky top-0 z-50 border-b border-brand/10 bg-[#F9F5F3]/80 backdrop-blur-md transition-colors duration-300 dark:border-brand/15 dark:bg-[#080808]/80">
+        <div className="mx-auto grid max-w-7xl items-center gap-4 px-6 py-4 md:grid-cols-[auto_1fr_auto]">
+          <a href="#" className="text-lg font-semibold tracking-[0.35em] text-[#1A1A1A] dark:text-white md:text-xl" style={{ fontFamily: 'Georgia, Cambria, "Times New Roman", serif' }}>
+            SALARO
+          </a>
 
-      <section className="hero">
-        <div className="hero-grid">
-          <div>
-            <div className="eyebrow">UK web consultancy · Practising since 1995 · AI-native since 2026</div>
-            <h1>For UK businesses that have <em>outgrown</em> a template.</h1>
+          <nav className="hidden items-center justify-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm text-[#6B6B6B] transition hover:text-[#1A1A1A] dark:text-slate-300 dark:hover:text-white"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="flex items-center justify-end gap-3">
+            <ThemeToggle />
+            <a
+              href="#contact"
+              className="hidden rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-brand/20 transition duration-200 hover:bg-brand-light md:inline-flex"
+            >
+              Get a quote
+            </a>
           </div>
-          <div className="hero-right">
-            <p>A boutique technical consultancy. We deploy an architect, a researcher, a developer, and a reviewer — working in sequence, under human judgment — to ship work that a generalist agency can't.</p>
-            <div className="ctas">
-              <a className="btn-primary" href="tel:+441483870170">Phone +44 1483 870170</a>
-              <a className="btn-secondary" href="/contact">Take your business online →</a>
+        </div>
+      </header>
+
+      <section className="relative overflow-hidden px-6 pb-24 pt-16 sm:pt-20 lg:pb-32">
+        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-brand/20 blur-[120px] opacity-20 dark:opacity-20" />
+        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div className="space-y-8">
+            <span className="inline-flex rounded-full border border-brand/30 bg-brand/10 px-4 py-2 text-xs uppercase tracking-[0.3em] text-brand">
+              {hero.eyebrow}
+            </span>
+            <h1 className="max-w-3xl text-5xl font-semibold leading-tight tracking-[-0.03em] text-[#1A1A1A] sm:text-6xl dark:text-white">
+              {hero.title}
+            </h1>
+            <p className="max-w-xl text-base leading-8 text-[#6B6B6B] sm:text-lg dark:text-slate-300">
+              {hero.subtitle}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <a href="#pricing" className="rounded-3xl bg-brand px-6 py-4 text-sm font-semibold text-white transition hover:bg-brand-light">
+                {hero.ctaPrimary}
+              </a>
+              <a href="#contact" className="rounded-3xl border border-brand/20 bg-brand/5 px-6 py-4 text-sm font-semibold text-[#1A1A1A] transition hover:bg-brand/10 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10">
+                {hero.ctaSecondary}
+              </a>
             </div>
+            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#6B6B6B] dark:text-slate-400">
+              <div className="flex -space-x-3">
+                {hero.avatars.map((avatar) => (
+                  <div key={avatar.name} className="relative h-12 w-12 overflow-hidden rounded-full border-2 border-[#F9F5F3] bg-brand/10 dark:border-[#080808] dark:bg-white/10">
+                    <Image src={avatar.src} alt={avatar.name} fill sizes="48px" className="object-cover" />
+                  </div>
+                ))}
+              </div>
+              <p>{hero.trustText}</p>
+            </div>
+            <div className="grid max-w-2xl grid-cols-1 gap-4 sm:grid-cols-3">
+              {hero.stats.map((item) => (
+                <div key={item.label} className="rounded-[1.75rem] border border-brand/10 bg-brand/5 px-5 py-4 text-center shadow-sm transition-colors duration-300 dark:border-white/10 dark:bg-white/5 dark:shadow-[0_18px_50px_rgba(0,0,0,0.2)]">
+                  <p className="text-2xl font-semibold text-[#1A1A1A] dark:text-white">{item.value}</p>
+                  <p className="mt-2 text-sm text-[#6B6B6B] dark:text-slate-300">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <HeroMockup />
+        </div>
+      </section>
+
+      <MarqueeStrip />
+
+      <section id="services" className="px-6 py-24 transition-colors duration-300">
+        <div className="mx-auto max-w-7xl space-y-12">
+          <div className="space-y-3 text-center">
+            <p className="text-sm uppercase tracking-[0.3em] text-brand/80">What We Do</p>
+            <h2 className="text-4xl font-semibold tracking-tight text-[#1A1A1A] sm:text-5xl dark:text-white">
+              Comprehensive Digital Solutions
+            </h2>
+            <p className="mx-auto max-w-2xl text-[#6B6B6B] dark:text-slate-300">
+              From web development to AI, we craft digital experiences that drive results
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="group relative overflow-hidden rounded-2xl border border-brand/15 bg-brand/5 p-6 backdrop-blur transition hover:border-brand/50 hover:bg-brand/10 dark:border-white/10 dark:bg-white/5 dark:hover:border-brand/50 dark:hover:bg-white/10"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-brand/20 to-transparent opacity-0 transition group-hover:opacity-100 dark:from-brand/10" />
+                <div className="relative space-y-3">
+                  <div className="text-4xl font-bold text-brand/40 transition group-hover:text-brand/60">●</div>
+                  <h3 className="text-lg font-semibold text-[#1A1A1A] dark:text-white">{service.title}</h3>
+                  <p className="text-sm text-[#6B6B6B] dark:text-slate-300">{service.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <Reveal>
-        <section className="diagram-block">
-          <div className="diagram-inner">
-            <div className="diagram-head">
-              <h2>Technology architecture — <em>how we ship</em>.</h2>
-              <span className="eyebrow">Live · auto-running</span>
-            </div>
-            <AgentFactoryDiagram width={1200} height={400} />
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="services">
-          <div className="services-head">
-            <h2>Our <em>services</em>.</h2>
-            <span className="eyebrow">Services</span>
-          </div>
-          <div className="service-grid-4">
-            <div className="service" id="web-development">
-              <span className="service-num">01 · Build</span>
-              <h4><em>Web</em> development.</h4>
-              <p>Millions of online websites — what's going to set yours apart? We design and build platforms made to stand out.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-            <div className="service" id="ecommerce">
-              <span className="service-num">02 · Migrate</span>
-              <h4><em>E-commerce</em> solution.</h4>
-              <p>Whether you're selling products, services or just running a catalogue — we build the right webshop for it.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-            <div className="service" id="apps">
-              <span className="service-num">03 · Build</span>
-              <h4><em>Apps</em> development.</h4>
-              <p>Mobile, iOS and Android — rich native and cross-platform apps built to production quality.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-            <div className="service" id="ai-development">
-              <span className="service-num">04 · Advise</span>
-              <h4><em>AI</em> development.</h4>
-              <p>Key techniques include machine learning, deep learning, natural language and computer vision.</p>
-              <div className="service-meta">Read more</div>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="proof">
-          <div className="proof-item">
-            <span className="proof-num">01 · Founded</span>
-            Practising since 1995.
-          </div>
-          <div className="proof-item">
-            <span className="proof-num">02 · Location</span>
-            Surrey &amp; London, UK.
-          </div>
-          <div className="proof-item">
-            <span className="proof-num">03 · Approach</span>
-            AI-native since 2026.
-          </div>
-          <div className="proof-item">
-            <span className="proof-num">04 · Focus</span>
-            Boutique technical consultancy.
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="mobile-env">
-          <div className="mobile-env-head">
-            <span className="eyebrow">Mobile development environment</span>
-            <h2>Rich native apps, <em>any device</em>.</h2>
-            <p>We handle device and OS compatibility to build rich native apps — across iOS and Android, at scale.</p>
-            <div className="store-badges">
-              <a className="store-badge" href="#" aria-label="Download on the App Store">App Store</a>
-              <a className="store-badge" href="#" aria-label="Get it on Google Play">Google Play</a>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="webshop">
-          <div className="webshop-bg"></div>
-             <div className="webshop-inner">
-          <div className="webshop-grid">
-            <div className="webshop-intro">
-              <span className="eyebrow">Online shops for all devices</span>
-              <h2>A proven content-managed webshop with a <em>responsive design</em>.</h2>
-              <p>Increasing sales is the primary goal. Online sales are at record levels and eCommerce is critical to business growth. By understanding the customer journey and the user experience, we build strategies that drive quality traffic and increase conversion.</p>
-              <div className="webshop-actions">
-                <a className="btn btn-fill" href="/contact">Start a project</a>
-                <a className="btn btn-link" href="/contact">Read more &rarr;</a>
-              </div>
-            </div>
-            <div className="webshop-card">
-              <div className="card-top">
-                <span className="live-dot"></span>
-                <span>Enterprise commerce stack</span>
-              </div>
-              <ul className="bullets webshop-bullets">
-                <li>Comprehensive product search capabilities</li>
-                <li>Multi-language &amp; multi-currency support</li>
-                <li>Fully customisable responsive design</li>
-                <li>Customer subscription management</li>
-                <li>Real-time shipping rates &amp; package tracking</li>
-                <li>Shared database across multiple stores</li>
-              </ul>
-              <div className="mini-panel">
-                <div className="mini-row"><span>Checkout</span><span>Optimised</span></div>
-                <div className="mini-row"><span>Performance</span><span>Core Web Vitals ready</span></div>
-                <div className="mini-row"><span>CMS</span><span>Composable architecture</span></div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="clients">
-          <div className="clients-head">
-            <span className="eyebrow">Selected work</span>
-            <h2>A few of the <em>clients</em> we've worked with.</h2>
-          </div>
-          <ul className="client-logos">
-          
-<li className="client-logo">
-  <img
-    src="/images/cleverbotanics-logo.webp"
-    alt="Clever Botanics"
-    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
-  />
-</li>
-
-<li className="client-logo">
-  <img
-    src="/images/hbm.webp"
-    alt="HBM Partners"
-    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
-  />
-</li>
-
-<li className="client-logo">
-  <img
-    src="/images/properties.webp"
-    alt="Properties.co.uk"
-    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
-  />
-</li>
-
-<li className="client-logo">
-  <img
-    src="/images/askdroid.webp"
-    alt="Askdroid"
-    style={{ height: "60px", width: "auto", maxWidth: "220px", objectFit: "contain" }}
-  />
-</li>
-
-          </ul>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="sector" id="natural-resources">
-     <div className="sector-head"> <div className="sector-left"> <span className="eyebrow"> Sector focus · Natural resources </span> <div className="sector-list"> <span>Oil &amp; gas</span> <span>Mining &amp; minerals</span> <span>Energy &amp; infrastructure</span> </div> </div> <div className="sector-right"> <h2> Marketing collateral for{" "} <em>natural resources</em> companies. </h2> <p> We help oil, gas and mining companies translate technical projects into clear, credible collateral for investors, partners and regulators. </p> <div className="sector-tags"> <span>Brochures</span> <span>Investor decks</span> <span>Websites</span> <span>Reports</span> </div> </div> </div>
-          <div className="work-cards">
-            <article className="work-card work-card-featured">
-              <span className="work-tag">Featured · Website</span>
-              <h3>HBM Partners</h3>
-              <p>A corporate website built for a natural resources advisory firm — positioning their expertise across oil, gas and mining with a clean, investor-ready presence.</p>
-              <a className="work-card-link" href="#">View the site →</a>
-            </article>
-            <article className="work-card">
-              <span className="work-tag">More work</span>
-              <h3>Your project <em>next</em>.</h3>
-              <p>Capability statements, investor decks, project brochures and reporting suites for resource companies that need to communicate with precision.</p>
-              <a className="work-card-link" href="/contact">Start a conversation →</a>
-            </article>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="cta-band">
-          <div className="cta-band-inner">
-            <div>
-              <span className="eyebrow">Ready when you are</span>
-              <h2>Let's take your business <em>online</em> — the right way.</h2>
-              <p>Tell us what you're building. We'll turn it into intelligent design, engaging experiences and real results.</p>
-            </div>
-            <div className="cta-band-actions">
-              <a className="btn-light" href="/contact">Start a conversation</a>
-              <a className="cta-phone" href="tel:+441483870170">Phone +44 1483 870170</a>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="manifesto">
-          <div>
-            <div className="manifesto-line"><span className="manifesto-num">A note · 01</span></div>
-            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: 'var(--ink-faint)', margin: 0 }}>
-              Intelligent design<br />over noise.
-            </p>
-          </div>
-          <div>
-            <h3>
-              We solve problems to produce intelligent designs, deliver engaging experiences and build <em>meaningful connections</em>. Whether it's website design or app development, we take your business online <em>the right way</em>.
-            </h3>
-          </div>
-        </section>
-      </Reveal>
-
-      <SiteFooter />
+      <MetricsBand />
+      <WorkShowcase />
+      <Testimonials />
+      <FAQ faqs={faqs} />
+      <ContactSection />
+      <FinalCta />
+      <Footer />
     </main>
-  );
+  )
 }

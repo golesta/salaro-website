@@ -40,9 +40,26 @@ export default function Contact() {
       <Header />
 
       <section className="page-hero">
-        <div className="eyebrow reveal d1">Contact · Start a conversation</div>
-        <h1 className="reveal d2">Tell us what you're trying to <em>build</em>.</h1>
-        <p className="lede reveal d3">A short note is enough. Tell us roughly what you have in mind, what's already in place, and when you'd like it live. We'll come back inside one working day.</p>
+        <div className="page-hero-left">
+          <div className="eyebrow reveal d1">Contact · Start a conversation</div>
+          <h1 className="reveal d2">Tell us what you're trying to <em>build</em>.</h1>
+          <p className="lede reveal d3">A short note is enough. Tell us roughly what you have in mind, what's already in place, and when you'd like it live. We'll come back inside one working day.</p>
+        </div>
+        <div className="page-hero-right">
+          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" className="hero-svg">
+            <defs>
+              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#993c25', stopOpacity: 0.1 }} />
+                <stop offset="100%" style={{ stopColor: '#993c25', stopOpacity: 0.05 }} />
+              </linearGradient>
+            </defs>
+            <circle cx="200" cy="150" r="120" fill="url(#grad1)" stroke="#993c25" strokeWidth="1" opacity="0.3" />
+            <circle cx="150" cy="280" r="80" fill="url(#grad1)" stroke="#993c25" strokeWidth="1" opacity="0.2" />
+            <circle cx="280" cy="350" r="100" fill="url(#grad1)" stroke="#993c25" strokeWidth="1" opacity="0.15" />
+            <path d="M 200 50 Q 300 100 280 200 T 200 350" stroke="#993c25" strokeWidth="2" fill="none" opacity="0.2" />
+            <path d="M 100 100 Q 200 150 250 280" stroke="#993c25" strokeWidth="1.5" fill="none" opacity="0.15" />
+          </svg>
+        </div>
       </section>
 
       <section className="contact-grid">
