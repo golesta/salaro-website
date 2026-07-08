@@ -2,6 +2,7 @@
 
 A modern, professional website for Salaro - 30 years of technology applied to AI.
 
+
 ## Tech Stack
 
 - **Framework**: Next.js 14 with App Router
