@@ -1,260 +1,169 @@
-"use client";
+'use client';
+import { useEffect } from 'react';
+import Image from 'next/image';
 
-import { useEffect, useRef } from 'react';
-import Header from '../../components/Header';
-import SiteFooter from '../../components/SiteFooter';
-
-/* palette key — one warm-tint per card */
-const PALETTES = ['p1','p2','p3','p4','p5','p6','p7','p8','p9'];
-
-/* ──────────────────────────────────────────────
-   TIER 1 — Recent client work (confidential)
-─────────────────────────────────────────────── */
-const recent = [
-  { lead: '2026', subject: 'A UK manufacturer', detail: 'Public site & product configurator', meta: 'Industrial · SME', action: 'Build' },
-  { lead: '2026', subject: 'A regional law firm', detail: 'DNN to Next.js migration', meta: 'Legal · 40 staff', action: 'Migrate' },
-  { lead: '2026', subject: 'A professional services firm', detail: 'AI adoption pilot & team training', meta: 'Owner-led', action: 'Advise' },
-];
-
-/* ──────────────────────────────────────────────
-   TIER 2 — Properties & owned work
-─────────────────────────────────────────────── */
-const properties = [
-  { lead: 'Active', subject: 'Clever Botanics', detail: 'cleverbotanics.com', meta: 'E-Commerce', action: 'Build' },
-  { lead: 'Active', subject: 'HBM Partners', detail: 'hbm.salaro.com', meta: 'Finance & Advisory', action: 'Build' },
-  { lead: '2026', subject: 'AskDroid', detail: 'askdroid.com', meta: 'AI & Robotics', action: 'In Development' },
-  { lead: 'Active', subject: 'Properties.co.uk', detail: 'properties.co.uk', meta: 'Property', action: 'Redevelopment' },
-  { lead: 'Active', subject: 'Quantime', detail: 'quantime.uk', meta: 'Research & Publishing', action: 'Writing' },
-  { lead: '2000', subject: 'Salaro Legacy', detail: 'salaro.com · 25 years of client delivery', meta: 'Consulting', action: 'Archive' },
-];
-
-/* ──────────────────────────────────────────────
-   TIER 3 — Client archive (anonymised, for shape only)
-─────────────────────────────────────────────── */
-const archive = [
-  { lead: '2014', subject: 'UK engineering group', detail: 'Multi-brand DNN platform', meta: 'Industrial', action: 'Build & CMS' },
-  { lead: '2012', subject: 'London publisher', detail: 'Subscription portal', meta: 'Publishing', action: 'Build' },
-  { lead: '2010', subject: 'National charity', detail: 'DNN content platform & intranet', meta: 'Third sector', action: 'Build & CMS' },
-  { lead: '2008', subject: 'Specialist insurer', detail: 'Broker extranet', meta: 'Financial services', action: 'Build' },
-  { lead: '2006', subject: 'London law firm', detail: 'Public site relaunch', meta: 'Legal', action: 'Build' },
-  { lead: '2003', subject: 'Regional retailer', detail: 'First e-commerce site', meta: 'Retail', action: 'Build' },
-];
-
-/* Scroll-reveal: adds .reveal-ready to the root and reveals each
-   .reveal element as it scrolls in. Falls back to fully visible
-   when JS/IO is unavailable or motion is reduced. */
-function useReveal(rootRef) {
+export default function WorkPage() {
   useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    root.classList.add('reveal-ready');
-    const els = root.querySelectorAll('.reveal');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-visible'));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [rootRef]);
-}
-
-function ProjectCard({ lead, subject, detail, meta, action, paletteClass }) {
-  return (
-    <div className="wk-card reveal">
-      {/* image / placeholder */}
-      <div className="wk-img-wrap">
-        <div className={`wk-placeholder ${paletteClass}`}>
-          <span>{subject}</span>
-        </div>
-        <div className="wk-overlay">
-          <span className="wk-overlay-action">{action}</span>
-        </div>
-      </div>
-
-      {/* meta row */}
-      <div className="wk-meta-row">
-        <span className="wk-category">{meta}</span>
-        <span className="wk-year">{lead}</span>
-      </div>
-      <p className="wk-title">{detail}</p>
-    </div>
-  );
-}
-
-export default function Work() {
-  const rootRef = useRef(null);
-  useReveal(rootRef);
+      const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.08});
+        document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  }, []);
 
   return (
-    <main className="works-main" ref={rootRef}>
-      <Header />
-
-      {/* ── HERO ── */}
-      <section className="wk-hero-split">
-        {/* Left — text */}
-        <div className="wk-hero-text">
-          <p className="eyebrow reveal d1">Selected work · 2000 — Now</p>
-          <h1 className="wk-hero-h1 reveal d2">
-            Thirty years of <em>shipped</em> work.
-          </h1>
-          <p className="wk-hero-lede reveal d3">
-            Most recent client work is under confidentiality and not listed here.
-            The archive below is a sample of the kind of work we have done — and,
-            increasingly, the kind we now do faster.
-          </p>
-        </div>
-
-        {/* Right — animated SVG constellation */}
-        <div className="wk-hero-svg-wrap reveal d2" aria-hidden="true">
-          <svg className="wk-hero-svg" viewBox="0 0 420 380" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-            {/* large orbit ring */}
-            <circle cx="210" cy="190" r="158" stroke="var(--line-soft)" strokeWidth="0.8" className="svg-ring svg-ring-1" />
-            {/* medium orbit ring */}
-            <circle cx="210" cy="190" r="108" stroke="var(--line)" strokeWidth="0.6" className="svg-ring svg-ring-2" />
-            {/* inner dashed ring */}
-            <circle cx="210" cy="190" r="58" stroke="var(--line)" strokeWidth="0.5" strokeDasharray="3 6" className="svg-ring svg-ring-3" />
-
-            {/* centre — the practice */}
-            <circle cx="210" cy="190" r="10" stroke="var(--accent)" strokeWidth="0.8" opacity="0.35" className="svg-node svg-node-0" />
-            <circle cx="210" cy="190" r="5" fill="var(--accent)" className="svg-node svg-node-0" />
-
-            {/* spoke lines from centre to tier nodes */}
-            <line x1="210" y1="180" x2="210" y2="38" stroke="var(--line-soft)" strokeWidth="0.5" strokeDasharray="3 4" className="svg-spoke svg-spoke-1" />
-            <line x1="217" y1="196" x2="343" y2="268" stroke="var(--line-soft)" strokeWidth="0.5" strokeDasharray="3 4" className="svg-spoke svg-spoke-2" />
-            <line x1="203" y1="196" x2="77" y2="268" stroke="var(--line-soft)" strokeWidth="0.5" strokeDasharray="3 4" className="svg-spoke svg-spoke-3" />
-
-            {/* tier node — top: Recent */}
-            <circle cx="210" cy="32" r="5" fill="var(--accent)" opacity="0.85" className="svg-node svg-node-1" />
-            <text x="210" y="20" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="9" letterSpacing="0.18em" fill="var(--ink-faint)" className="svg-node svg-node-1" style={{textTransform:'uppercase'}}>Recent</text>
-
-            {/* tier node — bottom-right: Properties */}
-            <circle cx="347" cy="270" r="5" fill="var(--accent-ink)" opacity="0.7" className="svg-node svg-node-2" />
-            <text x="356" y="274" fontFamily="var(--font-mono)" fontSize="9" letterSpacing="0.18em" fill="var(--ink-faint)" className="svg-node svg-node-2" style={{textTransform:'uppercase'}}>Properties</text>
-
-            {/* tier node — bottom-left: Archive */}
-            <circle cx="73" cy="270" r="5" fill="var(--ink-soft)" opacity="0.6" className="svg-node svg-node-3" />
-            <text x="65" y="274" textAnchor="end" fontFamily="var(--font-mono)" fontSize="9" letterSpacing="0.18em" fill="var(--ink-faint)" className="svg-node svg-node-3" style={{textTransform:'uppercase'}}>Archive</text>
-
-            {/* medium-ring tick dots + year labels */}
-            <circle cx="210" cy="82" r="3" fill="var(--ink-faint)" opacity="0.45" className="svg-tick svg-tick-1" />
-            <text x="220" y="86" fontFamily="var(--font-mono)" fontSize="8" fill="var(--ink-faint)" opacity="0.55" className="svg-tick svg-tick-1">2026</text>
-
-            <circle cx="318" cy="190" r="3" fill="var(--ink-faint)" opacity="0.45" className="svg-tick svg-tick-2" />
-            <text x="324" y="194" fontFamily="var(--font-mono)" fontSize="8" fill="var(--ink-faint)" opacity="0.55" className="svg-tick svg-tick-2">Active</text>
-
-            <circle cx="102" cy="190" r="3" fill="var(--ink-faint)" opacity="0.45" className="svg-tick svg-tick-3" />
-            <text x="96" y="194" textAnchor="end" fontFamily="var(--font-mono)" fontSize="8" fill="var(--ink-faint)" opacity="0.55" className="svg-tick svg-tick-3">2000</text>
-
-            {/* centre stat badge — 25 years */}
-            <rect x="162" y="158" width="96" height="64" rx="2" fill="var(--bg-warm)" stroke="var(--line)" strokeWidth="0.7" className="svg-badge" />
-            <text x="210" y="183" textAnchor="middle" fontFamily="var(--font-display)" fontSize="28" fontWeight="400" fill="var(--ink-strong)" className="svg-badge">25</text>
-            <text x="210" y="201" textAnchor="middle" fontFamily="var(--font-mono)" fontSize="8" letterSpacing="0.16em" fill="var(--ink-faint)" className="svg-badge" style={{textTransform:'uppercase'}}>years</text>
-
-          </svg>
-        </div>
-      </section>
-
-      {/* ── TIER 1 — RECENT ── */}
-      <section className="wk-section">
-        <div className="wk-layout">
-          <div className="wk-left reveal">
-            <span className="eyebrow">Recent · 2026</span>
-            <h2 className="wk-heading">Recent <em>client</em> work</h2>
-            <p className="wk-lede">
-              Recent client work is described on a call rather than listed publicly.
-              We are happy to walk through two or three relevant examples in conversation.
-            </p>
-            <span className="wk-note">Confidential · On Request</span>
-          </div>
-          <div className="wk-grid">
-            {recent.map((e, i) => (
-              <ProjectCard key={e.subject} {...e} paletteClass={PALETTES[i % PALETTES.length]} />
-            ))}
+    <div className="p-work">
+        <div className="topbar">
+          <div className="wrap">
+            <a href="/" className="brand">Sala<span>ro</span></a>
+            <nav className="nav"><a href="/practice">Practice</a><a href="/work" className="active">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a></nav>
+            <a href="/contact" className="top-cta">Start a project</a>
           </div>
         </div>
-      </section>
 
-      {/* ── TIER 2 — PROPERTIES & OWNED ── */}
-      <section className="wk-section">
-        <div className="wk-layout">
-          <div className="wk-left reveal">
-            <span className="eyebrow">Properties &amp; owned work</span>
-            <h2 className="wk-heading">Properties &amp; <em>owned</em> work</h2>
-            <p className="wk-lede">
-              Projects we own or operate, distinct from client work — live ventures,
-              in-development products, and our own legacy platform.
-            </p>
-            <span className="wk-note">Salar practising since 1995 · Salaro Ltd founded 2000 · 25 years of client delivery</span>
-          </div>
-          <div className="wk-grid">
-            {properties.map((e, i) => (
-              <ProjectCard key={e.subject} {...e} paletteClass={PALETTES[(i + 3) % PALETTES.length]} />
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── TIER 3 — CLIENT ARCHIVE ── */}
-      <section className="wk-section">
-        <div className="wk-layout">
-          <div className="wk-left reveal">
-            <span className="eyebrow">Client archive · 2000 — 2015</span>
-            <h2 className="wk-heading">Client <em>archive</em></h2>
-            <p className="wk-lede">
-              Earlier engagements, anonymised. These entries are pattern-evidence —
-              the shape of the work — rather than current portfolio.
-            </p>
-            <span className="wk-note">Anonymised · For shape only</span>
-          </div>
-          <div className="wk-grid">
-            {archive.map((e, i) => (
-              <ProjectCard key={e.subject} {...e} paletteClass={PALETTES[(i + 6) % PALETTES.length]} />
-            ))}
-            {/* Closing founding entry */}
-            <div className="wk-card reveal">
-              <div className="wk-img-wrap">
-                <div className="wk-placeholder p9">
-                  <span>Salaro</span>
+        <header className="hero drifting-field">
+          <div className="wrap">
+            <div className="hero-inner">
+              <div className="hero-copy">
+                <div className="eyebrow lab a">Selected work · 1995 — now</div>
+                <h1 className="serif">
+                  <span className="reveal-line"><span>Practising since</span></span>
+                  <span className="reveal-line"><span><span className="it">1995</span>.</span></span>
+                </h1>
+                <p className="sub">Most recent client work is under confidentiality and not listed here. The archive below is a sample of the kind of work we've done — and, increasingly, the kind we now do faster.</p>
+              </div>
+              <div className="hero-viz">
+                <div className="viz-cap"><span className="lab a">Projects shipped</span><span className="lab">1995 — now</span></div>
+                <div className="viz-fig"><span className="serif">52</span><span className="lab">delivered to date</span></div>
+                <div className="barchart">
+                  <div className="bar" style={{height: '18%', animationDelay: '.04s'}}></div>
+                  <div className="bar" style={{height: '27%', animationDelay: '.10s'}}></div>
+                  <div className="bar" style={{height: '31%', animationDelay: '.16s'}}></div>
+                  <div className="bar" style={{height: '39%', animationDelay: '.22s'}}></div>
+                  <div className="bar" style={{height: '35%', animationDelay: '.28s'}}></div>
+                  <div className="bar" style={{height: '47%', animationDelay: '.34s'}}></div>
+                  <div className="bar" style={{height: '55%', animationDelay: '.40s'}}></div>
+                  <div className="bar" style={{height: '63%', animationDelay: '.46s'}}></div>
+                  <div className="bar hot" style={{height: '74%', animationDelay: '.52s'}}></div>
+                  <div className="bar hot" style={{height: '88%', animationDelay: '.58s'}}></div>
+                  <div className="bar hot" style={{height: '100%', animationDelay: '.64s'}}></div>
                 </div>
+                <div className="axis"><span>1995</span><span>2005</span><span>2015</span><span>2026</span></div>
               </div>
-              <div className="wk-meta-row">
-                <span className="wk-category">Consulting</span>
-                <span className="wk-year">2000</span>
-              </div>
-              <p className="wk-title">Salaro <em>founded</em> — the practice begins.</p>
             </div>
           </div>
-        </div>
-      </section>
+        </header>
 
-      {/* ── CTA BAND ── */}
-      <section className="cta-band">
-        <div className="cta-band-inner">
-          <div className="reveal">
-            <span className="eyebrow">Let&rsquo;s talk</span>
-            <h2>If you want to create meaningful <em>change</em>, we&rsquo;ll have common ground.</h2>
-          </div>
-          <div className="cta-band-actions reveal d1">
-            <a className="btn-light" href="/contact">Start a conversation</a>
-            <a className="cta-phone" href="/contact">Or walk through two or three relevant examples on a call &rarr;</a>
-          </div>
-        </div>
-      </section>
+        <div className="signal-line"></div>
 
-      <SiteFooter />
-    </main>
+        <section className="group contour-drift">
+          <div className="wrap"><div className="grid">
+            <div className="aside rv">
+              <div className="k lab a">Recent client work</div>
+              <h2 className="serif">Recent <span className="it">client</span> work.</h2>
+              <p>Recent client work is described on a call rather than listed publicly. We're happy to walk through two or three relevant examples in conversation.</p>
+            </div>
+            <div className="cards rv">
+              <a className="card">
+                <img src="/images/portfolio/askdroid.webp" alt="Askdroid platform" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Platform</span><span className="lab">2023</span></div>
+                <h3 className="serif">Askdroid</h3>
+              </a>
+              <a className="card">
+                <img src="/images/portfolio/properties-co-uk.webp" alt="Properties.co.uk e-commerce" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Brand</span><span className="lab">2015</span></div>
+                <h3 className="serif">Properties.co.uk</h3>
+              </a>
+              <a className="card">
+                <img src="/images/portfolio/clever-botanics.webp" alt="Clever Botanics e-commerce" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">E-commerce</span><span className="lab">2019</span></div>
+                <h3 className="serif">Clever Botanics</h3>
+              </a>
+            </div>
+          </div></div>
+        </section>
+
+
+        <section className="group">
+          <div className="wrap"><div className="grid">
+            <div className="aside rv">
+              <div className="k lab a">Properties &amp; owned work</div>
+              <h2 className="serif">Properties &amp; <span className="it">owned</span> work.</h2>
+              <p>Projects we own or operate, distinct from client work — live ventures, in-development products, and our own legacy platform.</p>
+            </div>
+            <div className="cards rv">
+              <a className="card">
+                <img src="/images/portfolio/hbm-partners.webp" alt="HBM Partners" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Corporate</span><span className="lab">2026</span></div>
+                <h3 className="serif">HBM Partners</h3>
+              </a>
+              <a className="card">
+                <img src="/images/portfolio/the-greensome.webp" alt="The Greensome" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Brand</span><span className="lab">2015</span></div>
+                <h3 className="serif">The Greensome</h3>
+              </a>
+              <a className="card">
+                <img src="/images/portfolio/the-ecogreen-cabins.webp" alt="The ecogreen cabins" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Brand</span><span className="lab">2020</span></div>
+                <h3 className="serif">The ecogreen cabins</h3>
+              </a>
+            </div>
+          </div></div>
+        </section>
+
+
+        <section className="group">
+          <div className="wrap"><div className="grid">
+            <div className="aside rv">
+              <div className="k lab a">Client archive</div>
+              <h2 className="serif">Client <span className="it">archive</span>.</h2>
+              <p>Earlier engagements, anonymised. These entries are pattern-evidence — the shape of the work — rather than current portfolio.</p>
+            </div>
+            <div className="cards rv">
+              <a className="card">
+                <div className="thumb blank"><span className="tag-tl">CorePulse</span></div>
+                <div className="meta"><span className="lab">Prototype</span><span className="lab">2021</span></div>
+                <h3 className="serif">CorePulse</h3>
+              </a>
+              <a className="card">
+                <div className="thumb blank"><span className="tag-tl">SignalLine</span></div>
+                <div className="meta"><span className="lab">Research</span><span className="lab">2022</span></div>
+                <h3 className="serif">SignalLine</h3>
+              </a>
+              <a className="card">
+                <div className="thumb blank"><span className="tag-tl">FieldNote</span></div>
+                <div className="meta"><span className="lab">Content</span><span className="lab">2020</span></div>
+                <h3 className="serif">FieldNote</h3>
+              </a>
+            </div>
+          </div></div>
+        </section>
+
+
+        <section className="founded">
+          <div className="wrap rv">
+            <div className="k lab a">Salaro founded</div>
+            <h2 className="serif">The practice begins.</h2>
+            <div className="yr lab">Practising since 1995</div>
+          </div>
+        </section>
+
+
+        <footer className="dark-lattice">
+          <div className="cols">
+            <div className="foot-top">
+              <div>
+                <div className="fbrand">Salaro</div>
+                <p>A UK-led digital consultancy. Practising since 1995.</p>
+              </div>
+              <div className="fcol"><h5>Practice</h5><a href="#">Build</a><a href="#">Migrate</a><a href="#">Advise</a></div>
+              <div className="fcol"><h5>Work</h5><a href="#">Recent projects</a><a href="#">Archive</a></div>
+              <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
+            </div>
+            <div className="foot-bot">
+              <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</span>
+              <span className="lab">Practising since 1995</span>
+            </div>
+          </div>
+        </footer>
+    </div>
   );
 }

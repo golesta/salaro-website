@@ -1,160 +1,200 @@
-"use client";
+'use client';
+import { useEffect } from 'react';
 
-import { useEffect, useRef, useState } from 'react';
-import Header from '../../components/Header';
-import SiteFooter from '../../components/SiteFooter';
-
-function useReveal(rootRef) {
+export default function ContactPage() {
   useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-    root.classList.add('reveal-ready');
-    const els = root.querySelectorAll('.reveal');
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduce || !('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('is-visible'));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
+      // field focus label
+        document.querySelectorAll('.field input,.field textarea').forEach(el=>{
+          el.addEventListener('focus',()=>el.closest('.field').classList.add('focused'));
+          el.addEventListener('blur',()=>el.closest('.field').classList.remove('focused'));
         });
-      },
-      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, [rootRef]);
-}
-
-export default function Contact() {
-  const rootRef = useRef(null);
-  useReveal(rootRef);
-  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus('submitting');
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        body: new FormData(e.target),
-      });
-      setStatus(res.ok ? 'success' : 'error');
-    } catch {
-      setStatus('error');
-    }
-  }
+        // FAQ accordion
+        document.querySelectorAll('.qa').forEach(qa=>{
+          const a=qa.querySelector('.a');
+          if(qa.classList.contains('open'))a.style.maxHeight=a.scrollHeight+'px';
+          qa.querySelector('.q').addEventListener('click',()=>{
+            const open=qa.classList.contains('open');
+            document.querySelectorAll('.qa').forEach(o=>{o.classList.remove('open');o.querySelector('.a').style.maxHeight=null});
+            if(!open){qa.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+          });
+        });
+        // scroll reveal
+        const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
+        document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+        // process spine + node lighting
+        const steps=document.getElementById('steps'),spine=document.getElementById('spine');
+        const stepEls=[...document.querySelectorAll('.step')];
+        const so=new IntersectionObserver((es)=>es.forEach(e=>{
+          if(e.isIntersecting){
+            spine.style.height=(steps.scrollHeight-16)+'px';
+            stepEls.forEach((s,i)=>setTimeout(()=>s.classList.add('lit'),i*220));
+            so.disconnect();
+          }
+        }),{threshold:.3});
+        if(steps)so.observe(steps);
+  }, []);
 
   return (
-    <main ref={rootRef}>
-      <Header />
-
-      <section className="page-hero">
-        <div className="page-hero-left">
-          <div className="eyebrow reveal d1">Contact · Start a conversation</div>
-          <h1 className="reveal d2">Tell us what you're trying to <em>build</em>.</h1>
-          <p className="lede reveal d3">A short note is enough. Tell us roughly what you have in mind, what's already in place, and when you'd like it live. We'll come back inside one working day.</p>
-        </div>
-        <div className="page-hero-right">
-          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" className="hero-svg">
-            <defs>
-              <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style={{ stopColor: '#993c25', stopOpacity: 0.1 }} />
-                <stop offset="100%" style={{ stopColor: '#993c25', stopOpacity: 0.05 }} />
-              </linearGradient>
-            </defs>
-            <circle cx="200" cy="150" r="120" fill="url(#grad1)" stroke="#993c25" strokeWidth="1" opacity="0.3" />
-            <circle cx="150" cy="280" r="80" fill="url(#grad1)" stroke="#993c25" strokeWidth="1" opacity="0.2" />
-            <circle cx="280" cy="350" r="100" fill="url(#grad1)" stroke="#993c25" strokeWidth="1" opacity="0.15" />
-            <path d="M 200 50 Q 300 100 280 200 T 200 350" stroke="#993c25" strokeWidth="2" fill="none" opacity="0.2" />
-            <path d="M 100 100 Q 200 150 250 280" stroke="#993c25" strokeWidth="1.5" fill="none" opacity="0.15" />
-          </svg>
-        </div>
-      </section>
-
-      <section className="contact-grid">
-        <div className="contact-left reveal">
-          <h2>Send a <em>note</em>.</h2>
-          {status === 'success' ? (
-            <div className="contact-sent">
-              <p>Thank you — we'll come back to you inside one working day.</p>
-            </div>
-          ) : (
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="field">
-                <label htmlFor="name">Name</label>
-                <input id="name" name="name" type="text" placeholder="Your name" autoComplete="name" required />
-              </div>
-              <div className="field">
-                <label htmlFor="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@company.co.uk" autoComplete="email" required />
-              </div>
-              <div className="field">
-                <label htmlFor="org">Company</label>
-                <input id="org" name="company" type="text" placeholder="Optional" autoComplete="organization" />
-              </div>
-              <div className="field">
-                <label htmlFor="message">What are you trying to build?</label>
-                <textarea id="message" name="message" rows={5} placeholder="A line or two is enough. Rough budget &amp; timeline if you have them." required />
-              </div>
-              {status === 'error' && (
-                <p className="form-error">Something went wrong — please try again or email hello@salaro.com directly.</p>
-              )}
-              <button type="submit" className="form-submit" disabled={status === 'submitting'}>
-                {status === 'submitting' ? 'Sending…' : 'Send →'}
-              </button>
-            </form>
-          )}
-          <div className="contact-direct">
-            Or write directly to <strong>hello@salaro.com</strong>.
+    <div className="p-contact">
+        <div className="topbar">
+          <div className="wrap">
+            <a href="/" className="brand">Sala<span>ro</span></a>
+            <nav className="nav">
+              <a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a>
+            </nav>
+            <div className="status"><span className="dot"></span><span className="tag">Replies within one morning</span></div>
           </div>
         </div>
 
-        <div className="contact-right reveal d1">
-          <h2>How this <em>goes</em>.</h2>
-          <div className="how-steps">
-            <div className="how-step reveal">
-              <span className="how-step-num">01</span>
-              <div>
-                <h3>You <em>write</em>.</h3>
-                <p>A short note via this form or by email. No NDA needed yet.</p>
+
+        <header className="hero drifting-field">
+          <div className="wrap">
+            <div className="hero-inner">
+              <div className="hero-copy">
+                <div className="eyebrow tag rust">Contact — start a conversation</div>
+                <h1 className="serif">
+                  <span className="reveal-line"><span>Let's <span className="it">start</span> a</span></span>
+                  <span className="reveal-line"><span>conversation.</span></span>
+                </h1>
+                <p>We work with founders, product teams and marketing leads who need a calm, senior partner for their next digital build.</p>
               </div>
-            </div>
-            <div className="how-step reveal">
-              <span className="how-step-num">02</span>
-              <div>
-                <h3>We <em>talk</em>.</h3>
-                <p>A 30-minute video call inside the next few days, so we both know if this is a fit.</p>
-              </div>
-            </div>
-            <div className="how-step reveal">
-              <span className="how-step-num">03</span>
-              <div>
-                <h3>We <em>propose</em>.</h3>
-                <p>A fixed-price proposal, usually back inside 48 hours of the call.</p>
-              </div>
-            </div>
-            <div className="how-step reveal">
-              <span className="how-step-num">04</span>
-              <div>
-                <h3>We <em>build</em>.</h3>
-                <p>Two to six weeks of work, depending on scope. Daily progress visible in your own repo.</p>
+              <div className="hero-viz">
+                <div className="viz-cap"><span className="tag rust">Response window</span><span className="dotlive"><i></i>Open for projects</span></div>
+                <div className="viz-fig"><span className="serif">&lt; 1</span><span className="tag">morning · typical reply</span></div>
+                <div className="respbar"><span className="resp-fill"></span></div>
+                <div className="resp-axis"><span>Now</span><span>One morning</span><span>24h max</span></div>
+                <div className="viz-stats">
+                  <div><b className="serif">98%</b><span className="tag">Client retention</span></div>
+                  <div><b className="serif">40<em>+</em></b><span className="tag">Projects delivered</span></div>
+                  <div><b className="serif">12</b><span className="tag">Years combined experience</span></div>
+                  <div><b className="serif">24/7</b><span className="tag">Support</span></div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </header>
 
-      <div className="contact-honest reveal">
-        We work with UK SMEs. We <em>don't</em> take on enterprise projects that need procurement, security reviews and a project manager — that work goes to firms set up for it, and we're happy to refer you.
-      </div>
 
-      <SiteFooter />
-    </main>
+        <section className="stats">
+          <div className="wrap"><div className="grid">
+            <div className="stat"><div className="num">98<em>%</em></div><div className="lbl tag">Client retention</div></div>
+            <div className="stat"><div className="num">40<em>+</em></div><div className="lbl tag">Projects delivered</div></div>
+            <div className="stat"><div className="num">12</div><div className="lbl tag">Years combined experience</div></div>
+            <div className="stat"><div className="num">24/7</div><div className="lbl tag">Support</div></div>
+          </div></div>
+        </section>
+
+
+        <div className="signal-line"></div>
+        <section className="main contour-drift">
+          <div className="wrap"><div className="split">
+
+    
+            <div className="col-left rv">
+              <div className="sec-head">
+                <div className="tag rust">Start a project</div>
+                <div className="serif">Send a <span className="it">note</span>.</div>
+                <p className="lead">Tell us what you're trying to build, where you are today, and what success would look like.</p>
+              </div>
+              <form onSubmit={(e)=>e.preventDefault()}>
+                <div className="field"><label className="tag">Name</label><input  type="text" placeholder="Your name" /></div>
+                <div className="field"><label className="tag">Email</label><input  type="email" placeholder="you@example.com" /></div>
+                <div className="field"><label className="tag">Company</label><input  type="text" placeholder="Optional" /></div>
+                <div className="field"><label className="tag">What are you trying to build?</label><textarea rows="3" placeholder="A short note is enough"></textarea></div>
+                <div className="submit-row">
+                  <button className="send" type="submit">Send <span className="arw">→</span></button>
+                  <span className="or">or write directly to <a href="mailto:team@salaro.com">team@salaro.com</a></span>
+                </div>
+              </form>
+            </div>
+
+            <div className="vrule"></div>
+
+    
+            <div className="col-right rv">
+              <div className="sec-head"><div className="tag rust">How this goes</div></div>
+              <div className="steps" id="steps">
+                <div className="spine" id="spine"></div>
+                <div className="step"><div className="n">01</div><h4>You write.</h4><p>A short note via this form or by email. No NDA is needed upfront.</p></div>
+                <div className="step"><div className="n">02</div><h4>We talk.</h4><p>A 30-minute video call inside the next few days, so we both know if it's a fit.</p></div>
+                <div className="step"><div className="n">03</div><h4>We propose.</h4><p>A fixed-price proposal usually comes back inside 48 hours of the call.</p></div>
+                <div className="step"><div className="n">04</div><h4>We build.</h4><p>Two to six weeks of work, depending on scope, with progress visible in your own repo.</p></div>
+              </div>
+
+              <div className="direct">
+                <div className="row"><div className="k tag">Email</div><div className="v"><a href="mailto:team@salaro.com">team@salaro.com</a></div></div>
+                <div className="row"><div className="k tag">Phone</div><div className="v"><a href="tel:+447485222490">07485 222490</a></div></div>
+                <div className="row"><div className="k tag">Location</div><div className="v">UK-based · Remote collaboration</div></div>
+              </div>
+            </div>
+
+          </div></div>
+        </section>
+
+
+        <section className="quote">
+          <div className="wrap rv">
+            <div className="mark">&ldquo;</div>
+            <blockquote className="serif">Salaro helped us clarify the brief, sharpen the experience, and ship something that feels like a <em>real product</em> — not a patchwork of requests.</blockquote>
+            <div className="cite">
+              <div className="avatar">RM</div>
+              <div><div className="who">Rachel Morrow</div><div className="role tag">Managing Director · HBM Partners</div></div>
+            </div>
+          </div>
+        </section>
+
+
+        <section className="faq">
+          <div className="wrap"><div className="split">
+            <div className="rv"><h2>Questions teams <span className="it">ask</span> before they begin.</h2></div>
+            <div className="rv">
+              <div className="qa open"><div className="q">Do you work with startups or established companies?<span className="sign">+</span></div><div className="a"><p>We work with both. The process shifts depending on where you are in the journey, but the standard is always the same: clear decisions and practical delivery.</p></div></div>
+              <div className="qa"><div className="q">What kind of work do you take on?<span className="sign">+</span></div><div className="a"><p>Web platforms, product interfaces, marketing sites and the design systems behind them. If it lives in a browser and needs to feel considered, it's in scope.</p></div></div>
+              <div className="qa"><div className="q">Do you need a full brief before we talk?<span className="sign">+</span></div><div className="a"><p>No. A few sentences about what you're trying to build is enough to start. We'll shape the brief together on the first call.</p></div></div>
+            </div>
+          </div></div>
+        </section>
+
+
+        <section className="clients">
+          <div className="track">
+            <span>Clever Botanics</span><span>HBM Partners</span><span>Askdroid</span><span>Properties Group</span>
+            <span>Clever Botanics</span><span>HBM Partners</span><span>Askdroid</span><span>Properties Group</span>
+          </div>
+        </section>
+
+
+        <section className="cta">
+          <div className="wrap">
+            <div>
+              <div className="tag">Ready to start?</div>
+              <h2 className="serif">Take your <em>business</em> online — the right way.</h2>
+            </div>
+            <div className="btns">
+              <a href="#" className="btn primary">Start a conversation</a>
+              <a href="tel:+447485222490" className="btn ghost">Call us</a>
+            </div>
+          </div>
+        </section>
+
+
+        <footer className="dark-lattice">
+          <div className="wrap">
+            <div className="foot-top">
+              <div>
+                <div className="brand">Sala<span style={{color: 'var(--rust)'}}>ro</span></div>
+                <p>A UK-led digital consultancy. Practising since 1995.</p>
+              </div>
+              <div className="fcol"><h5>Pages</h5><a href="#">Home</a><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a></div>
+              <div className="fcol"><h5>Recent work</h5><a href="#">HBM Partners</a><a href="#">Clever Botanics</a><a href="#">Ashdroid</a><a href="#">Properties</a></div>
+              <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">LinkedIn</a><a href="#">Twitter / X</a><a href="#">Instagram</a></div>
+            </div>
+            <div className="foot-bot">
+              <span className="tag">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
+              <span className="tag">Practising since 1995</span>
+            </div>
+          </div>
+        </footer>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
-node_modules/
-out/
+node_modules
 .next
-*.zip
-Salaro.com*/
+out
+.DS_Store
+npm-debug.log*
