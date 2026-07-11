@@ -14,7 +14,7 @@ export default function WorkPage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice">Practice</a><a href="/work" className="active">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="/contact" className="top-cta">Start a project</a>
+            <a href="tel:+447485222490" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -61,35 +61,7 @@ export default function WorkPage() {
               <h2 className="serif">Recent <span className="it">client</span> work.</h2>
               <p>Recent client work is described on a call rather than listed publicly. We're happy to walk through two or three relevant examples in conversation.</p>
             </div>
-            <div className="cards rv">
-              <a className="card">
-                <img src="/images/portfolio/askdroid.webp" alt="Askdroid platform" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
-                <div className="meta"><span className="lab">Platform</span><span className="lab">2023</span></div>
-                <h3 className="serif">Askdroid</h3>
-              </a>
-              <a className="card">
-                <img src="/images/portfolio/properties-co-uk.webp" alt="Properties.co.uk e-commerce" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
-                <div className="meta"><span className="lab">Brand</span><span className="lab">2015</span></div>
-                <h3 className="serif">Properties.co.uk</h3>
-              </a>
-              <a className="card">
-                <img src="/images/portfolio/clever-botanics.webp" alt="Clever Botanics e-commerce" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
-                <div className="meta"><span className="lab">E-commerce</span><span className="lab">2019</span></div>
-                <h3 className="serif">Clever Botanics</h3>
-              </a>
-            </div>
-          </div></div>
-        </section>
-
-
-        <section className="group">
-          <div className="wrap"><div className="grid">
-            <div className="aside rv">
-              <div className="k lab a">Properties &amp; owned work</div>
-              <h2 className="serif">Properties &amp; <span className="it">owned</span> work.</h2>
-              <p>Projects we own or operate, distinct from client work — live ventures, in-development products, and our own legacy platform.</p>
-            </div>
-            <div className="cards rv">
+             <div className="cards rv">
               <a className="card">
                 <img src="/images/portfolio/hbm-partners.webp" alt="HBM Partners" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
                 <div className="meta"><span className="lab">Corporate</span><span className="lab">2026</span></div>
@@ -113,29 +85,36 @@ export default function WorkPage() {
         <section className="group">
           <div className="wrap"><div className="grid">
             <div className="aside rv">
-              <div className="k lab a">Client archive</div>
-              <h2 className="serif">Client <span className="it">archive</span>.</h2>
-              <p>Earlier engagements, anonymised. These entries are pattern-evidence — the shape of the work — rather than current portfolio.</p>
+              <div className="k lab a">Properties &amp; owned work</div>
+              <h2 className="serif">Properties &amp; <span className="it">owned</span> work.</h2>
+              <p>Projects we own or operate, distinct from client work — live ventures, in-development products, and our own legacy platform.</p>
             </div>
+          
+          
             <div className="cards rv">
               <a className="card">
-                <div className="thumb blank"><span className="tag-tl">CorePulse</span></div>
-                <div className="meta"><span className="lab">Prototype</span><span className="lab">2021</span></div>
-                <h3 className="serif">CorePulse</h3>
+                <img src="/images/portfolio/askdroid.webp" alt="Askdroid platform" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Platform</span><span className="lab">2023</span></div>
+                <h3 className="serif">Askdroid</h3>
               </a>
               <a className="card">
-                <div className="thumb blank"><span className="tag-tl">SignalLine</span></div>
-                <div className="meta"><span className="lab">Research</span><span className="lab">2022</span></div>
-                <h3 className="serif">SignalLine</h3>
+                <img src="/images/portfolio/properties-co-uk.webp" alt="Properties.co.uk e-commerce" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">Brand</span><span className="lab">2015</span></div>
+                <h3 className="serif">Properties.co.uk</h3>
               </a>
               <a className="card">
-                <div className="thumb blank"><span className="tag-tl">FieldNote</span></div>
-                <div className="meta"><span className="lab">Content</span><span className="lab">2020</span></div>
-                <h3 className="serif">FieldNote</h3>
+                <img src="/images/portfolio/clever-botanics.webp" alt="Clever Botanics e-commerce" className="thumb" style={{objectFit: 'cover', width: '100%', height: '300px', display: 'block'}} />
+                <div className="meta"><span className="lab">E-commerce</span><span className="lab">2019</span></div>
+                <h3 className="serif">Clever Botanics</h3>
               </a>
             </div>
+
+
           </div></div>
         </section>
+
+
+      
 
 
         <section className="founded">
@@ -154,8 +133,8 @@ export default function WorkPage() {
                 <div className="fbrand">Salaro</div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
-              <div className="fcol"><h5>Practice</h5><a href="#">Build</a><a href="#">Migrate</a><a href="#">Advise</a></div>
-              <div className="fcol"><h5>Work</h5><a href="#">Recent projects</a><a href="#">Archive</a></div>
+              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+              <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
               <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
             </div>
             <div className="foot-bot">

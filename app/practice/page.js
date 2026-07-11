@@ -13,7 +13,7 @@ export default function PracticePage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice" className="active">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="/contact" className="top-cta">Start a project</a>
+            <a href="tel:+447485222490" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function PracticePage() {
               <div className="lab">Ready to start?</div>
               <h2 className="serif">Let's build something <em>exceptional</em>.</h2>
               <div className="btns">
-                <a href="#" className="btn-primary">Start a conversation <span>→</span></a>
+                <a href="tel:+447485222490" className="btn-primary">Start a conversation <span>→</span></a>
                 <a href="tel:+447485222490" className="btn-ghost">07485 222490</a>
               </div>
             </div>
@@ -182,9 +182,9 @@ export default function PracticePage() {
                 <div className="fbrand">Salaro</div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
-              <div className="fcol"><h5>Practice</h5><a href="#">Build</a><a href="#">Migrate</a><a href="#">Advise</a></div>
-              <div className="fcol"><h5>Work</h5><a href="#">Recent projects</a><a href="#">Archive</a></div>
-              <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
+              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+              <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
+              <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><span>Guildford, Surrey</span><a href="https://www.linkedin.com">LinkedIn</a></div>
             </div>
             <div className="foot-bot">
               <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</span>

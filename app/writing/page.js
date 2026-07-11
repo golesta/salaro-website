@@ -13,7 +13,7 @@ export default function WritingPage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing" className="active">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="/contact" className="top-cta">Start a project</a>
+            <a href="tel:+447485222490" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -33,7 +33,7 @@ export default function WritingPage() {
                 <p>The work is often technical, but the point is usually simple: help a team make a better decision, explain a system more clearly, or preserve a hard-won lesson before it disappears into the next sprint.</p>
                 <p>We write about practical delivery, legacy migration, editorial systems, and the peculiar problems that appear when a business has outgrown its first stack but still needs to move carefully.</p>
               </div>
-              <div className="actions"><a href="#" className="btn-dark">Read the notes <span className="arw">→</span></a></div>
+              <div className="actions"><a href="tel:+447485222490" className="btn-dark">Read the notes <span className="arw">→</span></a></div>
             </div>
 
             <aside className="note-card rv">
@@ -59,7 +59,7 @@ export default function WritingPage() {
                 <li>Clear about constraints</li>
                 <li>Useful long after the launch</li>
               </ul>
-              <a href="#" className="btn-dark">Start a conversation</a>
+              <a href="tel:+447485222490" className="btn-dark">Start a conversation</a>
             </aside>
           </div></div>
         </header>
@@ -181,7 +181,7 @@ export default function WritingPage() {
               <p className="body">Whether it's website design, an app, or a partnership that needs a senior voice, reach out and we'll respond within one working day.</p>
             </div>
             <div className="btns rv">
-              <a href="#" className="btn-primary">Start a conversation <span>→</span></a>
+              <a href="tel:+447485222490" className="btn-primary">Start a conversation <span>→</span></a>
               <a href="tel:+447485222490" className="btn-ghost">07485 222490</a>
             </div>
           </div>
@@ -195,9 +195,9 @@ export default function WritingPage() {
                 <div className="fbrand">Salaro</div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
-              <div className="fcol"><h5>Practice</h5><a href="#">Build</a><a href="#">Migrate</a><a href="#">Advise</a></div>
-              <div className="fcol"><h5>Work</h5><a href="#">Recent projects</a><a href="#">Archive</a></div>
-              <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
+              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+              <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
+              <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><span>Guildford, Surrey</span><a href="https://www.linkedin.com">LinkedIn</a></div>
             </div>
             <div className="foot-bot">
               <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</span>

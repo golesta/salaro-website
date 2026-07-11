@@ -64,10 +64,7 @@ export default function ContactPage() {
                 <div className="respbar"><span className="resp-fill"></span></div>
                 <div className="resp-axis"><span>Now</span><span>One morning</span><span>24h max</span></div>
                 <div className="viz-stats">
-                  <div><b className="serif">98%</b><span className="tag">Client retention</span></div>
-                  <div><b className="serif">40<em>+</em></b><span className="tag">Projects delivered</span></div>
-                  <div><b className="serif">12</b><span className="tag">Years combined experience</span></div>
-                  <div><b className="serif">24/7</b><span className="tag">Support</span></div>
+                  <div><b className="serif">99%</b><span className="tag">Satisfaction rate</span></div>
                 </div>
               </div>
             </div>
@@ -171,7 +168,7 @@ export default function ContactPage() {
               <h2 className="serif">Take your <em>business</em> online — the right way.</h2>
             </div>
             <div className="btns">
-              <a href="#" className="btn primary">Start a conversation</a>
+              <a href="tel:+447485222490" className="btn primary">Start a conversation</a>
               <a href="tel:+447485222490" className="btn ghost">Call us</a>
             </div>
           </div>
@@ -186,8 +183,8 @@ export default function ContactPage() {
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
               <div className="fcol"><h5>Pages</h5><a href="#">Home</a><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a></div>
-              <div className="fcol"><h5>Recent work</h5><a href="#">HBM Partners</a><a href="#">Clever Botanics</a><a href="#">Ashdroid</a><a href="#">Properties</a></div>
-              <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">LinkedIn</a><a href="#">Twitter / X</a><a href="#">Instagram</a></div>
+              <div className="fcol"><h5>Recent work</h5><a href="https://hbm.salaro.com/">HBM Partners</a><a href="https://cleverbotanics.com/">Clever Botanics</a><a href="https://askdroid.com/">Askdroid</a><a href="https://properties.co.uk/">Properties</a></div>
+              <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="https://www.linkedin.com">LinkedIn</a><a href="https://twitter.com">Twitter / X</a><a href="https://www.instagram.com">Instagram</a></div>
             </div>
             <div className="foot-bot">
               <span className="tag">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>

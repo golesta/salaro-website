@@ -20,7 +20,7 @@ export default function HomePage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="/contact" className="top-cta">Start a project</a>
+            <a href="tel:+447485222490" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -60,8 +60,8 @@ export default function HomePage() {
               </h1>
               <p className="sub">We work with growing businesses to shape bespoke digital products, practical transformation, and long-term support with calm, senior delivery.</p>
               <div className="actions">
-                <a href="/contact" className="btn-line">Take your business online <span className="arw">→</span></a>
-                <span className="phone">Phone <b>07485 222490</b></span>
+                <a href="tel:+447485222490" className="btn-line">Take your business online <span className="arw">→</span></a>
+                <a href="tel:+447485222490" className="phone">Phone <b>07485 222490</b></a>
               </div>
               <div className="built">Built on code, not templates.</div>
             </div>
@@ -213,280 +213,54 @@ export default function HomePage() {
             </div>
             <div className="device rv">
               <div className="mobile-signal">
-           
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <defs>
-    
-    <radialGradient id="bgGlow" cx="50%" cy="45%" r="60%">
-      <stop offset="0%" stop-color="#F6EAE2" stop-opacity="0.9"/>
-      <stop offset="40%" stop-color="#F6EAE2" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="#F6EAE2" stop-opacity="0"/>
-    </radialGradient>
+         <svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <path d="M2 1L8 5L2 9" fill="none" stroke="#3d3d3a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
 
-    <radialGradient id="haloSoft" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#F6EAE2" stop-opacity="0.9"/>
-      <stop offset="40%" stop-color="#E7D3C7" stop-opacity="0.45"/>
-      <stop offset="100%" stop-color="#E7D3C7" stop-opacity="0"/>
-    </radialGradient>
+<circle cx="340" cy="190" r="52" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+<text x="340" y="184" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#3C3489">Shared</text>
+<text x="340" y="202" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="500" fill="#3C3489">core</text>
 
-    <radialGradient id="centerCore" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#B8846B" stop-opacity="1"/>
-      <stop offset="60%" stop-color="#C8A18A" stop-opacity="0.7"/>
-      <stop offset="100%" stop-color="#C8A18A" stop-opacity="0"/>
-    </radialGradient>
+<g transform="translate(280,30)">
+<rect x="0" y="0" width="120" height="76" rx="4" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+<rect x="8" y="8" width="104" height="60" rx="2" fill="#B5D4F4" opacity="0.5"/>
+<rect x="45" y="76" width="30" height="8" fill="#185FA5"/>
+<rect x="30" y="84" width="60" height="5" rx="2" fill="#185FA5"/>
+</g>
+<line x1="330" y1="106" x2="330" y2="140" stroke="#b4b2a9" stroke-width="1.5"/>
 
-    <radialGradient id="deviceFill" cx="50%" cy="40%" r="70%">
-      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
-      <stop offset="70%" stop-color="#F6EAE2" stop-opacity="0.18"/>
-      <stop offset="100%" stop-color="#F6EAE2" stop-opacity="0"/>
-    </radialGradient>
+<g transform="translate(70,120)">
+<rect x="0" y="0" width="130" height="80" rx="6" fill="#E1F5EE" stroke="#0F6E56" stroke-width="1"/>
+<rect x="8" y="8" width="114" height="64" rx="2" fill="#9FE1CB" opacity="0.5"/>
+<rect x="-10" y="80" width="150" height="7" rx="3" fill="#0F6E56"/>
+</g>
+<line x1="200" y1="160" x2="288" y2="180" stroke="#b4b2a9" stroke-width="1.5"/>
 
-    <linearGradient id="strokeGrad1" x1="0%" x2="100%">
-      <stop offset="0%" stop-color="#C8A18A" stop-opacity="0.95"/>
-      <stop offset="100%" stop-color="#E7D3C7" stop-opacity="0.85"/>
-    </linearGradient>
+<g transform="translate(480,110)">
+<rect x="0" y="0" width="90" height="120" rx="8" fill="#FAECE7" stroke="#D85A30" stroke-width="1"/>
+<rect x="8" y="10" width="74" height="90" rx="2" fill="#F0997B" opacity="0.5"/>
+<circle cx="45" cy="108" r="3" fill="#D85A30"/>
+</g>
+<line x1="480" y1="170" x2="392" y2="185" stroke="#b4b2a9" stroke-width="1.5"/>
 
-    <linearGradient id="strokeGrad2" x1="0%" x2="100%">
-      <stop offset="0%" stop-color="#B8846B" stop-opacity="0.9"/>
-      <stop offset="100%" stop-color="#C8A18A" stop-opacity="0.7"/>
-    </linearGradient>
+<g transform="translate(150,260)">
+<rect x="0" y="0" width="56" height="100" rx="10" fill="#FBEAF0" stroke="#993556" stroke-width="1"/>
+<rect x="6" y="12" width="44" height="74" rx="2" fill="#ED93B1" opacity="0.5"/>
+<circle cx="28" cy="92" r="3" fill="#993556"/>
+</g>
+<line x1="200" y1="270" x2="292" y2="225" stroke="#b4b2a9" stroke-width="1.5"/>
 
-    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="18" result="blur"/>
-      <feGaussianBlur stdDeviation="6" result="blur2"/>
-    </filter>
+<g transform="translate(470,260)">
+<rect x="0" y="0" width="56" height="100" rx="10" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
+<rect x="6" y="12" width="44" height="74" rx="2" fill="#97C459" opacity="0.5"/>
+<circle cx="28" cy="92" r="3" fill="#3B6D11"/>
+</g>
+<line x1="480" y1="270" x2="388" y2="225" stroke="#b4b2a9" stroke-width="1.5"/>
 
-    <filter id="microBlur" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="6"/>
-    </filter>
-
-    
-    <filter id="innerSoft" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="4" result="g"/>
-      <feComponentTransfer in="g">
-        <feFuncA type="linear" slope="0.6"/>
-      </feComponentTransfer>
-    </filter>
-  </defs>
-
- 
-  <ellipse cx="600" cy="300" rx="560" ry="260" fill="url(#bgGlow)" filter="url(#softBlur)"/>
-
- 
-  <g id="illustration" transform="translate(0,0)">
-
-   
-    <g transform="translate(600,300)">
-    
-      <g transform="rotate(0 0 0)">
-        <circle cx="0" cy="0" r="220" fill="none" stroke="url(#strokeGrad1)" stroke-width="1.2" stroke-opacity="0.12" stroke-linecap="round"/>
-        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="360 0 0" dur="38s" repeatCount="indefinite"/>
-      </g>
-
-  
-      <g transform="rotate(0 0 0)">
-        <circle cx="0" cy="0" r="160" fill="none" stroke="url(#strokeGrad2)" stroke-width="1.2" stroke-opacity="0.10" stroke-linecap="round"/>
-        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="-360 0 0" dur="26s" repeatCount="indefinite"/>
-      </g>
-
-    
-      <g transform="rotate(0 0 0)">
-        <circle cx="0" cy="0" r="100" fill="none" stroke="#E7D3C7" stroke-width="1.0" stroke-opacity="0.14" stroke-linecap="round"/>
-        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 0 0" to="360 0 0" dur="16s" repeatCount="indefinite"/>
-      </g>
-    </g>
-
-
-    <g transform="translate(600,300)">
-    
-      <circle cx="0" cy="0" r="78" fill="url(#haloSoft)" filter="url(#softBlur)" opacity="0.9"/>
-      
-      <circle cx="0" cy="0" r="12" fill="url(#centerCore)"/>
-     
-      <circle cx="0" cy="0" r="12" fill="none" stroke="#C8A18A" stroke-width="1.2" stroke-opacity="0.6">
-        <animateTransform attributeName="transform" attributeType="XML" type="scale" values="1;1.14;1" dur="3s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-opacity" values="0.6;0.35;0.6" dur="3s" repeatCount="indefinite"/>
-      </circle>
-
-      
-      <circle cx="0" cy="0" r="12" fill="none" stroke="#E7D3C7" stroke-width="1" stroke-opacity="0.5">
-        <animate attributeName="r" from="12" to="220" dur="3s" repeatCount="indefinite"/>
-        <animate attributeName="opacity" values="0.6;0.2;0" dur="3s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    
-    <g transform="translate(600,300)">
-      <circle cx="0" cy="0" r="38" fill="url(#haloSoft)" opacity="0.7" filter="url(#microBlur)"/>
-      <circle cx="0" cy="0" r="18" fill="url(#centerCore)" opacity="0.9"/>
-    </g>
-
-   
-    <path d="M600 300 C520 290, 360 270, 220 260"
-          fill="none" stroke="url(#strokeGrad1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
-          stroke-dasharray="8 14" stroke-dashoffset="0" opacity="0.95">
-      <animate attributeName="stroke-dashoffset" from="0" to="-900" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-opacity" values="0.95;0.6;0.95" dur="6s" repeatCount="indefinite"/>
-    </path>
-
-    
-    <path d="M600 300 C560 340, 420 380, 320 420"
-          fill="none" stroke="url(#strokeGrad2)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
-          stroke-dasharray="6 12" stroke-dashoffset="0" opacity="0.92">
-      <animate attributeName="stroke-dashoffset" from="0" to="-900" dur="5.2s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-opacity" values="0.92;0.6;0.92" dur="5.2s" repeatCount="indefinite"/>
-    </path>
-
-    
-    <path d="M600 300 C660 260, 780 250, 920 240"
-          fill="none" stroke="url(#strokeGrad1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
-          stroke-dasharray="7 13" stroke-dashoffset="0" opacity="0.95">
-      <animate attributeName="stroke-dashoffset" from="0" to="-900" dur="7s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-opacity" values="0.95;0.6;0.95" dur="7s" repeatCount="indefinite"/>
-    </path>
-
-    <path d="M600 300 C700 300, 760 330, 820 360"
-          fill="none" stroke="url(#strokeGrad2)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
-          stroke-dasharray="5 11" stroke-dashoffset="0" opacity="0.9">
-      <animate attributeName="stroke-dashoffset" from="0" to="-900" dur="4.5s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-opacity" values="0.9;0.5;0.9" dur="4.5s" repeatCount="indefinite"/>
-    </path>
-
-    
-    <path d="M600 300 C600 220, 600 180, 600 120"
-          fill="none" stroke="url(#strokeGrad1)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"
-          stroke-dasharray="4 10" stroke-dashoffset="0" opacity="0.9">
-      <animate attributeName="stroke-dashoffset" from="0" to="-900" dur="6.5s" repeatCount="indefinite"/>
-      <animate attributeName="stroke-opacity" values="0.9;0.5;0.9" dur="6.5s" repeatCount="indefinite"/>
-    </path>
-
-   
-    <g transform="translate(220,260)" filter="url(#microBlur)">
-      <rect x="-78" y="-52" width="156" height="104" rx="8" ry="8" fill="url(#deviceFill)" stroke="#C8A18A" stroke-width="1.4" stroke-linejoin="round" />
-      <rect x="-44" y="46" width="88" height="8" rx="3" ry="3" fill="#F6EAE2" opacity="0.6"/>
-      <g transform="translate(0,0)">
-        <animateTransform attributeName="transform" type="translate"
-                          values="0 -6;0 6;0 -6" dur="6s" repeatCount="indefinite"/>
-      </g>
-    </g>
-
-    
-    <g transform="translate(320,420)">
-      <rect x="-84" y="-40" width="168" height="96" rx="10" ry="10" fill="url(#deviceFill)" stroke="#C8A18A" stroke-width="1.4"/>
-      <rect x="-84" y="46" width="168" height="8" rx="4" ry="4" fill="#F6EAE2" opacity="0.5"/>
-      <g transform="translate(0,0)">
-        <animateTransform attributeName="transform" type="translate"
-                          values="0 -7;0 7;0 -7" dur="5s" repeatCount="indefinite"/>
-      </g>
-    </g>
-
-   
-    <g transform="translate(920,240)">
-      <rect x="-48" y="-72" width="96" height="144" rx="14" ry="14" fill="url(#deviceFill)" stroke="#C8A18A" stroke-width="1.4"/>
-      <g transform="translate(0,0)">
-        <animateTransform attributeName="transform" type="translate"
-                          values="0 -8;0 8;0 -8" dur="7s" repeatCount="indefinite"/>
-      </g>
-    </g>
-
-  
-    <g transform="translate(820,360)">
-      <rect x="-26" y="-54" width="52" height="108" rx="12" ry="12" fill="url(#deviceFill)" stroke="#C8A18A" stroke-width="1.4"/>
-      <g transform="translate(0,0)">
-        <animateTransform attributeName="transform" type="translate"
-                          values="0 -5;0 5;0 -5" dur="4.5s" repeatCount="indefinite"/>
-      </g>
-    </g>
-
- 
-    <g transform="translate(600,120)">
-      <rect x="-18" y="-22" width="36" height="44" rx="10" ry="10" fill="url(#deviceFill)" stroke="#C8A18A" stroke-width="1.4"/>
-      <g transform="translate(0,0)">
-        <animateTransform attributeName="transform" type="translate"
-                          values="0 -6;0 6;0 -6" dur="6.5s" repeatCount="indefinite"/>
-      </g>
-    </g>
-
-   
-    <g filter="url(#softBlur)" opacity="0.9">
-      <circle cx="220" cy="260" r="36" fill="url(#haloSoft)" opacity="0.9"/>
-      <circle cx="320" cy="420" r="40" fill="url(#haloSoft)" opacity="0.85"/>
-      <circle cx="920" cy="240" r="34" fill="url(#haloSoft)" opacity="0.85"/>
-      <circle cx="820" cy="360" r="30" fill="url(#haloSoft)" opacity="0.85"/>
-      <circle cx="600" cy="120" r="22" fill="url(#haloSoft)" opacity="0.85"/>
-    </g>
-
-    
-    <g stroke="#E7D3C7" stroke-width="0.9" stroke-opacity="0.5" fill="none">
-      <circle cx="220" cy="260" r="56"/>
-      <circle cx="820" cy="360" r="46"/>
-    </g>
-
-   
-    <g fill="#FFFFFF" stroke="#F6EAE2" stroke-opacity="0.85" stroke-width="0.6">
-   
-      <circle cx="250" cy="220" r="2.2" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.9;0" dur="2.1s" begin="0.2s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.6;0.5" dur="2.1s" begin="0.2s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="180" cy="300" r="1.8" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.85;0" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.6;1.4;0.6" dur="2.8s" begin="0.8s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="350" cy="380" r="1.6" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.9;0" dur="2.3s" begin="1.4s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.5;0.5" dur="2.3s" begin="1.4s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="760" cy="270" r="1.9" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.95;0" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.7;0.5" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="900" cy="220" r="1.6" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.9;0" dur="3.1s" begin="1.1s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.6;1.3;0.6" dur="3.1s" begin="1.1s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="680" cy="360" r="1.4" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.85;0" dur="2.4s" begin="0.7s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.4;1.5;0.4" dur="2.4s" begin="0.7s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="610" cy="420" r="1.6" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.9;0" dur="2.0s" begin="1.9s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.6;0.5" dur="2.0s" begin="1.9s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="540" cy="240" r="1.7" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.9;0" dur="2.6s" begin="0.3s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.7;0.5" dur="2.6s" begin="0.3s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="480" cy="320" r="1.3" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.8;0" dur="2.85s" begin="1.2s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.4;0.5" dur="2.85s" begin="1.2s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="720" cy="200" r="1.5" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.9;0" dur="2.2s" begin="0.9s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.6;1.5;0.6" dur="2.2s" begin="0.9s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="980" cy="320" r="1.2" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.85;0" dur="3.0s" begin="1.6s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.5;0.5" dur="3.0s" begin="1.6s" repeatCount="indefinite"/>
-      </circle>
-
-      <circle cx="640" cy="170" r="1.6" opacity="0.0">
-        <animate attributeName="opacity" values="0;0.95;0" dur="2.7s" begin="0.4s" repeatCount="indefinite"/>
-        <animateTransform attributeName="transform" type="scale" values="0.5;1.6;0.5" dur="2.7s" begin="0.4s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-  </g>
+<text x="340" y="360" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#3d3d3a">One architecture, every device</text>
 </svg>
               </div>
             </div>
@@ -510,7 +284,7 @@ export default function HomePage() {
 </p>
 
 <div className="actions">
-  <a href="/contact" className="btn-line">
+  <a href="tel:+447485222490" className="btn-line">
     Start a Project <span className="arw">→</span>
   </a>
 
@@ -521,12 +295,12 @@ export default function HomePage() {
             </div>
             <div className="rv">
             <ul className="checklist">
-  <li>Fast, intuitive shopping experiences</li>
-  <li>Secure payment gateway integration</li>
-  <li>Responsive across desktop, tablet & mobile</li>
-  <li>Advanced inventory & order management</li>
-  <li>SEO-optimized architecture for better visibility</li>
-  <li>Scalable platform built for business growth</li>
+  <li className="chk-shopping">Fast, intuitive shopping experiences</li>
+  <li className="chk-payment">Secure payment gateway integration</li>
+  <li className="chk-responsive">Responsive across desktop, tablet & mobile</li>
+  <li className="chk-inventory">Advanced inventory & order management</li>
+  <li className="chk-seo">SEO-optimized architecture for better visibility</li>
+  <li className="chk-scalable">Scalable platform built for business growth</li>
 </ul>
 
             </div>
@@ -624,7 +398,7 @@ export default function HomePage() {
                   <div className="lab">More work</div>
                   <h4 className="serif">Your project next.</h4>
                   <p>Digital strategy, bespoke builds, and practical support for teams that need a reliable partner without the usual agency noise.</p>
-                  <a href="/contact" className="arwlink">Start a conversation <span className="arw">→</span></a>
+                  <a href="tel:+447485222490" className="arwlink">Start a conversation <span className="arw">→</span></a>
                 </div>
               </div>
             </div>
@@ -650,8 +424,8 @@ export default function HomePage() {
                 <div className="fbrand">Salaro</div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
-              <div className="fcol"><h5>Practice</h5><a href="#">Build</a><a href="#">Migrate</a><a href="#">Advise</a></div>
-              <div className="fcol"><h5>Work</h5><a href="#">Recent projects</a><a href="#">Archive</a></div>
+              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+              <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
               <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">UK-based</a><a href="#">LinkedIn</a></div>
             </div>
             <div className="foot-bot">
