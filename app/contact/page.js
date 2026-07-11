@@ -1,7 +1,25 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      setStatus(res.ok ? 'sent' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  }
+
   useEffect(() => {
       // field focus label
         document.querySelectorAll('.field input,.field textarea').forEach(el=>{
@@ -93,16 +111,24 @@ export default function ContactPage() {
                 <div className="serif">Send a <span className="it">note</span>.</div>
                 <p className="lead">Tell us what you're trying to build, where you are today, and what success would look like.</p>
               </div>
-              <form onSubmit={(e)=>e.preventDefault()}>
-                <div className="field"><label className="tag">Name</label><input  type="text" placeholder="Your name" /></div>
-                <div className="field"><label className="tag">Email</label><input  type="email" placeholder="you@example.com" /></div>
-                <div className="field"><label className="tag">Company</label><input  type="text" placeholder="Optional" /></div>
-                <div className="field"><label className="tag">What are you trying to build?</label><textarea rows="3" placeholder="A short note is enough"></textarea></div>
-                <div className="submit-row">
-                  <button className="send" type="submit">Send <span className="arw">→</span></button>
-                  <span className="or">or write directly to <a href="mailto:team@salaro.com">team@salaro.com</a></span>
+              {status === 'sent' ? (
+                <div className="form-success">
+                  <p className="serif" style={{fontSize:'1.4rem',marginBottom:'8px'}}>Message sent.</p>
+                  <p style={{color:'var(--ink-soft)'}}>Thank you — we'll be in touch within a day or two.</p>
                 </div>
-              </form>
+              ) : (
+                <form onSubmit={handleSubmit}>
+                  <div className="field"><label className="tag">Name</label><input required type="text" placeholder="Your name" value={form.name} onChange={e=>setForm(f=>({...f,name:e.target.value}))} /></div>
+                  <div className="field"><label className="tag">Email</label><input required type="email" placeholder="you@example.com" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))} /></div>
+                  <div className="field"><label className="tag">Company</label><input type="text" placeholder="Optional" value={form.company} onChange={e=>setForm(f=>({...f,company:e.target.value}))} /></div>
+                  <div className="field"><label className="tag">What are you trying to build?</label><textarea required rows="3" placeholder="A short note is enough" value={form.message} onChange={e=>setForm(f=>({...f,message:e.target.value}))}></textarea></div>
+                  {status === 'error' && <p style={{color:'var(--accent)',marginBottom:'12px'}}>Something went wrong — please email us directly at team@salaro.com</p>}
+                  <div className="submit-row">
+                    <button className="send" type="submit" disabled={status==='sending'}>{status==='sending' ? 'Sending…' : 'Send'} {status!=='sending' && <span className="arw">→</span>}</button>
+                    <span className="or">or write directly to <a href="mailto:team@salaro.com">team@salaro.com</a></span>
+                  </div>
+                </form>
+              )}
             </div>
 
             <div className="vrule"></div>
