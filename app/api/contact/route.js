@@ -13,7 +13,7 @@ export async function POST(request) {
 
     // Notification to Salaro
     await resend.emails.send({
-      from: 'Salaro Contact Form <onboarding@resend.dev>',
+      from: 'Salaro Contact Form <team@salaro.com>',
       to: 'sal@salaro.com',
       replyTo: email,
       subject: `New enquiry from ${name}${company ? ` · ${company}` : ''}`,
@@ -28,7 +28,7 @@ export async function POST(request) {
 
     // Confirmation to the sender
     await resend.emails.send({
-      from: 'Salaro <onboarding@resend.dev>',
+      from: 'Salaro <team@salaro.com>',
       to: email,
       subject: `We've received your message — Salaro`,
       html: `
