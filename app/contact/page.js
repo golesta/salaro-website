@@ -69,20 +69,20 @@ export default function ContactPage() {
           <div className="wrap">
             <div className="hero-inner">
               <div className="hero-copy">
-                <div className="eyebrow tag rust">Contact — start a conversation</div>
+                <div className="eyebrow tag">Contact — start a conversation</div>
                 <h1 className="serif">
                   <span className="reveal-line"><span>Let's <span className="it">start</span> a</span></span>
                   <span className="reveal-line"><span>conversation.</span></span>
                 </h1>
-                <p>We work with founders, product teams and marketing leads who need a calm, senior partner for their next digital build.</p>
+                <p>We work with founders, product teams and marketing leads who need a calm partner for their next digital build.</p>
               </div>
               <div className="hero-viz">
-                <div className="viz-cap"><span className="tag rust">Response window</span><span className="dotlive"><i></i>Open for projects</span></div>
-                <div className="viz-fig"><span className="serif">&lt; 1</span><span className="tag">morning · typical reply</span></div>
+                <div className="viz-cap"><span className="tag">Response window</span><span className="dotlive"><i></i>Open for projects</span></div>
+                <div className="viz-fig"><span className="serif">Direct</span><span className="tag">response</span></div>
                 <div className="respbar"><span className="resp-fill"></span></div>
-                <div className="resp-axis"><span>Now</span><span>One morning</span><span>24h max</span></div>
+                <div className="resp-axis"><span>Now</span><span>Within a day</span><span>Clear next step</span></div>
                 <div className="viz-stats">
-                  <div><b className="serif">99%</b><span className="tag">Satisfaction rate</span></div>
+                  <div><b className="serif">30+</b><span className="tag">years of practice</span></div>
                 </div>
               </div>
             </div>
@@ -92,10 +92,10 @@ export default function ContactPage() {
 
         <section className="stats">
           <div className="wrap"><div className="grid">
-            <div className="stat"><div className="num">98<em>%</em></div><div className="lbl tag">Client retention</div></div>
-            <div className="stat"><div className="num">40<em>+</em></div><div className="lbl tag">Projects delivered</div></div>
-            <div className="stat"><div className="num">12</div><div className="lbl tag">Years combined experience</div></div>
-            <div className="stat"><div className="num">24/7</div><div className="lbl tag">Support</div></div>
+            <div className="stat"><div className="num">30<em>+</em></div><div className="lbl tag">Years of practice</div></div>
+            <div className="stat"><div className="num">Direct</div><div className="lbl tag">Delivery</div></div>
+            <div className="stat"><div className="num">Direct</div><div className="lbl tag">Collaboration</div></div>
+            <div className="stat"><div className="num">Clear</div><div className="lbl tag">Process</div></div>
           </div></div>
         </section>
 
@@ -107,7 +107,7 @@ export default function ContactPage() {
     
             <div className="col-left rv">
               <div className="sec-head">
-                <div className="tag rust">Start a project</div>
+                <div className="tag">Start a project</div>
                 <div className="serif">Send a <span className="it">note</span>.</div>
                 <p className="lead">Tell us what you're trying to build, where you are today, and what success would look like.</p>
               </div>
@@ -135,7 +135,7 @@ export default function ContactPage() {
 
     
             <div className="col-right rv">
-              <div className="sec-head"><div className="tag rust">How this goes</div></div>
+              <div className="sec-head"><div className="tag">How this goes</div></div>
               <div className="steps" id="steps">
                 <div className="spine" id="spine"></div>
                 <div className="step"><div className="n">01</div><h4>You write.</h4><p>A short note via this form or by email. No NDA is needed upfront.</p></div>
@@ -181,8 +181,8 @@ export default function ContactPage() {
 
         <section className="clients">
           <div className="track">
-            <span>Clever Botanics</span><span>HBM Partners</span><span>Askdroid</span><span>Properties Group</span>
-            <span>Clever Botanics</span><span>HBM Partners</span><span>Askdroid</span><span>Properties Group</span>
+            <span>Product strategy</span><span>Digital build</span><span>Platform review</span><span>Experience design</span>
+            <span>Product strategy</span><span>Digital build</span><span>Platform review</span><span>Experience design</span>
           </div>
         </section>
 
@@ -190,7 +190,7 @@ export default function ContactPage() {
         <section className="cta">
           <div className="wrap">
             <div>
-              <div className="tag">Ready to start?</div>
+                <div className="tag">Ready to start?</div>
               <h2 className="serif">Take your <em>business</em> online — the right way.</h2>
             </div>
             <div className="btns">
@@ -205,11 +205,11 @@ export default function ContactPage() {
           <div className="wrap">
             <div className="foot-top">
               <div>
-                <div className="brand">Sala<span style={{color: 'var(--rust)'}}>ro</span></div>
+                <div className="brand">Sala<span style={{color: 'var(--accent)'}}>ro</span></div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
               <div className="fcol"><h5>Pages</h5><a href="#">Home</a><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a></div>
-              <div className="fcol"><h5>Recent work</h5><a href="https://hbm.salaro.com/">HBM Partners</a><a href="https://cleverbotanics.com/">Clever Botanics</a><a href="https://askdroid.com/">Askdroid</a><a href="https://properties.co.uk/">Properties</a></div>
+              <div className="fcol"><h5>Recent work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a><a href="/studio">Studio services</a></div>
               <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="https://www.linkedin.com">LinkedIn</a><a href="https://twitter.com">Twitter / X</a><a href="https://www.instagram.com">Instagram</a></div>
             </div>
             <div className="foot-bot">

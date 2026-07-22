@@ -191,7 +191,7 @@ export default function AdvisePage() {
             <div className="risk">
               <div className="k lab a">Format 02</div>
               <h4 className="serif">Fractional CTO</h4>
-              <p>Senior technical leadership on a part-time, ongoing basis — for founders and teams who need the judgment of a CTO without the full-time hire.</p>
+              <p>Technical leadership on a part-time, ongoing basis — for founders and teams who need strategic judgment without the full-time hire.</p>
             </div>
             <div className="risk">
               <div className="k lab a">Format 03</div>

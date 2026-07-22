@@ -178,7 +178,7 @@ export default function WritingPage() {
             <div className="rv">
               <div className="lab">Ready to start?</div>
               <h2 className="serif">Your project <em>next</em>.</h2>
-              <p className="body">Whether it's website design, an app, or a partnership that needs a senior voice, reach out and we'll respond within one working day.</p>
+              <p className="body">Whether it's website design, an app, or a partnership that needs an experienced voice, reach out and we'll respond within one working day.</p>
             </div>
             <div className="btns rv">
               <a href="tel:+447485222490" className="btn-primary">Start a conversation <span>→</span></a>

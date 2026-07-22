@@ -28,7 +28,7 @@ export default function PracticePage() {
                   <span className="reveal-line"><span><span className="rust">Engineered</span> for</span></span>
                   <span className="reveal-line"><span>Performance.</span></span>
                 </h1>
-                <p className="sub">Behind every exceptional digital platform is a dedicated collective of strategists, developers, visual artists, and project directors working with a calm, senior approach.</p>
+                <p className="sub">Behind every exceptional digital platform is a dedicated collective of strategists, developers, visual artists, and project directors working with a calm approach.</p>
               </div>
               <div className="hero-viz">
                 <div className="viz-cap"><span className="lab a">Performance index</span><span className="lab">2003 — 2026</span></div>
@@ -76,7 +76,7 @@ export default function PracticePage() {
             </div>
             <div className="content rv">
               <p>Salaro has been building thoughtful digital products since 1995, working with clients who need clarity, quality, and a calm approach to change. Our background in design and digital delivery gives us a strong grounding in both product thinking and practical implementation.</p>
-              <p>We specialise in modernising legacy frameworks into fluid, high-conversion web experiences, intuitive content systems, custom e-commerce products, and cohesive digital identities. Our work is guided by UK-led strategy supported by a senior international development team.</p>
+              <p>We specialise in modernising legacy frameworks into fluid, high-conversion web experiences, intuitive content systems, custom e-commerce products, and cohesive digital identities. Our work is guided by UK-led strategy supported by an international development team.</p>
               <div className="caps">
                 <div className="lab">Cross-industry capabilities span</div>
                 <div className="cap-tags">
@@ -102,9 +102,9 @@ export default function PracticePage() {
               </div>
               <div className="loc">
                 <span className="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12 H21 M12 3 a14 14 0 0 1 0 18 a14 14 0 0 1 0 -18"/></svg></span>
-                <div><h4 className="serif">Senior international delivery team</h4><p>A senior international development team supports implementation, systems thinking, and thoughtful product care.</p></div>
+                <div><h4 className="serif">International delivery team</h4><p>An international development team supports implementation, systems thinking, and thoughtful product care.</p></div>
               </div>
-              <p className="loc-note">By combining UK-led strategy with a senior international delivery team, we maintain a transparent and dependable workflow that keeps the work moving without unnecessary complexity.</p>
+              <p className="loc-note">By combining UK-led strategy with an international delivery team, we maintain a transparent and dependable workflow that keeps the work moving without unnecessary complexity.</p>
             </div>
           </div></div>
         </section>
