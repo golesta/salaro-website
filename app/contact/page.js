@@ -210,7 +210,7 @@ export default function ContactPage() {
               </div>
               <div className="fcol"><h5>Pages</h5><a href="#">Home</a><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a></div>
               <div className="fcol"><h5>Recent work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a><a href="/studio">Studio services</a></div>
-              <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="https://www.linkedin.com">LinkedIn</a><a href="https://twitter.com">Twitter / X</a><a href="https://www.instagram.com">Instagram</a></div>
+              <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a><a href="https://twitter.com/salaro">Twitter / X</a><a href="https://www.instagram.com/salaro">Instagram</a></div>
             </div>
             <div className="foot-bot">
               <span className="tag">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>

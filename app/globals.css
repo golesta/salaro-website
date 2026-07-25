@@ -565,8 +565,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pg-advise .nav a{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);position:relative;padding:5px 0;transition:color .4s}
 .pg-advise .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .5s cubic-bezier(.19,1,.22,1)}
 .pg-advise .nav a:hover{color:var(--ink)}
-.pg-advise .nav a.here{color:var(--ink)}
-.pg-advise .nav a.here::after{width:100%}
+.pg-advise .nav a.active{color:var(--accent)}
+.pg-advise .nav a.active::after{width:100%}
 .pg-advise .nav a:hover::after{width:100%}
 .pg-advise .top-cta{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--ink);color:var(--ink);padding:11px 22px;transition:all .45s}
 .pg-advise .top-cta:hover{background:var(--ink);color:var(--paper)}
@@ -597,7 +597,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pg-advise .subnav a.on{color:var(--accent)}
 .pg-advise .subnav .grow{flex:1}
 .pg-advise .subnav .mini-cta{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.pg-advise .band{padding:120px 0}
+.pg-advise .band{padding:80px 0}
 .pg-advise section{position:relative;scroll-margin-top:130px}
 .pg-advise .head-row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end;margin-bottom:80px}
 .pg-advise .head-row h2{font-family:"Fraunces",serif;font-weight:250;font-size:clamp(32px,4.4vw,54px);line-height:1.06;letter-spacing:-.02em}
@@ -830,8 +830,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pg-archive .nav a{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);position:relative;padding:5px 0;transition:color .4s}
 .pg-archive .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .5s cubic-bezier(.19,1,.22,1)}
 .pg-archive .nav a:hover{color:var(--ink)}
-.pg-archive .nav a.here{color:var(--ink)}
-.pg-archive .nav a.here::after{width:100%}
+.pg-archive .nav a.active{color:var(--accent)}
+.pg-archive .nav a.active::after{width:100%}
 .pg-archive .nav a:hover::after{width:100%}
 .pg-archive .top-cta{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--ink);color:var(--ink);padding:11px 22px;transition:all .45s}
 .pg-archive .top-cta:hover{background:var(--ink);color:var(--paper)}
@@ -862,7 +862,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pg-archive .subnav a.on{color:var(--accent)}
 .pg-archive .subnav .grow{flex:1}
 .pg-archive .subnav .mini-cta{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.pg-archive .band{padding:120px 0}
+.pg-archive .band{padding:80px 0}
 .pg-archive section{position:relative;scroll-margin-top:130px}
 .pg-archive .head-row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end;margin-bottom:80px}
 .pg-archive .head-row h2{font-family:"Fraunces",serif;font-weight:250;font-size:clamp(32px,4.4vw,54px);line-height:1.06;letter-spacing:-.02em}
@@ -1100,8 +1100,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pg-build .nav a{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);position:relative;padding:5px 0;transition:color .4s}
 .pg-build .nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--accent);transition:width .5s cubic-bezier(.19,1,.22,1)}
 .pg-build .nav a:hover{color:var(--ink)}
-.pg-build .nav a.here{color:var(--ink)}
-.pg-build .nav a.here::after{width:100%}
+.pg-build .nav a.active{color:var(--accent)}
+.pg-build .nav a.active::after{width:100%}
 .pg-build .nav a:hover::after{width:100%}
 .pg-build .top-cta{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--ink);color:var(--ink);padding:11px 22px;transition:all .45s}
 .pg-build .top-cta:hover{background:var(--ink);color:var(--paper)}
@@ -1132,7 +1132,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .pg-build .subnav a.on{color:var(--accent)}
 .pg-build .subnav .grow{flex:1}
 .pg-build .subnav .mini-cta{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
-.pg-build .band{padding:120px 0}
+.pg-build .band{padding:80px 0}
 .pg-build section{position:relative;scroll-margin-top:130px}
 .pg-build .head-row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:end;margin-bottom:80px}
 .pg-build .head-row h2{font-family:"Fraunces",serif;font-weight:250;font-size:clamp(32px,4.4vw,54px);line-height:1.06;letter-spacing:-.02em}
@@ -2116,7 +2116,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .p-legal .hero-viz{border:1px solid var(--line-fine);border-radius:4px;padding:28px 30px 26px;background:linear-gradient(170deg,var(--paper),var(--paper-2));min-width:0;overflow:hidden}
 .p-legal .hero .hero-copy{max-width:720px}
 .p-legal .hero .eyebrow{display:flex;align-items:center;gap:16px;margin-bottom:34px}
-.p-legal .hero h1{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(48px,8.6vw,120px);line-height:1.02;letter-spacing:-.035em;max-width:11ch;margin-bottom:24px}
+.p-legal .hero h1{font-family:"Fraunces",Georgia,serif;font-weight:300;font-size:clamp(48px,8.6vw,80px);line-height:1.02;letter-spacing:-.035em;max-width:11ch;margin-bottom:24px}
 .p-legal .hero h1 .it{font-style:italic;color:var(--accent);font-weight:300}
 .p-legal .hero .sub{margin-top:40px;max-width:46ch;color:var(--ink-soft);font-size:17px;line-height:1.7}
 .p-legal .section{padding:60px 0;border-top:1px solid var(--line);background:rgba(245,240,230,.4)}
@@ -2749,3 +2749,51 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
     font-size: 18px;
   }
 }
+
+/* ===========================================================================
+   BUILD PAGE — elegance refinements
+   Quieter tracking, airier rhythm, gentler motion. Layout & breakpoints
+   are deliberately untouched; only typographic and motion detail is refined.
+   =========================================================================== */
+
+.pg-build{ text-rendering:optimizeLegibility; }
+
+/* Display type — a touch more refined tracking + optical air */
+.pg-build .masthead h1{ letter-spacing:-.032em; line-height:1.05; }
+.pg-build .head-row h2{ letter-spacing:-.026em; }
+.pg-build .serif{ letter-spacing:-.018em; }
+
+/* Lead — longer, calmer measure */
+.pg-build .masthead .lead{ font-size:17px; line-height:1.82; max-width:52ch; }
+
+/* Labels — a hair more letterspacing reads as considered, not shouty */
+.pg-build .lab{ letter-spacing:.3em; font-size:10px; }
+
+/* Masthead spec rows — more air, hairline warms on hover */
+.pg-build .masthead .aside .row{ padding:18px 0; transition:border-color .5s ease; }
+.pg-build .masthead .aside .row:hover{ border-color:var(--accent-soft); }
+
+/* Section headers breathe a little more */
+.pg-build .head-row{ margin-bottom:92px; }
+
+/* Signature numerals — lighter, slower, warmer reveal */
+.pg-build .sig .n{ font-weight:200; transition:color .7s cubic-bezier(.19,1,.22,1); }
+
+/* Primary + top CTAs — gentler easing, tracking opens slightly on hover */
+.pg-build .btn-line{ transition:background .6s cubic-bezier(.19,1,.22,1),color .6s cubic-bezier(.19,1,.22,1),letter-spacing .6s cubic-bezier(.19,1,.22,1); }
+.pg-build .btn-line:hover{ letter-spacing:.22em; }
+.pg-build .top-cta{ transition:background .55s cubic-bezier(.19,1,.22,1),color .55s cubic-bezier(.19,1,.22,1),letter-spacing .55s cubic-bezier(.19,1,.22,1); }
+.pg-build .top-cta:hover{ letter-spacing:.22em; }
+
+/* Capability + checklist rows — a touch more room between hairlines */
+.pg-build .disc-pane .caps li{ padding:16px 0; }
+.pg-build .checklist li{ padding:22px 0; }
+
+/* Ethos closing statement — a little more leading for grace */
+.pg-build .ethos .big{ line-height:1.4; }
+
+/* Footer links — quieter, warmer transition */
+.pg-build .fcol a{ transition:color .45s ease; }
+
+/* Slightly slower, softer scroll reveal */
+.pg-build .rv{ transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.19,1,.22,1); }
