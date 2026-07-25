@@ -89,7 +89,7 @@ export default function TermsPage() {
             <div className="fcol">
               <h5>Connect</h5>
               <a href="mailto:team@salaro.com">team@salaro.com</a>
-              <a href="https://www.linkedin.com">LinkedIn</a>
+              <a href="https://uk.linkedin.com/in/salaro">LinkedIn</a>
             </div>
           </div>
           <div className="foot-bot">

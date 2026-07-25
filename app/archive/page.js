@@ -58,7 +58,7 @@ export default function ArchivePage() {
       <div className="topbar">
         <div className="wrap">
           <a href="/" className="brand">Sala<span>ro</span></a>
-          <nav className="nav"><a href="/practice">Practice</a><a href="/work" className="here">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
+          <nav className="nav"><a href="/practice">Practice</a><a href="/work" className="active">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
           <a href="tel:+447485222490" className="top-cta">Start a project</a>
         </div>
       </div>
@@ -76,8 +76,8 @@ export default function ArchivePage() {
             <div className="row"><span className="k">Listed</span><span className="v">Selected engagements</span></div>
             <div className="row"><span className="k">Detail</span><span className="v">Recent projects</span></div>
             <div className="cta">
-              <a href="#" className="btn-line">See recent work <span className="arw">→</span></a>
-              <span className="phone">Practising since <b>1995</b></span>
+              <a href="/work" className="btn-line">See recent work <span className="arw">→</span></a>
+           
             </div>
           </div>
         </div></div>
@@ -111,65 +111,56 @@ export default function ArchivePage() {
             <div className="yr">
               <div className="y serif">2026</div>
               <div className="rows">
-                <div className="row" data-cat="commerce"><span className="p-name serif">Clever Botanics</span><span className="p-d">Commerce</span><span className="p-s">Retail</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="advisory"><span className="p-name serif">HBM Partners</span><span className="p-d">Advisory</span><span className="p-s">Natural resources</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="web"><span className="p-name serif">Northgate Trust</span><span className="p-d">Web</span><span className="p-s">Finance</span><span className="p-a">Open →</span></div>
+                <a href="https://www.leadaline.com" className="row" data-cat="apps"><span className="p-name serif">LeadaLine</span><span className="p-d">AI systems</span><span className="p-s">Electrical trades</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 
             <div className="yr">
               <div className="y serif">2025</div>
               <div className="rows">
-                <div className="row" data-cat="web"><span className="p-name serif">Properties.co.uk</span><span className="p-d">Web</span><span className="p-s">Property</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="apps"><span className="p-name serif">Ashdroid</span><span className="p-d">Apps</span><span className="p-s">SaaS</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="commerce"><span className="p-name serif">Meridian Supply</span><span className="p-d">Commerce</span><span className="p-s">B2B trade</span><span className="p-a">Open →</span></div>
+                <a href="https://hbm.salaro.com" className="row" data-cat="advisory"><span className="p-name serif">H.B.M. Partners</span><span className="p-d">Advisory</span><span className="p-s">Natural resources</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 
             <div className="yr">
               <div className="y serif">2024</div>
               <div className="rows">
-                <div className="row" data-cat="web"><span className="p-name serif">Fenwick Studio</span><span className="p-d">Web</span><span className="p-s">Architecture</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="advisory"><span className="p-name serif">Calder Health</span><span className="p-d">Advisory</span><span className="p-s">Healthcare</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="commerce"><span className="p-name serif">Rowan &amp; Vale</span><span className="p-d">Commerce</span><span className="p-s">Homeware</span><span className="p-a">Open →</span></div>
+                <a href="https://askdroid.com/" className="row" data-cat="apps"><span className="p-name serif">AskDroid</span><span className="p-d">AI platform</span><span className="p-s">Customer support</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 
             <div className="yr">
               <div className="y serif">2020</div>
               <div className="rows">
-                <div className="row" data-cat="apps"><span className="p-name serif">Tiller Logistics</span><span className="p-d">Apps</span><span className="p-s">Logistics</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="web"><span className="p-name serif">Beacon Council</span><span className="p-d">Web</span><span className="p-s">Public sector</span><span className="p-a">Open →</span></div>
+                <a href="https://edenaromata.com" className="row" data-cat="commerce"><span className="p-name serif">Eden Aromate</span><span className="p-d">Brand site</span><span className="p-s">CBD wellness</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 
             <div className="yr">
-              <div className="y serif">2014</div>
+              <div className="y serif">2019</div>
               <div className="rows">
-                <div className="row" data-cat="commerce"><span className="p-name serif">Harbour Goods</span><span className="p-d">Commerce</span><span className="p-s">Retail</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="web"><span className="p-name serif">Aldwych Press</span><span className="p-d">Web</span><span className="p-s">Publishing</span><span className="p-a">Open →</span></div>
+                <a href="https://cleverbotanics.com" className="row" data-cat="commerce"><span className="p-name serif">Clever Botanics</span><span className="p-d">E-commerce</span><span className="p-s">Wellness</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 
             <div className="yr">
-              <div className="y serif">2005</div>
+              <div className="y serif">2018</div>
               <div className="rows">
-                <div className="row" data-cat="web"><span className="p-name serif">Marlow &amp; Reed</span><span className="p-d">Web</span><span className="p-s">Legal</span><span className="p-a">Open →</span></div>
-                <div className="row" data-cat="commerce"><span className="p-name serif">Greenline Direct</span><span className="p-d">Commerce</span><span className="p-s">Mail order</span><span className="p-a">Open →</span></div>
+                <a href="https://ecogreencabins.com" className="row" data-cat="web"><span className="p-name serif">EcoGreenCabins</span><span className="p-d">Brochure</span><span className="p-s">Eco construction</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 
             <div className="yr">
-              <div className="y serif">1995</div>
+              <div className="y serif">2012</div>
               <div className="rows">
-                <div className="row" data-cat="web"><span className="p-name serif">Salaro — first site</span><span className="p-d">Web</span><span className="p-s">Studio</span><span className="p-a">Open →</span></div>
+                <a href="https://properties.co.uk" className="row" data-cat="web"><span className="p-name serif">Properties.co.uk</span><span className="p-d">Directory</span><span className="p-s">Property</span><span className="p-a">Open →</span></a>
               </div>
             </div>
           </div>
 
           <div className="rv" style={{marginTop:'56px', display:'flex', justifyContent:'space-between', alignItems:'center', flexWrap:'wrap', gap:'16px', borderTop:'1px solid var(--line)', paddingTop:'34px'}}>
             <span className="lab">Want the detail behind a project?</span>
-            <a href="tel:+447485222490" className="btn-line">See recent case studies <span className="arw">→</span></a>
+            <a href="/studio" className="btn-line">See recent case studies <span className="arw">→</span></a>
           </div>
         </div>
       </section>
@@ -195,7 +186,7 @@ export default function ArchivePage() {
             </div>
             <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
             <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
-            <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><span>Guildford, Surrey</span><a href="https://www.linkedin.com">LinkedIn</a></div>
+            <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><span>Guildford, Surrey</span><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
             <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>

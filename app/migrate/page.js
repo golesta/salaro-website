@@ -25,7 +25,7 @@ export default function MigratePage() {
         <div className="wrap">
           <a href="/" className="brand">Sala<span>ro</span></a>
           <nav className="nav">
-            <a href="/practice" className="here">Practice</a>
+            <a href="/practice" className="active">Practice</a>
             <a href="/work">Work</a>
             <a href="/studio">Studio</a>
             <a href="/writing">Writing</a>
@@ -188,7 +188,7 @@ export default function MigratePage() {
             </div>
             <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
             <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
-            <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
+            <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
             <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>

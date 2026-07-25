@@ -60,7 +60,7 @@ export default function AdvisePage() {
       }),
       { rootMargin: '-45% 0px -50% 0px' }
     );
-    ['when', 'questions', 'engage', 'deliverables', 'sectors'].forEach((id) => {
+    ['when', 'questions', 'engage', 'deliverables'].forEach((id) => {
       const el = root.querySelector('#' + id);
       if (el) spy.observe(el);
     });
@@ -79,7 +79,7 @@ export default function AdvisePage() {
       <div className="topbar">
         <div className="wrap">
           <a href="/" className="brand">Sala<span>ro</span></a>
-          <nav className="nav"><a href="/practice" className="here">Practice</a><a href="/work">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
+          <nav className="nav"><a href="/practice" className="active">Practice</a><a href="/work">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
           <a href="tel:+447485222490" className="top-cta">Book a call</a>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function AdvisePage() {
             <div className="row"><span className="k">Bias</span><span className="v">Independent</span></div>
             <div className="cta">
               <a href="tel:+447485222490" className="btn-line">Book a call <span className="arw">→</span></a>
-              <a href="tel:+447485222490" className="phone">Phone <b>07485 222490</b></a>
+            
             </div>
           </div>
         </div></div>
@@ -112,7 +112,6 @@ export default function AdvisePage() {
           <a href="#questions">Questions we answer</a>
           <a href="#engage">Engagements</a>
           <a href="#deliverables">Deliverables</a>
-          <a href="#sectors">Sectors</a>
           <span className="grow"></span>
           <a href="tel:+447485222490" className="mini-cta">Book a call →</a>
         </div>
@@ -228,27 +227,9 @@ export default function AdvisePage() {
               <li>A live session to walk the team through it</li>
               <li>An independent view — no upsell attached</li>
             </ul>
-            <div className="mini-table">
-              <div><div className="mt-k">Turnaround</div><div className="mt-v lab">1–2 weeks</div></div>
-              <div><div className="mt-k">Format</div><div className="mt-v lab">Written + live</div></div>
-              <div><div className="mt-k">Bias</div><div className="mt-v lab">Independent</div></div>
-            </div>
+           
           </div>
         </div></div>
-      </section>
-
-      {/* SECTORS / CLIENTS */}
-      <section className="clients band" id="sectors">
-        <div className="wrap rv">
-          <div className="eyebrow lab a">Where we advise</div>
-          <h2 className="serif">Teams and boards we've <span className="it">counselled</span>.</h2>
-          <div className="client-row">
-            <a href="https://cleverbotanics.com/" className="c">Clever Botanics<small>Rebuild vs refactor</small></a>
-            <a href="https://hbm.salaro.com/" className="c">HBM Partners<small>Technology strategy</small></a>
-            <a href="https://properties.co.uk/" className="c">Properties.co.uk<small>Architecture review</small></a>
-            <a href="https://askdroid.com/" className="c">Askdroid<small>Technical diligence</small></a>
-          </div>
-        </div>
       </section>
 
       {/* ETHOS */}
@@ -272,7 +253,7 @@ export default function AdvisePage() {
             </div>
             <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
             <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
-            <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
+            <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
             <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>

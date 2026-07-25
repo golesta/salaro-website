@@ -57,7 +57,7 @@ export default function BuildPage() {
       <div className="topbar">
         <div className="wrap">
           <a href="/" className="brand">Sala<span>ro</span></a>
-          <nav className="nav"><a href="/practice" className="here">Practice</a><a href="/work">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
+          <nav className="nav"><a href="/practice" className="active">Practice</a><a href="/work">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
           <a href="tel:+447485222490" className="top-cta">Start a project</a>
         </div>
       </div>
@@ -77,7 +77,7 @@ export default function BuildPage() {
             <div className="row"><span className="k">Delivery</span><span className="v">Human-reviewed</span></div>
             <div className="cta">
               <a href="tel:+447485222490" className="btn-line">Start a project <span className="arw">→</span></a>
-              <a href="tel:+447485222490" className="phone">Phone <b>07485 222490</b></a>
+             
             </div>
           </div>
         </div></div>
@@ -492,26 +492,6 @@ export default function BuildPage() {
         </div>
       </section>
 
-      {/* CLIENTS */}
-      <section className="clients band">
-        <div className="wrap rv">
-          <div style={{display:'flex', alignItems:'center', gap:'14px', marginBottom:'16px'}}>
-            <svg width="42" height="42" viewBox="0 0 64 64" fill="none" aria-hidden="true" style={{flexShrink:0}}>
-              <path d="M18 20h28v24H18z" stroke="var(--accent)" strokeWidth="2"/>
-              <path d="M24 28h16M24 36h10" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-            <div className="eyebrow lab a">Selected work</div>
-          </div>
-          <h2 className="serif">A few of the <span className="it">builds</span> we've shipped.</h2>
-          <div className="client-row">
-            <a href="https://cleverbotanics.com/" className="c">Clever Botanics<small>Composable commerce</small></a>
-            <a href="https://hbm.salaro.com/" className="c">HBM Partners<small>Corporate platform</small></a>
-            <a href="https://properties.co.uk/" className="c">Properties.co.uk<small>Search portal</small></a>
-            <a href="https://askdroid.com/" className="c">Askdroid<small>Native app</small></a>
-          </div>
-        </div>
-      </section>
-
       {/* ETHOS */}
       <section className="ethos">
         <div className="wrap"><div className="grid">
@@ -533,7 +513,7 @@ export default function BuildPage() {
             </div>
             <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
             <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
-            <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="#">Guildford, Surrey</a><a href="#">LinkedIn</a></div>
+            <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
             <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
