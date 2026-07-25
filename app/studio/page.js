@@ -453,6 +453,20 @@ const CASES = [
     url: 'https://ecogreencabins.com/',
     body: "An eco-conscious maker of garden rooms and cabins, built with sustainable materials, solar integration and low-cost foundation systems. We gave them a calm, confident brochure presence that leads with their craft and green credentials, presents the design range simply, and makes it easy for prospective buyers to start a conversation.",
   },
+  {
+    mono: 'LL',
+    name: 'LeadaLine',
+    tag: 'AI systems · Electrical trades',
+    url: 'https://www.leadaline.com/',
+    body: "A UK company that installs an AI office team for electrical businesses, from sole traders to commercial firms. We built the site around a clear seven-stage system that carries a customer from first ring to final report — answering every call, web form and WhatsApp day and night, qualifying the job, booking it into the diary, alerting the owner within seconds, chasing quotes and tracking every lead in a CRM. The offer is framed around three plans — Starter, Connected and Bespoke — each starting with a free demo built on the client's own business.",
+  },
+  {
+    mono: 'EA',
+    name: 'Eden Aromate',
+    tag: 'Brand site · CBD wellness',
+    url: 'https://edenaromata.com/',
+    body: "A premium CBD and CBG wellness brand offering oils, gummies and softgels made from Swiss organic hemp and independently lab-tested. We gave the brand a calm, editorial storefront built around a shop-by-need approach — better sleep, daily recovery, calm focus and active living — with clear format guidance and honest, UK-compliant product information. Fulfilment runs through Cleverbotanics, tying the brand into an established retailer carrying over 2,400 five-star reviews.",
+  },
 ];
 
 /* Responsive + polish styles, scoped to .p-studio. Injected here so this stays
