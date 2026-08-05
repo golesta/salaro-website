@@ -2232,6 +2232,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 .p-contact .field input::placeholder, .p-contact .field textarea::placeholder{color:#B3A793}
 .p-contact .field input:focus, .p-contact .field textarea:focus{outline:none;border-bottom-color:var(--rust)}
 .p-contact .field.focused label{color:var(--rust)}
+.p-contact .hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;margin:0}
 .p-contact .submit-row{display:flex;align-items:center;gap:22px;margin-top:38px;flex-wrap:wrap}
 .p-contact .send{
     display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--paper);

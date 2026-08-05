@@ -1,22 +1,48 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Script from 'next/script';
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', company: '', message: '', website: '' });
   const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+  const turnstileRef = useRef(null);
+  const turnstileWidgetId = useRef(null);
+  const turnstileToken = useRef('');
+
+  const renderTurnstile = () => {
+    if (!window.turnstile || !turnstileRef.current || turnstileWidgetId.current) return;
+    turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+      sitekey: TURNSTILE_SITE_KEY,
+      size: 'invisible',
+      callback: (token) => {
+        turnstileToken.current = token;
+      },
+      'expired-callback': () => {
+        turnstileToken.current = '';
+      },
+    });
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (form.website) return; // honeypot tripped
     setStatus('sending');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, turnstileToken: turnstileToken.current }),
       });
       setStatus(res.ok ? 'sent' : 'error');
     } catch {
       setStatus('error');
+    } finally {
+      if (window.turnstile && turnstileWidgetId.current) {
+        window.turnstile.reset(turnstileWidgetId.current);
+      }
+      turnstileToken.current = '';
     }
   }
 
@@ -54,6 +80,11 @@ export default function ContactPage() {
 
   return (
     <div className="p-contact">
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onLoad={renderTurnstile}
+        />
         <div className="topbar">
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
@@ -122,6 +153,11 @@ export default function ContactPage() {
                   <div className="field"><label className="tag">Email</label><input required type="email" placeholder="you@example.com" value={form.email} onChange={e=>setForm(f=>({...f,email:e.target.value}))} /></div>
                   <div className="field"><label className="tag">Company</label><input type="text" placeholder="Optional" value={form.company} onChange={e=>setForm(f=>({...f,company:e.target.value}))} /></div>
                   <div className="field"><label className="tag">What are you trying to build?</label><textarea required rows="3" placeholder="A short note is enough" value={form.message} onChange={e=>setForm(f=>({...f,message:e.target.value}))}></textarea></div>
+                  <div className="field hp-field" aria-hidden="true">
+                    <label htmlFor="website">Website</label>
+                    <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e=>setForm(f=>({...f,website:e.target.value}))} />
+                  </div>
+                  <div ref={turnstileRef} />
                   {status === 'error' && <p style={{color:'var(--accent)',marginBottom:'12px'}}>Something went wrong — please email us directly at team@salaro.com</p>}
                   <div className="submit-row">
                     <button className="send" type="submit" disabled={status==='sending'}>{status==='sending' ? 'Sending…' : 'Send'} {status!=='sending' && <span className="arw">→</span>}</button>
