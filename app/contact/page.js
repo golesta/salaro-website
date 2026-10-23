@@ -158,10 +158,10 @@ export default function ContactPage() {
                     <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" value={form.website} onChange={e=>setForm(f=>({...f,website:e.target.value}))} />
                   </div>
                   <div ref={turnstileRef} />
-                  {status === 'error' && <p style={{color:'var(--accent)',marginBottom:'12px'}}>Something went wrong — please email us directly at team@salaro.com</p>}
+                  {status === 'error' && <p style={{color:'var(--accent)',marginBottom:'12px'}}>Something went wrong — please email us directly at <a href="mailto:hello@salaro.com">hello@salaro.com</a></p>}
                   <div className="submit-row">
                     <button className="send" type="submit" disabled={status==='sending'}>{status==='sending' ? 'Sending…' : 'Send'} {status!=='sending' && <span className="arw">→</span>}</button>
-                    <span className="or">or write directly to <a href="mailto:team@salaro.com">team@salaro.com</a></span>
+                    <span className="or">or write directly to <a href="mailto:hello@salaro.com">hello@salaro.com</a></span>
                   </div>
                 </form>
               )}
@@ -183,7 +183,7 @@ export default function ContactPage() {
               <div className="direct">
                 <div className="row"><div className="k tag">Email</div><div className="v"><a href="mailto:team@salaro.com">team@salaro.com</a></div></div>
                 <div className="row"><div className="k tag">Phone</div><div className="v"><a href="tel:+447485222490">07485 222490</a></div></div>
-                <div className="row"><div className="k tag">Location</div><div className="v">UK-based · Remote collaboration</div></div>
+                <div className="row"><div className="k tag">Location</div><div className="v">Head office in Guildford, Surrey GU3 3BY<br />Face-to-face meetings across Greater London, Surrey, Hampshire and Berkshire</div></div>
               </div>
             </div>
 
