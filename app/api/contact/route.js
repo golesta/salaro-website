@@ -88,6 +88,7 @@ export async function POST(request) {
     await resend.emails.send({
       from: 'Salaro <team@salaro.com>',
       to: email,
+      replyTo: 'hello@salaro.com',
       subject: isSiteCheck ? `We've received your site check request — Salaro` : `We've received your message — Salaro`,
       html: `
         <p>Hi ${safeName},</p>
