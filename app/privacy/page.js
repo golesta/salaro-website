@@ -67,6 +67,13 @@ export default function PrivacyPage() {
         </div>
       </section>
 
+      <section className="section rv">
+        <div className="wrap">
+          <h2>Spam protection</h2>
+          <p>Our contact forms use Cloudflare Turnstile to check that submissions come from a person rather than an automated bot. To do this, Turnstile processes limited technical information from your browser, such as your IP address and browser details. It does not use this information for advertising. Cloudflare&apos;s handling of this data is described in the <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile Privacy Addendum</a>.</p>
+        </div>
+      </section>
+
       <footer className="dark-lattice">
         <div className="cols">
           <div className="foot-top">
