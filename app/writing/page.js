@@ -241,6 +241,16 @@ export default function WritingPage() {
             </div>
 
             <div className="wn-grid rv">
+              <article className="wn-card wn-feature">
+                <div className="wn-top">
+                  <span className="wn-ic"><svg viewBox="0 0 24 24"><path d="M12 3 L20 6 V12 C20 16.5 16.5 20 12 21 C7.5 20 4 16.5 4 12 V6 Z"/><line x1="12" y1="8" x2="12" y2="13"/><circle cx="12" cy="16.5" r="0.8"/></svg></span>
+                  <span className="wn-kick">Latest · Advisory · October 2026</span>
+                </div>
+                <h3 className="serif"><a href="/writing/php-vulnerabilities-october-2026">The October 2026 PHP vulnerabilities: what they mean for small business websites</a></h3>
+                <p>What happened, why updating WordPress isn&apos;t enough, the one question to ask your host today — and when it makes sense to move off PHP altogether.</p>
+                <div className="wn-more">Read the note →</div>
+              </article>
+
               <article className="wn-card">
                 <div className="wn-top">
                   <span className="wn-ic"><svg viewBox="0 0 24 24"><path d="M6 3 H14 L18 7 V21 H6 Z"/><path d="M14 3 V7 H18"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="14" y2="16"/></svg></span>
@@ -396,7 +406,7 @@ export default function WritingPage() {
                 <div className="fbrand">Salaro</div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
-              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/move-from-php">Move from PHP</a><a href="/advise">Advise</a></div>
               <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
               <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><span>Guildford, Surrey</span><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
             </div>

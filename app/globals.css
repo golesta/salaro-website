@@ -2798,3 +2798,118 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opa
 
 /* Slightly slower, softer scroll reveal */
 .pg-build .rv{ transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.19,1,.22,1); }
+
+/* ===================== MOVE FROM PHP (/move-from-php + article) =====================
+   Builds on .pg-build. Body copy uses --ink-soft rather than --muted for AA contrast. */
+.pg-php{position:relative;min-height:100vh;background:var(--paper)}
+.pg-php .masthead h1{max-width:20ch}
+.pg-php .php-ctas{display:flex;align-items:center;gap:30px;flex-wrap:wrap;margin-top:34px}
+.pg-php .svc-grid{grid-template-columns:repeat(3,1fr)}
+.pg-php .svc:nth-child(odd){border-left:1px solid var(--line);padding-left:60px}
+.pg-php .svc:nth-child(3n+1){border-left:none;padding-left:0}
+.pg-php .svc h3{font-size:28px}
+.pg-php .svc-grid:has(> .svc:nth-child(2):last-child){grid-template-columns:1fr 1fr}
+.pg-php .php-prose p{color:var(--ink-soft);font-size:16px;line-height:1.8;max-width:62ch}
+.pg-php .php-prose p + p{margin-top:16px}
+.pg-php .php-prose a, .pg-php .php-callout a:not(.btn-line), .pg-php .sc-error a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.pg-php .php-sources{font-size:14px!important}
+.pg-php .head-row > .php-prose, .pg-php .head-row > .php-form-head{display:block;margin-bottom:0;align-self:end}
+.pg-php .php-callout{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--panel);padding:30px 34px;max-width:860px}
+.pg-php .php-callout p{margin-top:12px;color:var(--ink);font-size:16px;line-height:1.75;max-width:66ch}
+.pg-php .php-callout .btn-line{margin-top:22px}
+.pg-php .band + .band{border-top:1px solid var(--line-fine)}
+.pg-php .php-fit{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.pg-php .php-fit-col{padding:44px 60px 10px 0}
+.pg-php .php-fit-col + .php-fit-col{border-left:1px solid var(--line);padding-left:60px}
+.pg-php .php-fit-col h3{font-family:"Fraunces",serif;font-weight:300;font-size:28px;letter-spacing:-.02em;margin-bottom:20px}
+.pg-php .php-fit-col ul{list-style:none}
+.pg-php .php-fit-col li{position:relative;padding:12px 0 12px 32px;border-bottom:1px solid var(--line-fine);color:var(--ink-soft)}
+.pg-php .php-fit-col li::before{position:absolute;left:0;top:12px;font-family:"JetBrains Mono",monospace;font-size:14px}
+.pg-php .php-fit-col.yes li::before{content:"✓";color:var(--accent)}
+.pg-php .php-fit-col.no li::before{content:"—";color:var(--ink-soft)}
+.pg-php .php-steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.pg-php .php-steps li{display:flex;gap:22px;padding:40px 36px 40px 0;border-bottom:1px solid var(--line-fine)}
+.pg-php .php-steps .n{font-family:"Fraunces",serif;font-weight:200;font-size:44px;line-height:1;color:var(--accent-soft)}
+.pg-php .php-steps h3{font-family:"Fraunces",serif;font-weight:300;font-size:22px;letter-spacing:-.01em}
+.pg-php .php-steps p{margin-top:8px;color:var(--ink-soft);font-size:14.5px;line-height:1.7}
+.pg-php .php-faq{max-width:900px;border-top:1px solid var(--line)}
+.pg-php .php-faq details{border-bottom:1px solid var(--line-fine)}
+.pg-php .php-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:24px;padding:24px 0;font-family:"Fraunces",serif;font-weight:300;font-size:22px;letter-spacing:-.01em}
+.pg-php .php-faq summary::-webkit-details-marker{display:none}
+.pg-php .php-faq summary::after{content:"+";font-family:"JetBrains Mono",monospace;color:var(--accent);flex:none}
+.pg-php .php-faq details[open] summary::after{content:"−"}
+.pg-php .php-faq summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.pg-php .php-faq details p{padding:0 0 26px;color:var(--ink-soft);max-width:70ch;line-height:1.8}
+.pg-php .php-form-head .lab{margin-bottom:18px}
+.pg-php .php-form-band{background:var(--panel)}
+/* Site check form */
+.pg-php .sc-form{max-width:900px}
+.pg-php .sc-row{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+.pg-php .sc-row-3{grid-template-columns:repeat(3,1fr)}
+.pg-php .sc-field{margin-bottom:30px}
+.pg-php .sc-field label{display:block;margin-bottom:10px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.pg-php .sc-field .opt{text-transform:none;letter-spacing:0}
+.pg-php .sc-field input, .pg-php .sc-field select, .pg-php .sc-field textarea{width:100%;border:none;border-bottom:1px solid var(--ink-soft);background:transparent;padding:10px 0;font:inherit;font-size:17px;color:var(--ink);border-radius:0;resize:vertical}
+.pg-php .sc-field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink-soft) 50%),linear-gradient(135deg,var(--ink-soft) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat;padding-right:24px}
+.pg-php .sc-field input:focus, .pg-php .sc-field select:focus, .pg-php .sc-field textarea:focus{outline:none;border-bottom:2px solid var(--accent)}
+.pg-php .sc-field input::placeholder, .pg-php .sc-field textarea::placeholder{color:#8a7e6c}
+.pg-php .sc-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.pg-php .sc-submit{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:10px}
+.pg-php .sc-submit .btn-line{background:var(--ink);color:var(--paper);cursor:pointer;font-family:"JetBrains Mono",monospace}
+.pg-php .sc-submit .btn-line:hover{background:var(--accent);border-color:var(--accent)}
+.pg-php .sc-submit .btn-line:disabled{opacity:.6;cursor:wait}
+.pg-php .sc-note{font-size:14px;color:var(--ink-soft)}
+.pg-php .sc-error{color:var(--accent);margin-bottom:16px}
+.pg-php .sc-done{border-left:3px solid var(--accent);padding:10px 0 10px 24px}
+.pg-php .sc-done .serif{font-family:"Fraunces",serif;font-size:26px;font-weight:300;margin-bottom:8px}
+.pg-php .sc-done p{color:var(--ink-soft)}
+.pg-php a:focus-visible, .pg-php button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+/* Article */
+.pg-php .php-article-col{max-width:740px;margin:0 auto}
+.pg-php .php-article .masthead h1{max-width:none;font-size:clamp(34px,4.4vw,56px)}
+.pg-php .php-meta{margin-top:26px;color:var(--ink-soft)}
+.pg-php .php-article .eyebrow a:hover{text-decoration:underline}
+.pg-php .php-article .php-prose h2{font-family:"Fraunces",serif;font-weight:300;font-size:30px;letter-spacing:-.015em;margin:52px 0 16px}
+.pg-php .php-article .php-prose h2:first-child{margin-top:0}
+.pg-php .php-article .php-prose p{font-size:17px}
+.pg-php .php-article .php-prose strong{color:var(--ink);font-weight:500}
+.pg-php .php-ask{margin:22px 0;padding:20px 26px;background:var(--panel);border-left:3px solid var(--accent);font-family:"Fraunces",serif;font-weight:300;font-size:20px;line-height:1.5}
+.pg-php .php-article .php-callout{margin:44px 0 8px}
+.pg-php .php-source-list{list-style:none;font-size:15px}
+.pg-php .php-source-list li{padding:8px 0;border-bottom:1px solid var(--line-fine);color:var(--ink-soft)}
+.pg-php .php-source-list a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:920px){
+.pg-php .svc-grid, .pg-php .svc-grid:has(> .svc:nth-child(2):last-child){grid-template-columns:1fr}
+.pg-php .php-fit, .pg-php .php-steps{grid-template-columns:1fr}
+.pg-php .php-fit-col, .pg-php .php-fit-col + .php-fit-col{border-left:none;padding:36px 0 0}
+.pg-php .php-steps li{padding:28px 0}
+.pg-php .sc-row, .pg-php .sc-row-3{grid-template-columns:1fr}
+.pg-php .head-row{margin-bottom:48px}
+}
+@media(max-width:560px){
+.pg-php .php-callout{padding:24px 22px}
+.pg-php .php-faq summary{font-size:19px}
+.pg-php .php-article .php-prose h2{font-size:26px}
+}
+
+/* Homepage notice strip → /move-from-php */
+.php-notice{position:relative;z-index:61;background:var(--ink);color:var(--paper);font-size:14px}
+.php-notice .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px;padding-bottom:10px}
+.php-notice p{line-height:1.5}
+.php-notice-k{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-soft);margin-right:14px}
+.php-notice a{color:var(--paper);text-decoration:underline;text-underline-offset:3px}
+.php-notice button{flex:none;background:none;border:1px solid #5a4e41;color:var(--paper);width:32px;height:32px;font-size:18px;line-height:1;cursor:pointer}
+.php-notice button:hover{border-color:var(--paper)}
+.php-notice a:focus-visible, .php-notice button:focus-visible{outline:2px solid var(--accent-soft);outline-offset:2px}
+
+/* Writing page: featured article card spanning the grid */
+.p-writing .worknotes .wn-card.wn-feature{grid-column:1 / -1;border-color:var(--accent-soft)}
+.p-writing .worknotes .wn-card.wn-feature h3 a{color:inherit}
+.p-writing .worknotes .wn-card.wn-feature h3 a::before{content:"";position:absolute;inset:0;z-index:2}
+.p-writing .worknotes .wn-card.wn-feature .wn-more{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.pg-php .head-row:has(> .php-prose){align-items:start}
+@media(max-width:560px){.php-notice-k{display:none}.php-notice{font-size:13px}}
+/* AA contrast on the new pages: muted labels and footer text */
+.pg-php .masthead .aside .row .k{color:var(--ink-soft)}
+.pg-php .fcol .fh{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#a89a85;margin-bottom:22px}
+.pg-php .foot-bot .lab{color:#9a8d7a}

@@ -511,7 +511,7 @@ export default function BuildPage() {
               <div className="fbrand">Salaro</div>
               <p>A UK web consultancy. We build thoughtful, resilient digital products with clear decisions and practical delivery.</p>
             </div>
-            <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+            <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/move-from-php">Move from PHP</a><a href="/advise">Advise</a></div>
             <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
             <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
