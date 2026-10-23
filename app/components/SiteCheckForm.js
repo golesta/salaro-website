@@ -118,7 +118,7 @@ export default function SiteCheckForm() {
       <div ref={turnstileRef} />
 
       {status === 'error' && (
-        <p className="sc-error" role="alert">Something went wrong. Please email us at <a href="mailto:team@salaro.com">team@salaro.com</a> instead.</p>
+        <p className="sc-error" role="alert">Something went wrong. Please email us at <a href="mailto:hello@salaro.com">hello@salaro.com</a> instead.</p>
       )}
       <div className="sc-submit">
         <button type="submit" className="btn-line" disabled={status === 'sending'}>

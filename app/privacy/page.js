@@ -95,7 +95,7 @@ export default function PrivacyPage() {
             </div>
             <div className="fcol">
               <h5>Connect</h5>
-              <a href="mailto:team@salaro.com">team@salaro.com</a>
+              <a href="mailto:hello@salaro.com">hello@salaro.com</a>
               <a href="https://uk.linkedin.com/in/salaro">LinkedIn</a>
             </div>
           </div>

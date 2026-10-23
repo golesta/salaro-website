@@ -181,7 +181,7 @@ export default function ContactPage() {
               </div>
 
               <div className="direct">
-                <div className="row"><div className="k tag">Email</div><div className="v"><a href="mailto:team@salaro.com">team@salaro.com</a></div></div>
+                <div className="row"><div className="k tag">Email</div><div className="v"><a href="mailto:hello@salaro.com">hello@salaro.com</a></div></div>
                 <div className="row"><div className="k tag">Phone</div><div className="v"><a href="tel:+447485222490">07485 222490</a></div></div>
                 <div className="row"><div className="k tag">Location</div><div className="v">Head office in Guildford, Surrey GU3 3BY<br />Face-to-face meetings across Greater London, Surrey, Hampshire and Berkshire</div></div>
               </div>
@@ -246,7 +246,7 @@ export default function ContactPage() {
               </div>
               <div className="fcol"><h5>Pages</h5><a href="#">Home</a><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a></div>
               <div className="fcol"><h5>Recent work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a><a href="/studio">Studio services</a></div>
-              <div className="fcol"><h5>Connect</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a><a href="https://twitter.com/salaro">Twitter / X</a><a href="https://www.instagram.com/salaro">Instagram</a></div>
+              <div className="fcol"><h5>Connect</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a><a href="https://twitter.com/salaro">Twitter / X</a><a href="https://www.instagram.com/salaro">Instagram</a></div>
             </div>
             <div className="foot-bot">
               <span className="tag">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>

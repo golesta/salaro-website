@@ -48,7 +48,7 @@ const jsonLd = [
     description: DESCRIPTION,
     url: 'https://www.salaro.com/move-from-php',
     areaServed: ['GB', 'Worldwide'],
-    provider: { '@type': 'Organization', name: 'Salaro', url: 'https://www.salaro.com', email: 'team@salaro.com', telephone: '+447485222490' },
+    provider: { '@type': 'Organization', name: 'Salaro', url: 'https://www.salaro.com', email: 'hello@salaro.com', telephone: '+447485222490' },
   },
   {
     '@context': 'https://schema.org',
@@ -274,7 +274,7 @@ export default function MoveFromPhpPage() {
             </div>
             <div className="fcol"><p className="fh">Practice</p><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/move-from-php">Move from PHP</a><a href="/advise">Advise</a></div>
             <div className="fcol"><p className="fh">Work</p><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
-            <div className="fcol"><p className="fh">Contact</p><a href="mailto:team@salaro.com">team@salaro.com</a><a href="tel:+447485222490">07485 222490</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
+            <div className="fcol"><p className="fh">Contact</p><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="tel:+447485222490">07485 222490</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
             <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
