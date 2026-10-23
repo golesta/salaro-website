@@ -1,5 +1,6 @@
 'use client';
 import { useEffect } from 'react';
+import PhpNoticeBar from './components/PhpNoticeBar';
 
 export default function HomePage() {
   useEffect(() => {
@@ -16,6 +17,7 @@ export default function HomePage() {
 
   return (
     <div className="p-home">
+        <PhpNoticeBar />
         <div className="topbar">
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
@@ -549,7 +551,7 @@ export default function HomePage() {
                 <div className="fbrand">Salaro</div>
                 <p>A UK-led digital consultancy. Practising since 1995.</p>
               </div>
-              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+              <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/move-from-php">Move from PHP</a><a href="/advise">Advise</a></div>
               <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
               <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">UK-based</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
             </div>

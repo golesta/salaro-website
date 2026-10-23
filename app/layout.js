@@ -1,6 +1,8 @@
+import Script from 'next/script';
 import './globals.css';
 
 export const metadata = {
+  metadataBase: new URL('https://www.salaro.com'),
   title: 'Salaro — UK-led digital consultancy',
   description: 'A UK-led digital consultancy. We build thoughtful, resilient digital products with clear decisions and practical delivery.',
 };
@@ -13,7 +15,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {children}
-        <script src="/scripts/topbar-toggle.js" defer></script>
+        {/* lazyOnload: the script inserts a menu button into .topbar, which must happen after hydration */}
+        <Script src="/scripts/topbar-toggle.js" strategy="lazyOnload" />
       </body>
     </html>
   );

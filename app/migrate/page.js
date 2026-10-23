@@ -58,6 +58,18 @@ export default function MigratePage() {
       <section className="band">
         <div className="wrap">
           <div className="head-row rv">
+            <h2>Running a WordPress or PHP brochure site?</h2>
+            <div style={{ display: 'block', marginBottom: 0 }}>
+              <p className="desc">After the October 2026 PHP vulnerabilities, many small sites don&apos;t need a PHP server at all. We move them to Vercel with URLs, SEO, forms and email intact.</p>
+              <a href="/move-from-php" className="btn-line" style={{ marginTop: '24px' }}>Move from PHP <span className="arw">→</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="band">
+        <div className="wrap">
+          <div className="head-row rv">
             <h2>We bring older products into a modern operating model.</h2>
             <p className="desc">Whether you're leaving an outdated platform, modernising legacy software, or consolidating multiple systems, we plan each migration carefully to minimise downtime, protect your data, and keep your business moving.</p>
           </div>
@@ -186,7 +198,7 @@ export default function MigratePage() {
               <div className="fbrand">Salaro</div>
               <p>A UK web consultancy. We build thoughtful, resilient digital products with clear decisions and practical delivery.</p>
             </div>
-            <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/advise">Advise</a></div>
+            <div className="fcol"><h5>Practice</h5><a href="/build">Build</a><a href="/migrate">Migrate</a><a href="/move-from-php">Move from PHP</a><a href="/advise">Advise</a></div>
             <div className="fcol"><h5>Work</h5><a href="/work">Recent projects</a><a href="/archive">Archive</a></div>
             <div className="fcol"><h5>Contact</h5><a href="mailto:team@salaro.com">team@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
