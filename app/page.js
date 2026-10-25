@@ -22,7 +22,7 @@ export default function HomePage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="tel:+447485222490" className="top-cta">Start a project</a>
+            <a href="/contact" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -62,7 +62,7 @@ export default function HomePage() {
               </h1>
               <p className="sub">We work with growing businesses to shape bespoke digital products, practical transformation, and long-term support with calm delivery.</p>
               <div className="actions">
-                <a href="tel:+447485222490" className="btn-line">Take your business online <span className="arw">→</span></a>
+                <a href="/contact" className="btn-line">Take your business online <span className="arw">→</span></a>
                 <a href="tel:+447485222490" className="phone">Phone <b>07485 222490</b></a>
               </div>
               <div className="built">Built on code, not templates.</div>
@@ -279,7 +279,7 @@ export default function HomePage() {
                 <h2 className="serif">Online stores built to <span className="it">grow your business</span>.</h2>
                 <p>We design and develop high-performance e-commerce platforms that deliver seamless shopping experiences, simplify management, and turn visitors into loyal customers.</p>
                 <div className="actions">
-                  <a href="tel:+447485222490" className="btn-line">Start a Project <span className="arw">→</span></a>
+                  <a href="/contact" className="btn-line">Start a Project <span className="arw">→</span></a>
                   <a href="/work" className="arwlink">View Our Work <span className="arw">→</span></a>
                 </div>
               </div>
@@ -517,7 +517,7 @@ export default function HomePage() {
                   </div>
                 </a>
 
-                <a href="tel:+447485222490" className="next-card">
+                <a href="/contact" className="next-card">
                   <div className="next-mark" aria-hidden="true">
                     <svg viewBox="0 0 64 64"><path d="M32 18 V46 M18 32 H46" /></svg>
                   </div>
@@ -556,7 +556,7 @@ export default function HomePage() {
               <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="#">UK-based</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
             </div>
             <div className="foot-bot">
-              <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
+              <span className="lab">© 2026 Salaro · a trading name of S. Golestanian, sole trader · 39 Cater Gardens, Guildford, Surrey GU3 3BY</span>
               <span className="lab">Practising since 1995</span>
             </div>
           </div>
