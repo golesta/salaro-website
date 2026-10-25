@@ -436,7 +436,7 @@ const CASES = [
     mono: 'HBM',
     name: 'H.B.M. Partners',
     tag: 'Advisory · Natural resources',
-    url: 'https://hbm.salaro.com/',
+    url: 'https://www.hbmpartners.fr/',
     body: "A London- and Paris-based advisory that structures energy and critical-mineral projects, pairing technical due diligence with institutional capital. We shaped the site around clear product storytelling — a narrative from intelligence to capital to resources, sector pages for oil & gas, mining and renewables, and a track record that turns complex deals into credible proof for family offices and funds.",
   },
   {
@@ -445,6 +445,13 @@ const CASES = [
     tag: 'Directory · Property',
     url: 'https://properties.co.uk/',
     body: "A directory for the UK property industry, connecting people with estate and letting agents, surveyors, conveyancers, brokers, developers and trades. We built the information architecture and search: a deep, sensible taxonomy of professional categories, location-based lookup, a dedicated eco-living section, and a listings and advertising model built to scale as more businesses join.",
+  },
+  {
+    mono: 'TG',
+    name: 'The Greensome',
+    tag: 'Editorial guide · Food & sustainability',
+    url: 'https://www.thegreensome.com/',
+    body: "An independent, plain-English guide to greener protein with a clear UK focus. We rebuilt it from an ageing, unreliable DNN site into a fast editorial site on Next.js and Vercel: guides to each protein source from pulses to precision fermentation, an evidence-led footprint comparison, a UK regulatory watch and published editorial standards, with every old address redirected so nothing was lost in the move.",
   },
   {
     mono: 'EGC',

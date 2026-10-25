@@ -110,9 +110,16 @@ export default function ArchivePage() {
           <div className="arch rv" id="arch">
 
             <div className="yr">
+              <div className="y serif">2026</div>
+              <div className="rows">
+                <a href="https://www.thegreensome.com" className="row" data-cat="web"><span className="p-name serif">The Greensome</span><span className="p-d">Editorial guide</span><span className="p-s">Food &amp; sustainability</span><span className="p-a">Open →</span></a>
+              </div>
+            </div>
+
+            <div className="yr">
               <div className="y serif">2025</div>
               <div className="rows">
-                <a href="https://hbm.salaro.com" className="row" data-cat="advisory"><span className="p-name serif">H.B.M. Partners</span><span className="p-d">Advisory</span><span className="p-s">Natural resources</span><span className="p-a">Open →</span></a>
+                <a href="https://www.hbmpartners.fr" className="row" data-cat="advisory"><span className="p-name serif">H.B.M. Partners</span><span className="p-d">Advisory</span><span className="p-s">Natural resources</span><span className="p-a">Open →</span></a>
               </div>
             </div>
 

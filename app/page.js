@@ -484,7 +484,7 @@ export default function HomePage() {
               </div>
               <div className="rows">
 
-                <a href="https://hbm.salaro.com/" target="_blank" rel="noopener noreferrer" className="feat-card">
+                <a href="https://www.hbmpartners.fr/" target="_blank" rel="noopener noreferrer" className="feat-card">
                   <div className="feat-media">
                     <svg viewBox="0 0 400 200" role="img" aria-label="Preview of the HBM Partners site">
                       <rect className="fr" x="20" y="14" width="360" height="172" rx="5" />
@@ -509,7 +509,7 @@ export default function HomePage() {
                   <div className="feat-body">
                     <div className="feat-row">
                       <h4 className="serif">HBM Partners</h4>
-                      <span className="feat-host lab">hbm.salaro.com</span>
+                      <span className="feat-host lab">hbmpartners.fr</span>
                     </div>
                     <p>A considered digital presence for a professional services firm, built around clarity, trust, and thoughtful product storytelling.</p>
                     <div className="feat-tags"><span>Professional services</span><span>Brand &amp; build</span><span>Live</span></div>
