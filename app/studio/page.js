@@ -454,13 +454,6 @@ const CASES = [
     body: "An eco-conscious maker of garden rooms and cabins, built with sustainable materials, solar integration and low-cost foundation systems. We gave them a calm, confident brochure presence that leads with their craft and green credentials, presents the design range simply, and makes it easy for prospective buyers to start a conversation.",
   },
   {
-    mono: 'LL',
-    name: 'LeadaLine',
-    tag: 'AI systems · Electrical trades',
-    url: 'https://www.leadaline.com/',
-    body: "A UK company that installs an AI office team for electrical businesses, from sole traders to commercial firms. We built the site around a clear seven-stage system that carries a customer from first ring to final report — answering every call, web form and WhatsApp day and night, qualifying the job, booking it into the diary, alerting the owner within seconds, chasing quotes and tracking every lead in a CRM. The offer is framed around three plans — Starter, Connected and Bespoke — each starting with a free demo built on the client's own business.",
-  },
-  {
     mono: 'EA',
     name: 'Eden Aromate',
     tag: 'Brand site · CBD wellness',
@@ -500,6 +493,10 @@ const PAGE_CSS = `
 .p-studio .cs-arrow:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
 .p-studio .cs-arrow:disabled{opacity:.3;cursor:default}
 
+.p-studio .partner{max-width:62ch;margin:64px auto 0;padding-top:30px;border-top:1px solid var(--line-fine);text-align:center}
+.p-studio .partner .lab{margin-bottom:12px}
+.p-studio .partner p{color:var(--ink-soft);font-size:15px;line-height:1.8}
+.p-studio .partner a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 .p-studio .tests-intro{max-width:56ch;margin:18px auto 0;text-align:center;color:var(--ink-soft);
   font-size:15px;line-height:1.8}
 
@@ -595,7 +592,7 @@ export default function StudioPage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio" className="active">Studio</a><a href="/writing">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="tel:+447485222490" className="top-cta">Start a project</a>
+            <a href="/contact" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -729,6 +726,15 @@ export default function StudioPage() {
                 </div>
               )}
             </div>
+
+            <div className="partner rv">
+              <div className="lab a">Partners · AI systems</div>
+              <p>
+                For bespoke AI systems — CRMs, AI receptionists and workflow automation — we work alongside{' '}
+                <a href="https://www.leadaline.com/" target="_blank" rel="noopener noreferrer">LeadALine</a>, an independent UK AI consultancy.
+                Projects that need both a website and AI systems can be delivered together.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -738,7 +744,7 @@ export default function StudioPage() {
             <h2 className="serif">Let's start something deliberate.</h2>
             <p>If you need a thoughtful build, a design system or a practical path to better digital delivery, we should talk.</p>
             <div className="btns">
-              <a href="tel:+447485222490" className="b1">Request a consultation</a>
+              <a href="/contact" className="b1">Request a consultation</a>
               <a href="mailto:hello@salaro.com" className="b2">hello@salaro.com</a>
             </div>
           </div>
@@ -758,7 +764,7 @@ export default function StudioPage() {
               <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
             </div>
             <div className="foot-bot">
-              <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</span>
+              <span className="lab">© 2026 Salaro · a trading name of S. Golestanian, sole trader · 39 Cater Gardens, Guildford, Surrey GU3 3BY</span>
               <span className="lab">Practising since 1995</span>
             </div>
           </div>

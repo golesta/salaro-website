@@ -152,7 +152,7 @@ export default function WritingPage() {
           <div className="wrap">
             <a href="/" className="brand">Sala<span>ro</span></a>
             <nav className="nav"><a href="/practice">Practice</a><a href="/work">Work</a><a href="/studio">Studio</a><a href="/writing" className="active">Writing</a><a href="/contact">Contact</a></nav>
-            <a href="tel:+447485222490" className="top-cta">Start a project</a>
+            <a href="/contact" className="top-cta">Start a project</a>
           </div>
         </div>
 
@@ -172,33 +172,19 @@ export default function WritingPage() {
                 <p>The work is often technical, but the point is usually simple: help a team make a better decision, explain a system more clearly, or preserve a hard-won lesson before it disappears into the next sprint.</p>
                 <p>We write about practical delivery, legacy migration, editorial systems, and the peculiar problems that appear when a business has outgrown its first stack but still needs to move carefully.</p>
               </div>
-              <div className="actions"><a href="tel:+447485222490" className="btn-dark">Read the notes <span className="arw">→</span></a></div>
+              <div className="actions"><a href="#notes" className="btn-dark">Read the notes <span className="arw">→</span></a></div>
             </div>
 
             <aside className="note-card rv">
               <div className="kicker lab a">Studio note</div>
               <h3 className="serif">Good writing is <span className="it">operational</span>.</h3>
               <p>It makes hidden decisions visible, preserves context, and gives a team language for what they're shipping and why.</p>
-              <div className="cadence">
-                <div className="cad-head"><span className="lab">Notes published</span><span className="cad-n serif">42</span></div>
-                <div className="cad-bars">
-                  <span style={{height: '28%', animationDelay: '.05s'}}></span>
-                  <span style={{height: '40%', animationDelay: '.12s'}}></span>
-                  <span style={{height: '36%', animationDelay: '.19s'}}></span>
-                  <span style={{height: '54%', animationDelay: '.26s'}}></span>
-                  <span style={{height: '60%', animationDelay: '.33s'}}></span>
-                  <span style={{height: '74%', animationDelay: '.40s'}}></span>
-                  <span style={{height: '86%', animationDelay: '.47s'}}></span>
-                  <span style={{height: '100%', animationDelay: '.54s'}}></span>
-                </div>
-                <div className="cad-axis"><span>2019</span><span>2026</span></div>
-              </div>
               <ul>
                 <li>Practical, not ornamental</li>
                 <li>Clear about constraints</li>
                 <li>Useful long after the launch</li>
               </ul>
-              <a href="tel:+447485222490" className="btn-dark">Start a conversation</a>
+              <a href="/contact" className="btn-dark">Start a conversation</a>
             </aside>
           </div></div>
         </header>
@@ -227,7 +213,7 @@ export default function WritingPage() {
         </section>
 
 
-        <section className="worknotes band">
+        <section className="worknotes band" id="notes">
           <div className="wrap">
             <div className="wn-head rv">
               <div>
@@ -254,7 +240,7 @@ export default function WritingPage() {
               <article className="wn-card">
                 <div className="wn-top">
                   <span className="wn-ic"><svg viewBox="0 0 24 24"><path d="M6 3 H14 L18 7 V21 H6 Z"/><path d="M14 3 V7 H18"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="14" y2="16"/></svg></span>
-                  <span className="wn-kick">01 · Essay</span>
+                  <span className="wn-kick">Essay · Coming soon</span>
                 </div>
                 <h3 className="serif">Why a ten-year-old with a template will eat most agency work</h3>
                 <p>The agency market has changed. The question is no longer whether a template can do the basics, but what remains for the studio that still knows how to make decisions.</p>
@@ -264,7 +250,7 @@ export default function WritingPage() {
               <article className="wn-card">
                 <div className="wn-top">
                   <span className="wn-ic"><svg viewBox="0 0 24 24"><path d="M12 21 s7-6.5 7-12 a7 7 0 0 0-14 0 c0 5.5 7 12 7 12 Z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
-                  <span className="wn-kick">02 · Field note</span>
+                  <span className="wn-kick">Field note · Coming soon</span>
                 </div>
                 <h3 className="serif">DNN in 2026: it&apos;s still out there, and it still needs help</h3>
                 <p>A practical note on the surprising number of organisations still running DNN, and how to move them without losing search rankings, history or trust.</p>
@@ -274,7 +260,7 @@ export default function WritingPage() {
               <article className="wn-card">
                 <div className="wn-top">
                   <span className="wn-ic"><svg viewBox="0 0 24 24"><path d="M12 6 C10 4.5 7 4.5 4 5 V18 C7 17.5 10 17.5 12 19 C14 17.5 17 17.5 20 18 V5 C17 4.5 14 4.5 12 6 Z"/><line x1="12" y1="6" x2="12" y2="19"/></svg></span>
-                  <span className="wn-kick">03 · Primer</span>
+                  <span className="wn-kick">Primer · Coming soon</span>
                 </div>
                 <h3 className="serif">AI for SMEs: a fortnight&apos;s primer</h3>
                 <p>A small reading list and a set of concrete tools for founders who want to be more honest about AI than the online discourse allows.</p>
@@ -284,7 +270,7 @@ export default function WritingPage() {
               <article className="wn-card">
                 <div className="wn-top">
                   <span className="wn-ic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="9" y1="3" x2="9" y2="6"/><line x1="15" y1="3" x2="15" y2="6"/><circle cx="12" cy="15" r="1.6"/></svg></span>
-                  <span className="wn-kick">04 · Diary</span>
+                  <span className="wn-kick">Diary · Coming soon</span>
                 </div>
                 <h3 className="serif">Days, not months: a build diary</h3>
                 <p>An unusually detailed account of a practical build, from the first call to the live deployment, with the human steps made visible.</p>
@@ -392,7 +378,7 @@ export default function WritingPage() {
               <p className="body">Whether it's website design, an app, or a partnership that needs an experienced voice, reach out and we'll respond within one working day.</p>
             </div>
             <div className="btns rv">
-              <a href="tel:+447485222490" className="btn-primary">Start a conversation <span>→</span></a>
+              <a href="/contact" className="btn-primary">Start a conversation <span>→</span></a>
               <a href="tel:+447485222490" className="btn-ghost">07485 222490</a>
             </div>
           </div>
@@ -411,7 +397,7 @@ export default function WritingPage() {
               <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><span>Guildford, Surrey</span><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
             </div>
             <div className="foot-bot">
-              <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales · Guildford, Surrey</span>
+              <span className="lab">© 2026 Salaro · a trading name of S. Golestanian, sole trader · 39 Cater Gardens, Guildford, Surrey GU3 3BY</span>
               <span className="lab">Practising since 1995</span>
             </div>
           </div>

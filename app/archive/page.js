@@ -59,7 +59,7 @@ export default function ArchivePage() {
         <div className="wrap">
           <a href="/" className="brand">Sala<span>ro</span></a>
           <nav className="nav"><a href="/practice">Practice</a><a href="/work" className="active">Work</a><a href="/migrate">Migrate</a><a href="/studio">Studio</a><a href="/contact">Contact</a></nav>
-          <a href="tel:+447485222490" className="top-cta">Start a project</a>
+          <a href="/contact" className="top-cta">Start a project</a>
         </div>
       </div>
 
@@ -108,12 +108,6 @@ export default function ArchivePage() {
           </div>
 
           <div className="arch rv" id="arch">
-            <div className="yr">
-              <div className="y serif">2026</div>
-              <div className="rows">
-                <a href="https://www.leadaline.com" className="row" data-cat="apps"><span className="p-name serif">LeadaLine</span><span className="p-d">AI systems</span><span className="p-s">Electrical trades</span><span className="p-a">Open →</span></a>
-              </div>
-            </div>
 
             <div className="yr">
               <div className="y serif">2025</div>
@@ -189,7 +183,7 @@ export default function ArchivePage() {
             <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><span>Guildford, Surrey</span><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
-            <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
+            <span className="lab">© 2026 Salaro · a trading name of S. Golestanian, sole trader · 39 Cater Gardens, Guildford, Surrey GU3 3BY</span>
             <span className="lab">Practising since 1995</span>
           </div>
         </div>

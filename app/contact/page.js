@@ -136,7 +136,7 @@ export default function ContactPage() {
           <div className="wrap"><div className="split">
 
     
-            <div className="col-left rv">
+            <div className="col-left rv" id="send">
               <div className="sec-head">
                 <div className="tag">Start a project</div>
                 <div className="serif">Send a <span className="it">note</span>.</div>
@@ -230,7 +230,7 @@ export default function ContactPage() {
               <h2 className="serif">Take your <em>business</em> online — the right way.</h2>
             </div>
             <div className="btns">
-              <a href="tel:+447485222490" className="btn primary">Start a conversation</a>
+              <a href="#send" className="btn primary">Start a conversation</a>
               <a href="tel:+447485222490" className="btn ghost">Call us</a>
             </div>
           </div>
@@ -249,7 +249,7 @@ export default function ContactPage() {
               <div className="fcol"><h5>Connect</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a><a href="https://twitter.com/salaro">Twitter / X</a><a href="https://www.instagram.com/salaro">Instagram</a></div>
             </div>
             <div className="foot-bot">
-              <span className="tag">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
+              <span className="tag">© 2026 Salaro · a trading name of S. Golestanian, sole trader · 39 Cater Gardens, Guildford, Surrey GU3 3BY</span>
               <span className="tag">Practising since 1995</span>
             </div>
           </div>

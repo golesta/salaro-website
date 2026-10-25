@@ -31,7 +31,7 @@ export default function MigratePage() {
             <a href="/writing">Writing</a>
             <a href="/contact">Contact</a>
           </nav>
-          <a href="tel:+447485222490" className="top-cta">Start a project</a>
+          <a href="/contact" className="top-cta">Start a project</a>
         </div>
       </div>
 
@@ -48,7 +48,7 @@ export default function MigratePage() {
               <div className="row"><span className="k">Focus</span><span className="v">Legacy uplift · Modern stack</span></div>
               <div className="row"><span className="k">Outcome</span><span className="v">Performance and maintainability</span></div>
               <div className="cta">
-                <a href="tel:+447485222490" className="btn-line">Start a project <span className="arw">→</span></a>
+                <a href="/contact" className="btn-line">Start a project <span className="arw">→</span></a>
               </div>
             </div>
           </div>
@@ -203,7 +203,7 @@ export default function MigratePage() {
             <div className="fcol"><h5>Contact</h5><a href="mailto:hello@salaro.com">hello@salaro.com</a><a href="#">Guildford, Surrey</a><a href="https://uk.linkedin.com/in/salaro">LinkedIn</a></div>
           </div>
           <div className="foot-bot">
-            <span className="lab">© 2026 Salaro Ltd · Registered in England &amp; Wales</span>
+            <span className="lab">© 2026 Salaro · a trading name of S. Golestanian, sole trader · 39 Cater Gardens, Guildford, Surrey GU3 3BY</span>
             <span className="lab">Practising since 1995</span>
           </div>
         </div>
